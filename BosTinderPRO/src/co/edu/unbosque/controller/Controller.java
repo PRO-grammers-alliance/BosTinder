@@ -15,9 +15,8 @@ public class Controller implements ActionListener{
 	}
 	
 	public void asignarOyentes() {
-		
 		vista.getvIng().getpIngreso().getB_ingresar().addActionListener(this);
-		
+		vista.getvIng().getpIngreso().getB_registro().addActionListener(this);
 	}
 	
 	@Override

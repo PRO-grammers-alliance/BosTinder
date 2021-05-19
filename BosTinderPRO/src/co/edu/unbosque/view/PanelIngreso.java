@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 public class PanelIngreso extends JPanel{
 	private JButton b_ingresar;
+	private JButton b_registro;
 	private JLabel e_usuario;
 	private JLabel e_clave;
 	private JTextField c_usuario;
@@ -25,27 +26,33 @@ public class PanelIngreso extends JPanel{
 		
 		e_usuario = new JLabel("Usuario: ");
 		e_usuario.setFont(new Font(getName(), Font.BOLD, 14));
-		e_usuario.setBounds(10,10,100,20);
+		e_usuario.setBounds(20,10,100,20);
 		add(e_usuario);
 		
 		c_usuario = new JTextField();
-		c_usuario.setBounds(10,40,210,25);
+		c_usuario.setBounds(20,40,210,25);
 		add(c_usuario);
 		
 		e_clave =  new JLabel("Clave: ");
 		e_clave.setFont(new Font(getName(), Font.BOLD, 14));
-		e_clave.setBounds(10, 70, 100, 20);
+		e_clave.setBounds(20, 70, 100, 20);
 		add(e_clave);
 		
 		c_clave = new JPasswordField();
-		c_clave.setBounds(10, 100, 210, 25);
+		c_clave.setBounds(20, 100, 210, 25);
 		add(c_clave);
 		
 		b_ingresar = new JButton("Ingresar");
 		b_ingresar.setFont(new Font(getName(), Font.BOLD, 14));
 		b_ingresar.setActionCommand("INGRESAR");
-		b_ingresar.setBounds(60,140,100,30);
+		b_ingresar.setBounds(70,140,100,30);
 		add(b_ingresar);
+		
+		b_registro = new JButton("Registro");
+		b_registro.setFont(new Font(getName(), Font.BOLD, 14));
+		b_registro.setActionCommand("REGISTRO");
+		b_registro.setBounds(70,180,100,30);
+		add(b_registro);
 	}
 	
 	public JLabel getE_usuario() {
@@ -86,6 +93,14 @@ public class PanelIngreso extends JPanel{
 
 	public void setB_ingresar(JButton b_ingresar) {
 		this.b_ingresar = b_ingresar;
+	}
+
+	public JButton getB_registro() {
+		return b_registro;
+	}
+
+	public void setB_registro(JButton b_registro) {
+		this.b_registro = b_registro;
 	}
 	
 }
