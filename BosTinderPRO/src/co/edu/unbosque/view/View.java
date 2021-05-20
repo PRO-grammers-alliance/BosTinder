@@ -1,5 +1,7 @@
 package co.edu.unbosque.view;
 
+import javax.swing.JOptionPane;
+
 public class View {
 
 	private VentanaIngreso vIng;
@@ -10,6 +12,10 @@ public class View {
 		vIng = new VentanaIngreso();
 		vReg = new VentanaRegistro();
 		
+	}
+	
+	 public static void mostrarProblematica(String[] args) {
+	       JOptionPane.showMessageDialog(null, "Debe ser mayor de edad"+"\n"+"para poder usar BosTinder"+ "\n"+"Hasta pronto");
 	}
 
 	public VentanaIngreso getvIng() {
