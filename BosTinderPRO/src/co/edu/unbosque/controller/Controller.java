@@ -26,7 +26,16 @@ public class Controller implements ActionListener{
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
 			
-			}
+		}
+		
+		
+		if(arg0.getActionCommand().equals("REGISTRO")){
 		
 		}
+		
+		if(arg0.getActionCommand().equals("VALIDAR")){
+			
+		}
+
+	}
 }
