@@ -28,9 +28,10 @@ public class Controller implements ActionListener{
 		// TODO Auto-generated method stub
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
+			vista.getvIng().setVisible(false);
+			vista.getvPri().setVisible(true);
 			vista.getvPri().getPim().setIm(new  ImageIcon(getClass().getResource("/imagenes/b2.jpg")));
 		}
-		
 		
 		if(arg0.getActionCommand().equals("REGISTRO")){
 		

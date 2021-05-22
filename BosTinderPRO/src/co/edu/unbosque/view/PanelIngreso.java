@@ -1,5 +1,6 @@
 package co.edu.unbosque.view;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -23,6 +24,8 @@ public class PanelIngreso extends JPanel{
 	}
 	
 	public void inicializarComponentes() {
+		
+		setBackground(Color.WHITE);
 		
 		e_usuario = new JLabel("Usuario: ");
 		e_usuario.setFont(new Font(getName(), Font.BOLD, 14));
