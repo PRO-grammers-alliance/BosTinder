@@ -47,7 +47,7 @@ public class PanelRegistro extends JPanel {
 		add(nombre);
 		nombreU = new JTextField();
 		nombreU.setBounds(9, 40, 175, 26);
-		add(nombre);
+		add(nombreU);
 
 		apellidos1 = new JLabel("Primer Apellido");
 		apellidos1.setBounds(194, 16, 127, 25);
