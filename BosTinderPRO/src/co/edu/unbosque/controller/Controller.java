@@ -3,6 +3,8 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+
 import co.edu.unbosque.view.View;
 
 public class Controller implements ActionListener{
@@ -26,7 +28,7 @@ public class Controller implements ActionListener{
 		// TODO Auto-generated method stub
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
-			
+			vista.getvPri().getPim().setIm(new  ImageIcon(getClass().getResource("/imagenes/b2.jpg")));
 		}
 		
 		

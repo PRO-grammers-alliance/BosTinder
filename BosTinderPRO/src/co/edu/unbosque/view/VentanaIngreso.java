@@ -31,14 +31,16 @@ public class VentanaIngreso extends JFrame {
 		getContentPane().add(lpane,BorderLayout.CENTER);
 		lpane.setBounds(0, 0, 700, 300);
 		
+		pIngreso = new PanelIngreso();
+		pIngreso.setBounds(410, 0, 290, 230);
+		getContentPane().add(pIngreso);
+		
 		pImagen = new Panelimagen();
 		pImagen.setBounds(0, 0, 700, 300);
 		pImagen.setIm( new ImageIcon(getClass().getResource("/imagenes/ingreso.jpg")));
 		getContentPane().add(pImagen);
 		
-		pIngreso = new PanelIngreso();
-		pIngreso.setBounds(410, 0, 290, 230);
-		getContentPane().add(pIngreso);
+		
 		
 	}
 
