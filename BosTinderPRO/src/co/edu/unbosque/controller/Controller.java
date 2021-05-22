@@ -21,6 +21,8 @@ public class Controller implements ActionListener{
 		vista.getvIng().getpIngreso().getB_ingresar().addActionListener(this);
 		vista.getvIng().getpIngreso().getB_registro().addActionListener(this);
 		vista.getvReg().getpEdad().getB_validar().addActionListener(this);
+		vista.getvPri().getPu().getLike().addActionListener(this);
+		vista.getvPri().getPu().getDislike().addActionListener(this);
 	}
 	
 	@Override
@@ -42,6 +44,14 @@ public class Controller implements ActionListener{
 			vista.getvReg().remove(vista.getvReg().getpEdad());
 			vista.getvReg().add(vista.getvReg().getpRegistro());
 			vista.getvReg().getpRegistro().setVisible(true);
+			
+		}
+		
+		if(arg0.getActionCommand().equals("LIKE")) {
+			
+		}
+		
+		if(arg0.getActionCommand().equals("NOLIKE")) {
 			
 		}
 

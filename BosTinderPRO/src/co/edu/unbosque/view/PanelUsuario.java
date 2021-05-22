@@ -99,10 +99,12 @@ public class PanelUsuario extends JPanel{
 		add(money);
 		
 		like = new JButton("Me encorazona");
+		like.setActionCommand("LIKE");
 		like.setBounds(160, 500, 175, 40);
 		add(like);
 		
 		dislike = new JButton("No gracias");
+		dislike.setActionCommand("NOLIKE");
 		dislike.setBounds(340, 500, 175, 40);
 		add(dislike);
 		
