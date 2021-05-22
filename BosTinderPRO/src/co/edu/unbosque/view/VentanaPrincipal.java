@@ -36,12 +36,10 @@ public class VentanaPrincipal extends JFrame {
 		pu.setOpaque(false);
 		lpane.add(pu);
 		
-		pim = new Panelimagen();
+		pim = new Panelimagen("/imagenes/b2.jpg");
 		pim.setBounds(0, 0, 700, 650);
 		pim.setOpaque(true);
 		lpane.add(pim);
-		
-		
 		 
 	}
 

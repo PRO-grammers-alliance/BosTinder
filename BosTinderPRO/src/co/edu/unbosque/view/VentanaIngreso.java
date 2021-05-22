@@ -35,9 +35,8 @@ public class VentanaIngreso extends JFrame {
 		pIngreso.setBounds(410, 0, 290, 230);
 		getContentPane().add(pIngreso);
 		
-		pImagen = new Panelimagen();
+		pImagen = new Panelimagen("/imagenes/ingreso.jpg");
 		pImagen.setBounds(0, 0, 700, 300);
-		pImagen.setIm( new ImageIcon(getClass().getResource("/imagenes/ingreso.jpg")));
 		getContentPane().add(pImagen);
 		
 		

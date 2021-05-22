@@ -14,7 +14,7 @@ public class UsuarioDTO implements Serializable{
 	private String usuario;
 	private String contraseña;
 	private String correo;
-	private String nascimiento;
+	private String nacimiento;
 	private int edad;
 	private double ingresos;
 	private String divorcios;
@@ -24,7 +24,7 @@ public class UsuarioDTO implements Serializable{
 	private String estado;
 	
 	public UsuarioDTO(int id, String nombre, String apellido1, String apellido2, String sexo, String usuario,
-			String contraseña, String correo, String nascimiento, int edad, double ingresos, String divorcios,
+			String contraseña, String correo, String nacimiento, int edad, double ingresos, String divorcios,
 			int numLikesRecibidos, int numLikesOtorgados, int numMatches, String estado) {
 		
 		this.id = id;
@@ -35,7 +35,7 @@ public class UsuarioDTO implements Serializable{
 		this.usuario = usuario;
 		this.contraseña = contraseña;
 		this.correo = correo;
-		this.nascimiento = nascimiento;
+		this.nacimiento = nacimiento;
 		this.edad = edad;
 		this.ingresos = ingresos;
 		this.divorcios = divorcios;
@@ -49,7 +49,7 @@ public class UsuarioDTO implements Serializable{
 	public String toString() {
 		return "Id:"+this.id+"\nNombre:"+this.nombre+"\nApellido 1:"+this.apellido1+"\nApellido 2:"+this.apellido2
 				+"\nSexo:"+this.sexo+"\nUsuario:"+this.usuario+"\nContraseña:"+this.contraseña+"\nCorreo:"+this.correo
-				+"\nNascimiento:"+this.nascimiento+"\nEdad:"+this.edad+"\nIngresos:"+this.ingresos+"\nDivorcios:"+this.divorcios
+				+"\nNascimiento:"+this.nacimiento+"\nEdad:"+this.edad+"\nIngresos:"+this.ingresos+"\nDivorcios:"+this.divorcios
 				+"\nNúmero likes Recibidos:"+this.numLikesRecibidos+"\nNúmero likes Otorgados:"+this.numLikesOrtorgados
 				+"\nMatches:"+this.numMatches+"\nEstado:"+this.estado;
 	}
@@ -118,12 +118,12 @@ public class UsuarioDTO implements Serializable{
 		this.correo = correo;
 	}
 
-	public String getNascimiento() {
-		return nascimiento;
+	public String getNacimiento() {
+		return nacimiento;
 	}
 
-	public void setNascimiento(String nascimiento) {
-		this.nascimiento = nascimiento;
+	public void setNacimiento(String nacimiento) {
+		this.nacimiento = nacimiento;
 	}
 
 	public int getEdad() {

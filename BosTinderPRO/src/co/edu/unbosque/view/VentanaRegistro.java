@@ -5,10 +5,11 @@ import javax.swing.JFrame;
 public class VentanaRegistro extends JFrame{
 	
 	private PanelRegistro pRegistro;
+	private PanelEdad pEdad;
 	
 	public VentanaRegistro() {
 		setTitle("BosTinder Registro");
-		setSize(250,250);
+		setSize(300,300);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -21,9 +22,13 @@ public class VentanaRegistro extends JFrame{
 	}
 
 	private void inicializarComponentes() {
+		
+		pEdad = new PanelEdad();
+		pEdad.setBounds(0, 0, 300, 300);
+		getContentPane().add(pEdad);
+		
 		pRegistro = new PanelRegistro();
-		pRegistro.setBounds(0, 0, 270, 270);
-		getContentPane().add(pRegistro);
+		pRegistro.setBounds(0, 0, 617, 373);
 	}
 
 	public PanelRegistro getpRegistro() {
@@ -32,6 +37,14 @@ public class VentanaRegistro extends JFrame{
 
 	public void setpRegistro(PanelRegistro pRegistro) {
 		this.pRegistro = pRegistro;
+	}
+
+	public PanelEdad getpEdad() {
+		return pEdad;
+	}
+
+	public void setpEdad(PanelEdad pEdad) {
+		this.pEdad = pEdad;
 	}
 	
 }

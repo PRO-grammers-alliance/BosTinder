@@ -20,7 +20,7 @@ public class Controller implements ActionListener{
 	public void asignarOyentes() {
 		vista.getvIng().getpIngreso().getB_ingresar().addActionListener(this);
 		vista.getvIng().getpIngreso().getB_registro().addActionListener(this);
-		vista.getvReg().getpRegistro().getB_validar().addActionListener(this);
+		vista.getvReg().getpEdad().getB_validar().addActionListener(this);
 	}
 	
 	@Override
@@ -30,14 +30,18 @@ public class Controller implements ActionListener{
 		if(arg0.getActionCommand().equals("INGRESAR")){
 			vista.getvIng().setVisible(false);
 			vista.getvPri().setVisible(true);
-			vista.getvPri().getPim().setIm(new  ImageIcon(getClass().getResource("/imagenes/b2.jpg")));
 		}
 		
 		if(arg0.getActionCommand().equals("REGISTRO")){
-		
+			vista.getvIng().setVisible(false);
+			vista.getvReg().setVisible(true);
 		}
 		
 		if(arg0.getActionCommand().equals("VALIDAR")){
+			vista.getvReg().setBounds(0, 0, 625, 429);
+			vista.getvReg().remove(vista.getvReg().getpEdad());
+			vista.getvReg().add(vista.getvReg().getpRegistro());
+			vista.getvReg().getpRegistro().setVisible(true);
 			
 		}
 
