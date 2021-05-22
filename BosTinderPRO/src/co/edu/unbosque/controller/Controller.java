@@ -12,7 +12,7 @@ public class Controller implements ActionListener{
 	public Controller() {
 		vista = new View();
 		
-		//asignarOyentes();
+		asignarOyentes();
 	}
 	
 	public void asignarOyentes() {

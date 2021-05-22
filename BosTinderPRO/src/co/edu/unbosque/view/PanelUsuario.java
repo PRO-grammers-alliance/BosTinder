@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
 
 public class PanelUsuario extends JPanel{
 	
@@ -36,58 +37,65 @@ public class PanelUsuario extends JPanel{
 		
 		nombreCompleto = new JLabel("Felipe Segura Rodriguez");
 		nombreCompleto.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
+		nombreCompleto.setBorder(new LineBorder(Color.black));
 		nombreCompleto.setForeground(Color.black);
-		nombreCompleto.setBounds(150, 200, 600, 300);
+		nombreCompleto.setBounds(150, 325, 400, 30);
 		add(nombreCompleto);
 		
 		genero = new JLabel("Masculino");
 		genero.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
+		genero.setBorder(new LineBorder(Color.black));
 		genero.setForeground(Color.black);
-		genero.setBounds(150, 225, 600, 300);
+		genero.setBounds(150, 355, 400, 30);
 		add(genero);
 		
 		edadNumero = new JLabel("21");
 		edadNumero.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
 		edadNumero.setForeground(Color.black);
-		edadNumero.setBounds(205, 250, 600, 300);
+		edadNumero.setBounds(205, 385, 400, 30);
 		add(edadNumero);
 		
 		edad = new JLabel("Edad:");
 		edad.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
+		edad.setBorder(new LineBorder(Color.black));
+		edad.setBorder(new LineBorder(Color.black));
 		edad.setForeground(Color.black);
-		edad.setBounds(150, 250, 600, 300);
+		edad.setBounds(150, 385, 400, 30);
 		add(edad);
 		
 		estatura = new JLabel("Estatura:");
 		estatura.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
+		estatura.setBorder(new LineBorder(Color.black));
 		estatura.setForeground(Color.black);
-		estatura.setBounds(150, 275, 600, 300);
+		estatura.setBounds(150, 415, 400, 30);
 		add(estatura);
 		estatura.setVisible(true);
 		
 		divircios = new JLabel("Divircios:");
 		divircios.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
+		divircios.setBorder(new LineBorder(Color.black));
 		divircios.setForeground(Color.black);
-		divircios.setBounds(150, 275, 600, 300);
+		divircios.setBounds(150, 415, 400, 30);
 		add(divircios);
 		divircios.setVisible(false);
 		
 		EoD = new JLabel("170 cm");
 		EoD.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
 		EoD.setForeground(Color.black);
-		EoD.setBounds(237, 275, 600, 300);
+		EoD.setBounds(237, 415, 400, 30);
 		add(EoD);
 		
 		ingresos = new JLabel("Ingresos:");
 		ingresos.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
+		ingresos.setBorder(new LineBorder(Color.black));
 		ingresos.setForeground(Color.black);
-		ingresos.setBounds(150, 300, 600, 300);
+		ingresos.setBounds(150, 445, 400, 30);
 		add(ingresos);
 		
 		money = new JLabel("1000000");
 		money.setFont(new Font("Times New Roman", Font.CENTER_BASELINE, 20));
 		money.setForeground(Color.black);
-		money.setBounds(240, 300, 600, 300);
+		money.setBounds(240, 445, 400, 30);
 		add(money);
 		
 		like = new JButton("Me encorazona");
