@@ -26,16 +26,16 @@ public class Controller implements ActionListener{
 		// TODO Auto-generated method stub
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
-			
+			vista.getvPri().setVisible(true);
 		}
 		
 		
 		if(arg0.getActionCommand().equals("REGISTRO")){
-		
+			vista.getvIng().setVisible(true);
 		}
 		
 		if(arg0.getActionCommand().equals("VALIDAR")){
-			
+			vista.getvReg().setVisible(true);
 		}
 
 	}

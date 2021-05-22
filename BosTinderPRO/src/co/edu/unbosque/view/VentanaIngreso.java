@@ -1,14 +1,19 @@
 package co.edu.unbosque.view;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 
 public class VentanaIngreso extends JFrame {
 	
 	private PanelIngreso pIngreso;
+	private Panelimagen pImagen;
+	private JLayeredPane lpane;
 	
 	public VentanaIngreso() {
 		setTitle("BosTinderLogin");
-		setSize(270, 300);
+		setSize(700, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
@@ -21,8 +26,16 @@ public class VentanaIngreso extends JFrame {
 	
 	public void inicializarComponentes() {
 		
+		lpane = new JLayeredPane();
+		getContentPane().add(lpane,BorderLayout.CENTER);
+		lpane.setBounds(0, 0, 700, 300);
+		
+		pImagen = new Panelimagen();
+		pImagen.setBounds(0, 0, 700, 300);
+		getContentPane().add(pImagen);
+		
 		pIngreso = new PanelIngreso();
-		pIngreso.setBounds(0, 0, 270, 230);
+		pIngreso.setBounds(410, 0, 290, 230);
 		getContentPane().add(pIngreso);
 		
 	}
