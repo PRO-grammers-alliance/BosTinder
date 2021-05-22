@@ -2,6 +2,7 @@ package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
@@ -32,6 +33,7 @@ public class VentanaIngreso extends JFrame {
 		
 		pImagen = new Panelimagen();
 		pImagen.setBounds(0, 0, 700, 300);
+		pImagen.setIm( new ImageIcon(getClass().getResource("/imagenes/ingreso.jpg")));
 		getContentPane().add(pImagen);
 		
 		pIngreso = new PanelIngreso();
