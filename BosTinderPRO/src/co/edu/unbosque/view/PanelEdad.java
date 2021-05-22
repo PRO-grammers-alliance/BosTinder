@@ -26,40 +26,40 @@ public class PanelEdad extends JPanel{
 	public void inicializarComponentes() {
 		instruccion1 = new JLabel("Ingrese su fecha de nacimiento");
 		instruccion1.setFont(new Font(getName(), Font.BOLD, 14));
-		instruccion1.setBounds(20, 10, 100, 20);
+		instruccion1.setBounds(40, 25,300, 20);
 		add(instruccion1);
 
-		instruccion2 = new JLabel("DD   /  MM   / AAAA");
+		instruccion2 = new JLabel("DD   /   MM   /       AAAA");
 		instruccion2.setFont(new Font(getName(), Font.BOLD, 14));
-		instruccion2.setBounds(20, 10, 100, 20);
+		instruccion2.setBounds(80, 55, 300, 20);
 		add(instruccion2);
 
 		separar = new JLabel("/");
 		separar.setFont(new Font(getName(), Font.BOLD, 14));
-		separar.setBounds(30, 40, 100, 20);
+		separar.setBounds(110, 90, 100, 20);
 		add(separar);
 
 		separar2 = new JLabel("/");
 		separar2.setFont(new Font(getName(), Font.BOLD, 14));
-		separar2.setBounds(40, 40, 100, 20);
+		separar2.setBounds(165, 90, 100, 20);
 		add(separar2);
 
 		b_validar = new JButton("Validar Edad");
 		b_validar.setFont(new Font(getName(), Font.BOLD, 14));
 		b_validar.setActionCommand("VALIDAR");
-		b_validar.setBounds(70, 140, 100, 30);
+		b_validar.setBounds(60, 200, 170, 30);
 		add(b_validar);
 		
 		dia = new JTextField();
-		dia.setBounds(25, 40, 80, 25);
+		dia.setBounds(65, 90, 40, 25);
 		add(dia);
 
 		mes = new JTextField();
-		mes.setBounds(35, 40, 80, 25);
+		mes.setBounds(121, 90, 40, 25);
 		add(mes);
 
 		año = new JTextField();
-		año.setBounds(45, 40, 80, 25);
+		año.setBounds(179, 90, 80, 25);
 		add(año);
 		
 	}
