@@ -3,7 +3,6 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 
 import co.edu.unbosque.view.View;
 
