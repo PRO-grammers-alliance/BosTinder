@@ -43,88 +43,88 @@ public class PanelRegistro extends JPanel {
 	public void inicializarComponentes() {
 
 		nombre = new JLabel("Nombre");
-		nombre.setBounds(1038, 45, 127, 25);
+		nombre.setBounds(9, 16, 127, 25);
 		add(nombre);
 		nombreU = new JTextField();
-		nombreU.setBounds(1038, 68, 175, 26);
+		nombreU.setBounds(9, 40, 175, 26);
 		add(nombre);
 
 		apellidos1 = new JLabel("Primer Apellido");
-		apellidos1.setBounds(1221, 45, 127, 25);
+		apellidos1.setBounds(194, 16, 127, 25);
 		add(apellidos1);
 		apellido1 = new JTextField();
-		apellido1.setBounds(1221, 68, 175, 26);
+		apellido1.setBounds(194, 40, 175, 26);
 		add(apellido1);
 
 		apellidos2 = new JLabel("Segundo Apellido");
-		apellidos2.setBounds(1402, 45, 127, 25);
+		apellidos2.setBounds(379, 16, 127, 25);
 		add(apellidos2);
 		apellido2 = new JTextField();
-		apellido2.setBounds(1402, 68, 175, 26);
+		apellido2.setBounds(379, 40, 175, 26);
 		add(apellido2);
 
 		textoCorreoE = new JLabel("Correo Electronico");
-		textoCorreoE.setBounds(1038, 98, 139, 25);
+		textoCorreoE.setBounds(9, 67, 139, 25);
 		add(textoCorreoE);
 		correoE = new JTextField();
-		correoE.setBounds(1038, 121, 175, 26);
+		correoE.setBounds(9, 91, 175, 26);
 		add(correoE);
 
 		textoalias = new JLabel("Alias");
-		textoalias.setBounds(1038, 149, 127, 25);
+		textoalias.setBounds(9, 118, 127, 25);
 		add(textoalias);
 		alias = new JTextField();
-		alias.setBounds(1038, 173, 175, 26);
+		alias.setBounds(9, 142, 175, 26);
 		add(alias);
 
 		textoContraseña = new JLabel("Contraseña");
-		textoContraseña.setBounds(1221, 150, 111, 25);
+		textoContraseña.setBounds(194, 118, 111, 25);
 		add(textoContraseña);
 		contraseña = new JTextField();
-		contraseña.setBounds(1221, 172, 175, 26);
+		contraseña.setBounds(194, 142, 175, 26);
 		add(contraseña);
 
 		textoConfirmarC = new JLabel("Confirmar Contraseña");
-		textoConfirmarC.setBounds(1402, 149, 167, 25);
+		textoConfirmarC.setBounds(379, 118, 167, 25);
 		add(textoConfirmarC);
 		confirmarC = new JTextField();
-		confirmarC.setBounds(1402, 172, 175, 26);
+		confirmarC.setBounds(379, 142, 175, 26);
 		add(confirmarC);
 
 		sexoH = new JCheckBox("Hombre");
-		sexoH.setBounds(1050, 226, 81, 29);
+		sexoH.setBounds(9, 188, 81, 29);
 		add(sexoH);
 
 		sexoM = new JCheckBox("Mujer");
-		sexoM.setBounds(1131, 226, 61, 29);
+		sexoM.setBounds(106, 188, 61, 29);
 		add(sexoM);
 
 		textoEstatura = new JLabel("Estatura");
-		textoEstatura.setBounds(1050, 266, 127, 25);
+		textoEstatura.setBounds(41, 224, 127, 25);
 		add(textoEstatura);
 		estatura = new JTextField();
-		estatura.setBounds(1050, 292, 127, 26);
+		estatura.setBounds(41, 248, 127, 26);
 		add(estatura);
 
 		textoIngresosM = new JLabel("Promedio de Ingresos Mensuales");
-		textoIngresosM.setBounds(1216, 266, 209, 25);
+		textoIngresosM.setBounds(194, 224, 209, 25);
 		add(textoIngresosM);
 		ingresosM = new JTextField();
-		ingresosM.setBounds(1216, 292, 198, 26);
+		ingresosM.setBounds(194, 248, 198, 26);
 		add(ingresosM);
 
 		textoDivorcio = new JLabel("¿Has tenido Divorcios?");
-		textoDivorcio.setBounds(1441, 266, 153, 25);
+		textoDivorcio.setBounds(428, 224, 153, 25);
 		add(textoDivorcio);
 		divorcioSi = new JCheckBox("Si");
-		divorcioSi.setBounds(1444, 292, 51, 25);
+		divorcioSi.setBounds(428, 250, 51, 25);
 		add(divorcioSi);
 		divorcioNo = new JCheckBox("No");
-		divorcioNo.setBounds(1496, 292, 51, 25);
+		divorcioNo.setBounds(479, 250, 51, 25);
 		add(divorcioNo);
 
 		validarRegistro = new JButton("Registrarse");
-		validarRegistro.setBounds(1240, 348, 174, 26);
+		validarRegistro.setBounds(211, 307, 174, 26);
 		validarRegistro.setActionCommand("VALIDARREGISTRO");
 		add(validarRegistro);
 	}
