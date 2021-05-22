@@ -22,7 +22,7 @@ public class VentanaPrincipal extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		pack();
-		setVisible(false);
+		setVisible(true);
 	}
 	
 	public void inicializarComponentes() {
