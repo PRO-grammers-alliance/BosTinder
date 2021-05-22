@@ -6,11 +6,13 @@ public class View {
 
 	private VentanaIngreso vIng;
 	private VentanaRegistro vReg;
+	private VentanaPrincipal vPri;
 	
 	public View(){
 		
 		vIng = new VentanaIngreso();
 		vReg = new VentanaRegistro();
+		vPri = new VentanaPrincipal();
 		
 	}
 	
@@ -32,6 +34,14 @@ public class View {
 
 	public void setvReg(VentanaRegistro vReg) {
 		this.vReg = vReg;
+	}
+
+	public VentanaPrincipal getvPri() {
+		return vPri;
+	}
+
+	public void setvPri(VentanaPrincipal vPri) {
+		this.vPri = vPri;
 	}
 	
 }
