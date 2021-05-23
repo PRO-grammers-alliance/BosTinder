@@ -48,7 +48,8 @@ public class Controller implements ActionListener{
 		}
 
 		if(arg0.getActionCommand().equals("VALIDARREGISTRO")) {
-			
+			vista.getvReg().setVisible(false);
+			vista.getvIng().setVisible(true);
 		}
 		
 		if(arg0.getActionCommand().equals("LIKE")) {
