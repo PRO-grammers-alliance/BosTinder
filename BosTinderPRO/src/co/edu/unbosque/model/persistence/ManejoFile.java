@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 
 public class ManejoFile {
 
-	private String archivodata = "";
+	private String archivodata = ".\\Data\\datos.csv";
 	
 	public int escribirArchivo(String dato) {
 		File f = new File(this.archivodata);
@@ -35,7 +35,7 @@ public class ManejoFile {
 			BufferedReader br = new BufferedReader(fr);
 			linea=br.readLine();
 			while (linea!=null) {
-				cadena +=linea;
+				cadena +=linea+"\n";
 				linea=br.readLine();
 				
 			}
