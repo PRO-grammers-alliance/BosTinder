@@ -3,17 +3,18 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+import co.edu.unbosque.model.BosTinder;
 import co.edu.unbosque.view.View;
 
 public class Controller implements ActionListener{
 	
 	private View vista;
+	private BosTinder bosT;
 	
 	public Controller() {
 		vista = new View();
-		
-			asignarOyentes();
+		bosT = new BosTinder();
+		asignarOyentes();
 	}
 	
 	public void asignarOyentes() {
@@ -35,16 +36,29 @@ public class Controller implements ActionListener{
 		}
 		
 		if(arg0.getActionCommand().equals("REGISTRO")){
+			vista.getvReg().getpEdad().getAño().setText("");
+			vista.getvReg().getpEdad().getMes().setText("");
+			vista.getvReg().getpEdad().getDia().setText("");
 			vista.getvIng().setVisible(false);
 			vista.getvReg().setVisible(true);
 		}
 		
 		if(arg0.getActionCommand().equals("VALIDAR")){
-			vista.getvReg().setBounds(0, 0, 625, 429);
-			vista.getvReg().remove(vista.getvReg().getpEdad());
-			vista.getvReg().add(vista.getvReg().getpRegistro());
-			vista.getvReg().getpRegistro().setVisible(true);
+			String año = vista.getvReg().getpEdad().getAño().getText();
+			String mes = vista.getvReg().getpEdad().getMes().getText();
+			String dia = vista.getvReg().getpEdad().getDia().getText();
+			String fecha = dia +"/"+ mes + "/"+ año;
 			
+			if(bosT.getValIn().validadEdad(fecha)) {
+				vista.getvReg().setBounds(0, 0, 625, 429);
+				vista.getvReg().remove(vista.getvReg().getpEdad());
+				vista.getvReg().add(vista.getvReg().getpRegistro());
+				vista.getvReg().getpRegistro().setVisible(true);
+			}else{
+				vista.mostrarMensaje("Debe ser mayor de edad"+"\n"+"para poder usar BosTinder"+ "\n"+"Hasta pronto", "error");
+				vista.getvReg().setVisible(false);
+				vista.getvIng().setVisible(true);
+			}
 		}
 
 		if(arg0.getActionCommand().equals("VALIDARREGISTRO")) {

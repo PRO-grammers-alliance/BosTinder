@@ -9,15 +9,17 @@ public class View {
 	private VentanaPrincipal vPri;
 	
 	public View(){
-		
 		vIng = new VentanaIngreso();
 		vReg = new VentanaRegistro();
 		vPri = new VentanaPrincipal();
-		
 	}
 	
-	 public static void mostrarProblematica(String[] args) {
-	       JOptionPane.showMessageDialog(null, "Debe ser mayor de edad"+"\n"+"para poder usar BosTinder"+ "\n"+"Hasta pronto");
+	 public void mostrarMensaje(String mensaje, String tipo) {
+		 if(tipo == "info") {
+			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.INFORMATION_MESSAGE);
+		 }else if(tipo == "error") {
+			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.ERROR_MESSAGE);
+		 }
 	}
 
 	public VentanaIngreso getvIng() {
