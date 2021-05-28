@@ -35,7 +35,7 @@ public class ManejoFile {
 			BufferedReader br = new BufferedReader(fr);
 			linea=br.readLine();
 			while (linea!=null) {
-				cadena +=linea+"\n";
+				cadena += linea+ "\n";
 				linea=br.readLine();
 				
 			}
