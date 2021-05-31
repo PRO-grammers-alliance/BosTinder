@@ -35,8 +35,19 @@ public class Controller implements ActionListener{
 		// TODO Auto-generated method stub
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
-			vista.getvIng().setVisible(false);
-			vista.getvPri().setVisible(true);
+			String user = vista.getvIng().getpIngreso().getC_usuario().getText();
+			char[] clave = vista.getvIng().getpIngreso().getC_clave().getPassword();
+			String claveT =String.valueOf(clave);
+			if(bosT.getValIn().comprobarLoginAdmin(user, claveT)) {
+				vista.getvIng().setVisible(false);
+				vista.getvPri().getPu().setVisible(false);
+				vista.getvPri().add(vista.getvPri().getPa());
+				vista.getvPri().getPa().setVisible(false);
+				vista.getvPri().setVisible(true);
+			}else{
+				vista.getvIng().setVisible(false);
+				vista.getvPri().setVisible(true);
+			}
 		}
 		
 		if(arg0.getActionCommand().equals("REGISTRO")){

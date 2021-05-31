@@ -9,6 +9,7 @@ import javax.swing.JLayeredPane;
 public class VentanaPrincipal extends JFrame {
 	
 	private PanelUsuario pu;
+	private PanelAdmin pa;
 	private Panelimagen pim;
 	private JLayeredPane lpane;
 	
@@ -36,6 +37,10 @@ public class VentanaPrincipal extends JFrame {
 		pu.setOpaque(false);
 		lpane.add(pu);
 		
+		pa = new PanelAdmin();
+		pa.setBounds(0, 0, 700, 650);
+		pa.setOpaque(false);
+		
 		pim = new Panelimagen("/imagenes/b2.jpg");
 		pim.setBounds(0, 0, 700, 650);
 		pim.setOpaque(true);
@@ -57,6 +62,14 @@ public class VentanaPrincipal extends JFrame {
 
 	public void setPim(Panelimagen pim) {
 		this.pim = pim;
+	}
+
+	public PanelAdmin getPa() {
+		return pa;
+	}
+
+	public void setPa(PanelAdmin pa) {
+		this.pa = pa;
 	}
 
 	public JLayeredPane getLpane() {

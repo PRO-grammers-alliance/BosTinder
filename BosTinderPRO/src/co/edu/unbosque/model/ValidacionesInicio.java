@@ -7,9 +7,17 @@ import java.time.format.DateTimeFormatter;
 public class ValidacionesInicio {
 
 	private int edad1;
+	
 	public ValidacionesInicio() {
 		
-		
+	}
+	
+	public boolean comprobarLoginAdmin(String user, String clave) {
+		boolean comprobar= false;
+		if (user.equals("admin") && clave.equals("1234")){
+			comprobar=true;
+		}
+		return comprobar;
 	}
 	
 	
