@@ -22,4 +22,9 @@ public class TestArchivos extends TestCase {
 		assertEquals(bd,"Id;Nombre");
 	}
 	
+	public void testleerCsv() {
+		mj.leerCvs();
+		assertEquals("error", "Id",mj.getId().get(2));
+	}
+	
 }

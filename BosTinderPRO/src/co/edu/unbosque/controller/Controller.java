@@ -37,9 +37,11 @@ public class Controller implements ActionListener{
 		// TODO Auto-generated method stub
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
+			bosT.getMaFi().leerCvs();
 			String user = vista.getvIng().getpIngreso().getC_usuario().getText();
 			char[] clave = vista.getvIng().getpIngreso().getC_clave().getPassword();
 			String claveT =String.valueOf(clave);
+			
 			if(bosT.getValIn().comprobarLoginAdmin(user, claveT)) {
 				vista.getvIng().setVisible(false);
 				vista.getvPri().getPu().setVisible(false);
@@ -61,6 +63,7 @@ public class Controller implements ActionListener{
 			vista.getvReg().getpEdad().getDia().setText("");
 			vista.getvIng().setVisible(false);
 			vista.getvReg().setVisible(true);
+			
 		}
 		
 		if(arg0.getActionCommand().equals("VALIDAR")){
