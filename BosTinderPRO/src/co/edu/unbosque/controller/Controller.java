@@ -48,9 +48,11 @@ public class Controller implements ActionListener{
 				vista.getvPri().add(vista.getvPri().getPa());
 				vista.getvPri().getPa().setVisible(false);
 				vista.getvPri().setVisible(true);
-			}else{
+			}else if (bosT.validarLogin(user, claveT)){
 				vista.getvIng().setVisible(false);
 				vista.getvPri().setVisible(true);
+			}else {
+				vista.mostrarMensaje("Ingrese un usuario y contraseña válidos", "error");
 			}
 		}
 		

@@ -20,6 +20,14 @@ public class ValidacionesInicio {
 		return comprobar;
 	}
 	
+	public boolean comprobarLoginUser(String user, String clave, String userBD, String claveBD) {
+		boolean comprobar= false;
+		if (user.equals(userBD) && clave.equals(claveBD)){
+			comprobar=true;
+		}
+		return comprobar;
+	}
+	
 	
 	public boolean validadEdad(String fecha) {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
