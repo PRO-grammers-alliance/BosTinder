@@ -92,10 +92,12 @@ public class PanelRegistro extends JPanel {
 		add(confirmarC);
 
 		sexoH = new JCheckBox("Hombre");
+		sexoH.setActionCommand("hombre");
 		sexoH.setBounds(9, 188, 81, 29);
 		add(sexoH);
 
 		sexoM = new JCheckBox("Mujer");
+		sexoM.setActionCommand("mujer");
 		sexoM.setBounds(106, 188, 61, 29);
 		add(sexoM);
 

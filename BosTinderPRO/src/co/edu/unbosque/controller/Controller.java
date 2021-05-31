@@ -28,6 +28,8 @@ public class Controller implements ActionListener{
 		vista.getvReg().getpRegistro().getValidarRegistro().addActionListener(this);
 		vista.getvPri().getPu().getLike().addActionListener(this);
 		vista.getvPri().getPu().getDislike().addActionListener(this);
+		vista.getvReg().getpRegistro().getSexoH().addActionListener(this);
+		vista.getvReg().getpRegistro().getSexoM().addActionListener(this);
 	}
 	
 	@Override
