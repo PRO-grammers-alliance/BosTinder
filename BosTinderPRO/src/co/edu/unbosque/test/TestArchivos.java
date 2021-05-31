@@ -13,18 +13,18 @@ public class TestArchivos extends TestCase {
 		mj = new ManejoFile();
 		v = new View();
 	}
-
+	/*
 	public void testArchivo () {
 		String bd = mj.leerArchivo();		
 		String [] a ;
 		a = bd.split(";",7472);
-		System.out.println(a[7096]);
 		assertEquals(bd,"Id;Nombre");
 	}
-	
+	*/
 	public void testleerCsv() {
 		mj.leerCvs();
 		assertEquals("error", "Id",mj.getId().get(2));
+		
 	}
 	
 }

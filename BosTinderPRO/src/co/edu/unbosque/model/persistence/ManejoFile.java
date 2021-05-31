@@ -23,7 +23,7 @@ public class ManejoFile {
 	private ArrayList<String> edad;
 	private ArrayList<String> ingresos;
 	private ArrayList<String> divorcios;
-	private ArrayList<String> numeroLikesRecividos;
+	private ArrayList<String> numeroLikesRecibidos;
 	private ArrayList<String> numeroLikesOtorgados;
 	private ArrayList<String> numeroMatches;
 	private ArrayList<String> estado;
@@ -42,7 +42,7 @@ public class ManejoFile {
 		edad =new ArrayList<>();
 		ingresos =new ArrayList<>();
 		divorcios =new ArrayList<>();
-		numeroLikesRecividos =new ArrayList<>();
+		numeroLikesRecibidos =new ArrayList<>();
 		numeroLikesOtorgados =new ArrayList<>();
 		numeroMatches =new ArrayList<>();
 		estado =new ArrayList<>();
@@ -70,7 +70,7 @@ public class ManejoFile {
 				edad.add(fila[9]);
 				ingresos.add(fila[10]);
 				divorcios.add(fila[11]);
-				numeroLikesRecividos.add(fila[12]);
+				numeroLikesRecibidos.add(fila[12]);
 				numeroLikesOtorgados.add(fila[13]);
 				numeroMatches.add(fila[14]);
 				estado.add(fila[15]);
@@ -285,12 +285,12 @@ public class ManejoFile {
 
 
 	public ArrayList<String> getNumeroLikesRecividos() {
-		return numeroLikesRecividos;
+		return numeroLikesRecibidos;
 	}
 
 
 	public void setNumeroLikesRecividos(ArrayList<String> numeroLikesRecividos) {
-		this.numeroLikesRecividos = numeroLikesRecividos;
+		this.numeroLikesRecibidos = numeroLikesRecividos;
 	}
 
 
