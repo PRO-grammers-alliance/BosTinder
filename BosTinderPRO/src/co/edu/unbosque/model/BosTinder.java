@@ -25,7 +25,6 @@ public class BosTinder {
 			System.out.println("u1: "+user+" c1: "+clave+" uBD: "+userBD+" cBD: "+claveBD);
 			if(validar) {
 				i=tamBD;
-				return validar;
 			}
 		}
 		return validar;
