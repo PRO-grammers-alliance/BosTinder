@@ -18,11 +18,10 @@ public class BosTinder {
 	public boolean validarLogin(String user, String clave) {
 		boolean validar = false;
 		int tamBD=maFi.getId().size(); 
-		for(int i=1;i==tamBD;i++) {
+		for(int i=1;i<tamBD;i++) {
 			String userBD = maFi.getUsuario().get(i);
 			String claveBD = maFi.getContraseña().get(i);
 			validar=valIn.comprobarLoginUser(user, clave, userBD, claveBD);
-			System.out.println("u1: "+user+" c1: "+clave+" uBD: "+userBD+" cBD: "+claveBD);
 			if(validar) {
 				i=tamBD;
 			}
