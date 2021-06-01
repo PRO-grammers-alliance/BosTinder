@@ -7,11 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
-	<classpathentry kind="lib" path="C:/Users/FELIPE SEGURA/git/BosTinder/BosTinderPRO/librerias/opencsv-5.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/FELIPE SEGURA/git/BosTinder/BosTinderPRO/librerias/commons-lang3-3.12.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Santiago Flórez/git/BosTinder/BosTinderPRO/librerias/opencsv-5.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Santiago Flórez/git/BosTinder/BosTinderPRO/librerias/commons-lang3-3.12.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/MARIAEUGENIA/git/BosTinder/BosTinderPRO/librerias/commons-lang3-3.12.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/MARIAEUGENIA/git/BosTinder/BosTinderPRO/librerias/opencsv-5.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PROgrammers/commons-lang3-3.12.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PROgrammers/opencsv-5.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
