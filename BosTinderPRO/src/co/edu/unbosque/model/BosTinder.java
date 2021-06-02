@@ -31,6 +31,7 @@ public class BosTinder {
 		return validar;
 	}
 
+
 	/**
 	 * Este metodo se utiliza para validar la informacion ingresada por el usuario
 	 * al momento del registro.
@@ -86,12 +87,18 @@ public class BosTinder {
 				}
 			}
 		}
+	
 		/*if(contador!=1) {
 			error="error5";
 		}*/
-		
 		return error;
 	}
+	public int usuarioRandom(int tam) {
+		int num;
+		num = (int)Math.round(Math.random()*tam);
+		return num;
+	}
+	
 
 	public ValidacionesInicio getValIn() {
 		return valIn;
