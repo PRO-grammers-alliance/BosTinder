@@ -2,24 +2,20 @@ package co.edu.unbosque.view;
 
 
 import java.awt.Color;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 
-public class PanelAdmin extends JPanel{
+public class PanelAdmConsultar extends JPanel{
 	
 	private JComboBox<String> box_ordenar;
 	private JRadioButton b_ascendente;
 	private JRadioButton b_descendente;
 	private JTextArea t_info;
 	
-	public PanelAdmin() {
+	public PanelAdmConsultar() {
 		setLayout(null);
 		setBackground(Color.LIGHT_GRAY);
 		inicializarComponentes();
@@ -40,11 +36,14 @@ public class PanelAdmin extends JPanel{
 		b_ascendente = new JRadioButton("Ascendente");
 		b_ascendente.setBounds(220,25,100,20);
 		b_ascendente.setActionCommand("ASCENDENTE");
+		b_ascendente.setOpaque(false);
 		add(b_ascendente);
 		
 		b_descendente = new JRadioButton("Descendente");
 		b_descendente.setBounds(340,25,100,20);
 		b_descendente.setActionCommand("DESCENDENTE");
+		b_descendente.setOpaque(false);
+		b_descendente.setSelected(true);
 		add(b_descendente);
 		
 		t_info = new JTextArea();

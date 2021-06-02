@@ -10,7 +10,7 @@ import java.time.format.DateTimeParseException;
 import co.edu.unbosque.model.BosTinder;
 import co.edu.unbosque.view.View;
 
-public class Controller implements ActionListener, ItemListener{
+public class Controller implements ActionListener{
 	
 	private View vista;
 	private BosTinder bosT;
@@ -32,10 +32,9 @@ public class Controller implements ActionListener, ItemListener{
 		vista.getvPri().getPu().getDislike().addActionListener(this);
 		vista.getvReg().getpRegistro().getSexoH().addActionListener(this);
 		vista.getvReg().getpRegistro().getSexoM().addActionListener(this);
-		vista.getvPri().getPa().getBox_ordenar().addActionListener(this);
-		vista.getvPri().getPa().getB_ascendente().addActionListener(this);
-		vista.getvPri().getPa().getB_descendente().addActionListener(this);
-		vista.getvPri().getPa().getBox_ordenar().addItemListener(this);
+		vista.getvAdm().getPConsul().getBox_ordenar().addActionListener(this);
+		vista.getvAdm().getPConsul().getB_ascendente().addActionListener(this);
+		vista.getvAdm().getPConsul().getB_descendente().addActionListener(this);
 	}
 	
 	@Override
@@ -50,11 +49,7 @@ public class Controller implements ActionListener, ItemListener{
 			
 			if(bosT.getValIn().comprobarLoginAdmin(user, claveT)) {
 				vista.getvIng().setVisible(false);
-				vista.getvPri().getPu().setVisible(false);
-				vista.getvPri().getPim().setVisible(false);
-				vista.getvPri().add(vista.getvPri().getPa());
-				vista.getvPri().getPa().setVisible(true);
-				vista.getvPri().setVisible(true);
+				vista.getvAdm().setVisible(true);
 			}else if (bosT.validarLogin(user, claveT)){
 				vista.getvIng().setVisible(false);
 				vista.getvPri().setVisible(true);
@@ -115,31 +110,36 @@ public class Controller implements ActionListener, ItemListener{
 		}
 
 		if(arg0.getActionCommand().equals("ORDENAR")) {
+			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
+			if(item.equals("Nombre")) {
+				vista.getvAdm().getPConsul().getT_info().setText("Nombres");
+			} else if(item.equals("Apellido")) {
+				vista.getvAdm().getPConsul().getT_info().setText("Apellidos");
+			} else if(item.equals("Edad")) {
+				vista.getvAdm().getPConsul().getT_info().setText("Edades");
+			} else if(item.equals("Alias")) {
+				vista.getvAdm().getPConsul().getT_info().setText("Alias");
+			} else if(item.equals("Número Likes")) {
+				vista.getvAdm().getPConsul().getT_info().setText("Números Likes");
+			} 
 		}
 		
 		if(arg0.getActionCommand().equals("ASCENDENTE")) {
-			if(vista.getvPri().getPa().getB_ascendente().isSelected()) {
-				vista.getvPri().getPa().getB_descendente().setSelected(false);
-			}else if(!vista.getvPri().getPa().getB_ascendente().isSelected()) {
-				vista.getvPri().getPa().getB_descendente().setSelected(true);
+			if(vista.getvAdm().getPConsul().getB_ascendente().isSelected()) {
+				vista.getvAdm().getPConsul().getB_descendente().setSelected(false);
+			}else if(!vista.getvAdm().getPConsul().getB_ascendente().isSelected()) {
+				vista.getvAdm().getPConsul().getB_descendente().setSelected(true);
 			}
 		}
 		
 		if(arg0.getActionCommand().equals("DESCENDENTE")) {
-			if(vista.getvPri().getPa().getB_descendente().isSelected()) {
-				vista.getvPri().getPa().getB_ascendente().setSelected(false);
-			}else if(!vista.getvPri().getPa().getB_descendente().isSelected()) {
-				vista.getvPri().getPa().getB_ascendente().setSelected(true);
+			if(vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
+				vista.getvAdm().getPConsul().getB_ascendente().setSelected(false);
+			}else if(!vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
+				vista.getvAdm().getPConsul().getB_ascendente().setSelected(true);
 			}
 		}
 		
 	}
 
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getItem().equals("Nombre")) {
-			vista.getvPri().getPa().getT_info().setText("Nombre");
-		}
-	}
 }
