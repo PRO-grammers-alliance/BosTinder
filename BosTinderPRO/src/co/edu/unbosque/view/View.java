@@ -7,11 +7,13 @@ public class View {
 	private VentanaIngreso vIng;
 	private VentanaRegistro vReg;
 	private VentanaPrincipal vPri;
+	private VentanaAdmin vAdm;
 	
 	public View(){
 		vIng = new VentanaIngreso();
 		vReg = new VentanaRegistro();
 		vPri = new VentanaPrincipal();
+		vAdm = new VentanaAdmin(); 
 	}
 	
 	 public void mostrarMensaje(String mensaje, String tipo) {
@@ -20,6 +22,14 @@ public class View {
 		 }else if(tipo == "error") {
 			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.ERROR_MESSAGE);
 		 }
+	}
+
+	public VentanaAdmin getvAdm() {
+		return vAdm;
+	}
+
+	public void setvAdm(VentanaAdmin vAdm) {
+		this.vAdm = vAdm;
 	}
 
 	public VentanaIngreso getvIng() {
