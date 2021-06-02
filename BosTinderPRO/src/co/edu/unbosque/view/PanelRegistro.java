@@ -121,7 +121,7 @@ public class PanelRegistro extends JPanel {
 		sexoM.setBounds(106, 188, 61, 29);
 		add(sexoM);
 
-		textoEstatura = new JLabel("Estatura");
+		textoEstatura = new JLabel("Estatura (En cm)");
 		textoEstatura.setBounds(41, 224, 127, 25);
 		textoEstatura.setVisible(false);
 		add(textoEstatura);

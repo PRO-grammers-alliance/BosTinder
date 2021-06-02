@@ -28,6 +28,7 @@ public class ManejoFile {
 	private ArrayList<Integer> numeroLikesOtorgados;
 	private ArrayList<Integer> numeroMatches;
 	private ArrayList<String> estado;
+	private ArrayList<Integer> estatura;
 	
 	public ManejoFile() {
 		
@@ -47,7 +48,7 @@ public class ManejoFile {
 		numeroLikesOtorgados =new ArrayList<>();
 		numeroMatches =new ArrayList<>();
 		estado =new ArrayList<>();
-		
+		estatura = new ArrayList<>();
 	}
 	
 
@@ -78,9 +79,11 @@ public class ManejoFile {
 				numeroLikesRecibidos.add(lr);
 				int lo = Integer.parseInt(fila[13]);
 				numeroLikesOtorgados.add(lo);
-				int ma = Integer.parseInt(fila[14]);
+				int es = Integer.parseInt(fila[14]);
+				estatura.add(es);
+				int ma = Integer.parseInt(fila[15]);
 				numeroMatches.add(ma);
-				estado.add(fila[15]);
+				estado.add(fila[16]);
 				
 			}
 			archCSV.close();
