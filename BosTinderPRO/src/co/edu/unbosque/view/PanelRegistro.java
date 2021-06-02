@@ -11,26 +11,40 @@ public class PanelRegistro extends JPanel {
 
 	private JLabel nombre;
 	private JTextField nombreU;
+	
 	private JLabel apellidos1;
 	private JTextField apellido1;
+	
 	private JLabel apellidos2;
 	private JTextField apellido2;
+	
 	private JLabel textoCorreoE;
 	private JTextField correoE;
+	
+	private JLabel textoConfirmarCorreo;
+	private JTextField confirmarCorreo;
+	
 	private JLabel textoalias;
 	private JTextField alias;
+	
 	private JLabel textoContraseña;
 	private JTextField contraseña;
+	
 	private JLabel textoConfirmarC;
 	private JTextField confirmarC;
+	
 	private JCheckBox sexoH;
 	private JCheckBox sexoM;
+	
 	private JLabel textoEstatura;
 	private JTextField estatura;
+	
 	private JLabel textoIngresosM;
 	private JTextField ingresosM;
+	
 	private JLabel textoDivorcio;
 	private JCheckBox divorcioSi;
+	
 	private JCheckBox divorcioNo;
 	private JButton validarRegistro;
 
@@ -68,6 +82,13 @@ public class PanelRegistro extends JPanel {
 		correoE = new JTextField();
 		correoE.setBounds(9, 91, 175, 26);
 		add(correoE);
+		
+		textoConfirmarCorreo = new JLabel("Confirmar Correo Electronico");
+		textoConfirmarCorreo.setBounds(194, 67, 191, 24);
+		add(textoConfirmarCorreo);
+		confirmarCorreo = new JTextField();
+		confirmarCorreo.setBounds(194, 91, 175, 27);
+		add(confirmarCorreo);
 
 		textoalias = new JLabel("Alias");
 		textoalias.setBounds(9, 118, 127, 25);
@@ -197,6 +218,22 @@ public class PanelRegistro extends JPanel {
 
 	public JTextField getCorreoE() {
 		return correoE;
+	}
+
+	public JLabel getTextoConfirmarCorreo() {
+		return textoConfirmarCorreo;
+	}
+
+	public void setTextoConfirmarCorreo(JLabel textoConfirmarCorreo) {
+		this.textoConfirmarCorreo = textoConfirmarCorreo;
+	}
+
+	public JTextField getConfirmarCorreo() {
+		return confirmarCorreo;
+	}
+
+	public void setConfirmarCorreo(JTextField confirmarCorreo) {
+		this.confirmarCorreo = confirmarCorreo;
 	}
 
 	public void setCorreoE(JTextField correoE) {
