@@ -31,6 +31,13 @@ public class BosTinder {
 		return validar;
 	}
 	
+	public int usuarioRandom(int tam) {
+		int num;
+		num = (int)Math.round(Math.random()*tam);
+		return num;
+	}
+	
+	
 	/*public String validacionR(String nombre, String apellido1, String apellido2,String user,String correo,String correo2) {
 		String error ="";
 		
