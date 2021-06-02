@@ -31,6 +31,12 @@ public class BosTinder {
 		return validar;
 	}
 	
+	/*public String validacionR(String nombre, String apellido1, String apellido2,String user,String correo,String correo2) {
+		String error ="";
+		
+		return error;
+	}*/
+	
 	
 	public ValidacionesInicio getValIn() {
 		return valIn;

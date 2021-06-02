@@ -5,15 +5,32 @@ import java.util.ArrayList;
 public class UsuarioDAO {
 	private ArrayList<UsuarioDTO> usuario ;
 	private String rutaReg = "./data/Usuarios.txt";
+	private ManejoFile mf;
 	
 	public UsuarioDAO() {
 		usuario = new ArrayList<>();
+		mf = new ManejoFile();
 	}
 	
 	public void crearUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimineto, int edad, double ingresos, String divircios, int likesR, int likesO,int maches, String estado) {
-		usuario.add(new UsuarioDTO( id, nombre, apellido1, apellido2, sexo, user, contraseña, correo, nacimineto, edad, ingresos, divircios, likesR, likesO, maches, estado));
-		
+		mf.getId().add(id);
+		mf.getNombre().add(nombre);
+		mf.getApellido1().add(apellido1);
+		mf.getApellido2().add(apellido2);
+		mf.getSexo().add(sexo);
+		mf.getUsuario().add(user);
+		mf.getContraseña().add(contraseña);
+		mf.getCorreo().add(correo);
+		mf.getNacimiento().add(nacimineto);
+		mf.getEdad().add(edad);
+		mf.getIngresos().add(ingresos);
+		mf.getDivorcios().add(divircios);
+		mf.getNumeroLikesRecividos().add(likesR);
+		mf.getNumeroLikesOtorgados().add(likesO);
+		mf.getNumeroMatches().add(maches);
+		mf.getEstado().add(estado);
 	}
+	
 	public void eliminarEmpleado(UsuarioDTO usuarios) {
 		usuario.remove(usuarios.getId());
 		System.out.println("Empleado "+usuarios.getId()+" eliminado satisfactoriamente");

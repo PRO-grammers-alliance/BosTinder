@@ -12,7 +12,7 @@ public class ManejoFile {
 	private String archivodata = ".\\Data\\datos.csv";
 	private FileReader archCSV;
 	private CSVReader csvReader;
-	private ArrayList<String> id;
+	private ArrayList<Integer> id;
 	private ArrayList<String> nombre;
 	private ArrayList<String> apellido1;
 	private ArrayList<String> apellido2;
@@ -21,7 +21,7 @@ public class ManejoFile {
 	private ArrayList<String> contraseña;
 	private ArrayList<String> correo;
 	private ArrayList<String> nacimiento;
-	private ArrayList<String> edad;
+	private ArrayList<Integer> edad;
 	private ArrayList<Double> ingresos;
 	private ArrayList<String> divorcios;
 	private ArrayList<Integer> numeroLikesRecibidos;
@@ -59,7 +59,8 @@ public class ManejoFile {
 			String[] fila = null;
 			while ((fila = csvReader.readNext()) != null) {
 				
-				id.add(fila[0]);
+				int ids = Integer.parseInt(fila[0]);
+				id.add(ids);
 				nombre.add(fila[1]);
 				apellido1.add(fila[2]);
 				apellido2.add(fila[3]);
@@ -68,7 +69,8 @@ public class ManejoFile {
 				contraseña.add(fila[6]);
 				correo.add(fila[7]);
 				nacimiento.add(fila[8]);
-				edad.add(fila[9]);
+				int ed = Integer.parseInt(fila[9]);
+				edad.add(ed);
 				double i = Double.parseDouble(fila[10]);
 				ingresos.add(i);
 				divorcios.add(fila[11]);
@@ -158,12 +160,12 @@ public class ManejoFile {
 	}
 
 
-	public ArrayList<String> getId() {
+	public ArrayList<Integer> getId() {
 		return id;
 	}
 
 
-	public void setId(ArrayList<String> id) {
+	public void setId(ArrayList<Integer> id) {
 		this.id = id;
 	}
 
@@ -248,12 +250,12 @@ public class ManejoFile {
 	}
 
 
-	public ArrayList<String> getEdad() {
+	public ArrayList<Integer> getEdad() {
 		return edad;
 	}
 
 
-	public void setEdad(ArrayList<String> edad) {
+	public void setEdad(ArrayList<Integer> edad) {
 		this.edad = edad;
 	}
 

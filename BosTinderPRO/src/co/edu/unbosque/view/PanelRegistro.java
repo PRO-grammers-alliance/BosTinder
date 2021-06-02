@@ -1,6 +1,5 @@
 package co.edu.unbosque.view;
 
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -92,20 +91,22 @@ public class PanelRegistro extends JPanel {
 		add(confirmarC);
 
 		sexoH = new JCheckBox("Hombre");
-		sexoH.setActionCommand("hombre");
+		sexoH.setActionCommand("HOMBRE");
 		sexoH.setBounds(9, 188, 81, 29);
 		add(sexoH);
 
 		sexoM = new JCheckBox("Mujer");
-		sexoM.setActionCommand("mujer");
+		sexoM.setActionCommand("MUJER");
 		sexoM.setBounds(106, 188, 61, 29);
 		add(sexoM);
 
 		textoEstatura = new JLabel("Estatura");
 		textoEstatura.setBounds(41, 224, 127, 25);
+		textoEstatura.setVisible(false);
 		add(textoEstatura);
 		estatura = new JTextField();
 		estatura.setBounds(41, 248, 127, 26);
+		estatura.setVisible(false);
 		add(estatura);
 
 		textoIngresosM = new JLabel("Promedio de Ingresos Mensuales");
@@ -117,12 +118,17 @@ public class PanelRegistro extends JPanel {
 
 		textoDivorcio = new JLabel("¿Has tenido Divorcios?");
 		textoDivorcio.setBounds(428, 224, 153, 25);
+		textoDivorcio.setVisible(false);
 		add(textoDivorcio);
+		
 		divorcioSi = new JCheckBox("Si");
 		divorcioSi.setBounds(428, 250, 51, 25);
+		divorcioSi.setVisible(false);
 		add(divorcioSi);
+		
 		divorcioNo = new JCheckBox("No");
 		divorcioNo.setBounds(479, 250, 51, 25);
+		divorcioNo.setVisible(false);
 		add(divorcioNo);
 
 		validarRegistro = new JButton("Registrarse");
