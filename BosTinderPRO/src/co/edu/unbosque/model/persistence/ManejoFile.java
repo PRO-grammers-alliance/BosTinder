@@ -22,11 +22,11 @@ public class ManejoFile {
 	private ArrayList<String> correo;
 	private ArrayList<String> nacimiento;
 	private ArrayList<String> edad;
-	private ArrayList<String> ingresos;
+	private ArrayList<Double> ingresos;
 	private ArrayList<String> divorcios;
-	private ArrayList<String> numeroLikesRecibidos;
-	private ArrayList<String> numeroLikesOtorgados;
-	private ArrayList<String> numeroMatches;
+	private ArrayList<Integer> numeroLikesRecibidos;
+	private ArrayList<Integer> numeroLikesOtorgados;
+	private ArrayList<Integer> numeroMatches;
 	private ArrayList<String> estado;
 	
 	public ManejoFile() {
@@ -69,11 +69,15 @@ public class ManejoFile {
 				correo.add(fila[7]);
 				nacimiento.add(fila[8]);
 				edad.add(fila[9]);
-				ingresos.add(fila[10]);
+				double i = Double.parseDouble(fila[10]);
+				ingresos.add(i);
 				divorcios.add(fila[11]);
-				numeroLikesRecibidos.add(fila[12]);
-				numeroLikesOtorgados.add(fila[13]);
-				numeroMatches.add(fila[14]);
+				int lr = Integer.parseInt(fila[12]);
+				numeroLikesRecibidos.add(lr);
+				int lo = Integer.parseInt(fila[13]);
+				numeroLikesOtorgados.add(lo);
+				int ma = Integer.parseInt(fila[14]);
+				numeroMatches.add(ma);
 				estado.add(fila[15]);
 				
 			}
@@ -84,7 +88,6 @@ public class ManejoFile {
 		} catch (CsvValidationException e) {
 			
 		}
-		
 		
 	}
 
@@ -254,12 +257,12 @@ public class ManejoFile {
 		this.edad = edad;
 	}
 
-	public ArrayList<String> getIngresos() {
+	public ArrayList<Double> getIngresos() {
 		return ingresos;
 	}
 
 
-	public void setIngresos(ArrayList<String> ingresos) {
+	public void setIngresos(ArrayList<Double> ingresos) {
 		this.ingresos = ingresos;
 	}
 
@@ -274,32 +277,32 @@ public class ManejoFile {
 	}
 
 
-	public ArrayList<String> getNumeroLikesRecividos() {
+	public ArrayList<Integer> getNumeroLikesRecividos() {
 		return numeroLikesRecibidos;
 	}
 
 
-	public void setNumeroLikesRecividos(ArrayList<String> numeroLikesRecividos) {
+	public void setNumeroLikesRecividos(ArrayList<Integer> numeroLikesRecividos) {
 		this.numeroLikesRecibidos = numeroLikesRecividos;
 	}
 
 
-	public ArrayList<String> getNumeroLikesOtorgados() {
+	public ArrayList<Integer> getNumeroLikesOtorgados() {
 		return numeroLikesOtorgados;
 	}
 
 
-	public void setNumeroLikesOtorgados(ArrayList<String> numeroLikesOtorgados) {
+	public void setNumeroLikesOtorgados(ArrayList<Integer> numeroLikesOtorgados) {
 		this.numeroLikesOtorgados = numeroLikesOtorgados;
 	}
 
 
-	public ArrayList<String> getNumeroMatches() {
+	public ArrayList<Integer> getNumeroMatches() {
 		return numeroMatches;
 	}
 
 
-	public void setNumeroMatches(ArrayList<String> numeroMatches) {
+	public void setNumeroMatches(ArrayList<Integer> numeroMatches) {
 		this.numeroMatches = numeroMatches;
 	}
 

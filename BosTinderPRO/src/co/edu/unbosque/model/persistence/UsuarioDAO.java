@@ -46,6 +46,7 @@ public class UsuarioDAO {
 		System.out.println("Cliente id: "+ usuarios.getId()+" actualizado satisfactoriamente");		
 	}
 
+	
 	public ArrayList<UsuarioDTO> getUsuario() {
 		return usuario;
 	}

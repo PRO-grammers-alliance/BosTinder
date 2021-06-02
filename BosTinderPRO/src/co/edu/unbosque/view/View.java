@@ -1,5 +1,7 @@
 package co.edu.unbosque.view;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class View {
@@ -14,11 +16,11 @@ public class View {
 		vPri = new VentanaPrincipal();
 	}
 	
-	 public void mostrarMensaje(String mensaje, String tipo) {
+	 public void mostrarMensaje(String arrayList, String tipo) {
 		 if(tipo == "info") {
-			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.INFORMATION_MESSAGE);
+			 JOptionPane.showMessageDialog(null, arrayList, "BosTinder", JOptionPane.INFORMATION_MESSAGE);
 		 }else if(tipo == "error") {
-			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.ERROR_MESSAGE);
+			 JOptionPane.showMessageDialog(null, arrayList, "BosTinder", JOptionPane.ERROR_MESSAGE);
 		 }
 	}
 

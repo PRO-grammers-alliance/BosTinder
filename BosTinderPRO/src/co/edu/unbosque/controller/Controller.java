@@ -43,7 +43,7 @@ public class Controller implements ActionListener, ItemListener{
 		// TODO Auto-generated method stub
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
-			bosT.getMaFi().leerCsv();
+			vista.mostrarMensaje(bosT.getMaFi().leerCsv().toString(),"info");
 			String user = vista.getvIng().getpIngreso().getC_usuario().getText();
 			char[] clave = vista.getvIng().getpIngreso().getC_clave().getPassword();
 			String claveT =String.valueOf(clave);
