@@ -2,7 +2,7 @@ package co.edu.unbosque.model.persistence;
 
 import java.io.*;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvValidationException;
@@ -94,6 +94,21 @@ public class ManejoFile {
 			
 		}
 		
+	}
+	
+	public String escribirCsv() {		
+		try {
+			CSVWriter writer = new CSVWriter(new FileWriter(archivodata));
+		for(int i = 0;i<id.size();i++) {
+			String[] ayuda = {id.get(i)+";"+nombre.get(i)+";"+apellido1.get(i)+";"+apellido2.get(i)+";"+sexo.get(i)+";"+usuario.get(i)+";"+'"'+contraseña.get(i)+'"'+";"+correo.get(i)+";"+ nacimiento.get(i)+";"+edad.get(i)+";"+ingresos.get(i)+";"+divorcios.get(i)+";"+numeroLikesRecibidos.get(i)+";"+numeroLikesOtorgados.get(i)+";"+estatura.get(i)+";"+numeroMatches.get(i)+";"+estado.get(i)};
+
+			writer.writeNext(ayuda);
+		}
+		writer.close();
+		}catch(IOException e) {
+		return "regostro no exitoso";
+		}
+		return "Registro exitoso ";
 	}
 
 	public int escribirArchivo(String dato) {
@@ -274,6 +289,26 @@ public class ManejoFile {
 
 	public ArrayList<String> getDivorcios() {
 		return divorcios;
+	}
+
+
+	public ArrayList<Integer> getNumeroLikesRecibidos() {
+		return numeroLikesRecibidos;
+	}
+
+
+	public void setNumeroLikesRecibidos(ArrayList<Integer> numeroLikesRecibidos) {
+		this.numeroLikesRecibidos = numeroLikesRecibidos;
+	}
+
+
+	public ArrayList<Integer> getEstatura() {
+		return estatura;
+	}
+
+
+	public void setEstatura(ArrayList<Integer> estatura) {
+		this.estatura = estatura;
 	}
 
 

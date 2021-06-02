@@ -61,6 +61,7 @@ public class Controller implements ActionListener {
 		}
 
 		if (arg0.getActionCommand().equals("REGISTRO")) {
+			bosT.getMaFi().leerCsv();
 			vista.getvReg().setBounds(0, 0, 300, 300);
 			vista.getvReg().remove(vista.getvReg().getpRegistro());
 			vista.getvReg().add(vista.getvReg().getpEdad());
@@ -99,9 +100,26 @@ public class Controller implements ActionListener {
 		}
 
 		if (arg0.getActionCommand().equals("VALIDARREGISTRO")) {
-			bosT.getUsDao().crearUsuario(bosT.getMaFi().getId().size(), vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), sex, vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), fecha, bosT.getValIn().getEdad1(), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()), div, 0, 0, 0, "Disponible");
+			try {
+			if(bosT.validacionR(vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getConfirmarC().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), vista.getvReg().getpRegistro().getConfirmarCorreo().getText(), Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText()), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()))=="error1") {
+				vista.mostrarMensaje("Por favor ingrese su nombre , primer apellido y segundo apellido sin números", "error");
+			}else if(bosT.validacionR(vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getConfirmarC().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), vista.getvReg().getpRegistro().getConfirmarCorreo().getText(), Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText()), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()))=="error2") {
+				vista.mostrarMensaje("El username ya existe porfavor ingrese otro", "error");
+			}else if(bosT.validacionR(vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getConfirmarC().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), vista.getvReg().getpRegistro().getConfirmarCorreo().getText(), Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText()), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()))=="error3") {
+				vista.mostrarMensaje("Su contraseña no coincide", "error");
+			}else if(bosT.validacionR(vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getConfirmarC().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), vista.getvReg().getpRegistro().getConfirmarCorreo().getText(), Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText()), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()))=="error4") {
+				vista.mostrarMensaje("Su correo no coincide", "error");
+			}else if(bosT.validacionR(vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getConfirmarC().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), vista.getvReg().getpRegistro().getConfirmarCorreo().getText(), Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText()), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()))=="error5") {
+				vista.mostrarMensaje("Porfavor ingrese un correo valido", "error");
+			}else if(bosT.validacionR(vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getConfirmarC().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), vista.getvReg().getpRegistro().getConfirmarCorreo().getText(), Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText()), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()))=="no") {
+			vista.mostrarMensaje(bosT.getUsDao().crearUsuario(bosT.getMaFi().getId().size()+1, vista.getvReg().getpRegistro().getNombreU().getText(), vista.getvReg().getpRegistro().getApellido1().getText(), vista.getvReg().getpRegistro().getApellido2().getText(), sex, vista.getvReg().getpRegistro().getAlias().getText(), vista.getvReg().getpRegistro().getContraseña().getText(), vista.getvReg().getpRegistro().getCorreoE().getText(), fecha, bosT.getValIn().getEdad1(), Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText()), div, 0, 0, Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText()), 0, "Disponible").toString(),"info");
+			//vista.mostrarMensaje(bosT.getMaFi().escribirCsv(), "info");
 			vista.getvReg().setVisible(false);
 			vista.getvIng().setVisible(true);
+			}
+			}catch (NumberFormatException e) {
+				vista.mostrarMensaje("Ingrese un numero valido.\nSi sus ingresos son en decimales separelo por un punto ej: xx.x\nSu edad deve estar en centimetros sin decimales", "error");
+			}
 		}
 
 		if (arg0.getActionCommand().equals("LIKE")) {

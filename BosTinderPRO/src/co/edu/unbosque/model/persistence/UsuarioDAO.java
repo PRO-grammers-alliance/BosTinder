@@ -12,8 +12,8 @@ public class UsuarioDAO {
 		mf = new ManejoFile();
 	}
 	
-	public void crearUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimineto, int edad, double ingresos, String divircios, int likesR, int likesO,int maches, String estado) {
-		mf.getId().add(id);
+	public ArrayList<Integer> crearUsuario(int i, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimineto, int edad, double ingresos, String divircios, int likesR, int likesO, int estatura, int maches, String estado) {
+		mf.getId().add(i);
 		mf.getNombre().add(nombre);
 		mf.getApellido1().add(apellido1);
 		mf.getApellido2().add(apellido2);
@@ -28,7 +28,9 @@ public class UsuarioDAO {
 		mf.getNumeroLikesRecividos().add(likesR);
 		mf.getNumeroLikesOtorgados().add(likesO);
 		mf.getNumeroMatches().add(maches);
+		mf.getEstatura().add(estatura);
 		mf.getEstado().add(estado);
+		return mf.getId();
 	}
 	
 	public void eliminarEmpleado(UsuarioDTO usuarios) {
