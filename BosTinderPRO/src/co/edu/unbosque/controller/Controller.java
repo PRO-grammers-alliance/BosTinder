@@ -173,6 +173,8 @@ public class Controller implements ActionListener {
 				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(true);
 				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(true);
 				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(true);
+				vista.getvReg().getpRegistro().getTextoIngresosM().setVisible(false);
+				vista.getvReg().getpRegistro().getIngresosM().setVisible(false);
 			} else if (!vista.getvReg().getpRegistro().getSexoM().isSelected()) {
 				vista.getvReg().getpRegistro().getSexoH().setSelected(true);
 				sex = "H";
