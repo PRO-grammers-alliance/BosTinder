@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 import com.opencsv.*;
+import com.opencsv.exceptions.CsvValidationException;
 
 public class ManejoFile {
 
@@ -50,7 +51,7 @@ public class ManejoFile {
 	}
 	
 
-	public void leerCvs() {
+	public void leerCsv() {
 		try {
 			archCSV = new FileReader(archivodata);
 			CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
@@ -76,19 +77,12 @@ public class ManejoFile {
 				estado.add(fila[15]);
 				
 			}
+			archCSV.close();
+	        csvReader.close();
 		} catch (IOException e) {
 
-		}catch(Exception e) {
-		
-      }
-		finally {
-		      try { 
-		        archCSV.close();
-		        csvReader.close();
-		      }
-		      catch(IOException e) {
-		        System.out.println(e);
-		      }
+		} catch (CsvValidationException e) {
+			
 		}
 		
 		
@@ -259,10 +253,6 @@ public class ManejoFile {
 	public void setEdad(ArrayList<String> edad) {
 		this.edad = edad;
 	}
-
-
-	
-
 
 	public ArrayList<String> getIngresos() {
 		return ingresos;

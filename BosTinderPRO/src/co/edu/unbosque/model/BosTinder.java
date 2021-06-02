@@ -12,12 +12,11 @@ public class BosTinder {
 		valIn = new ValidacionesInicio();
 		maFi = new ManejoFile();
 		
-		
 	}
 
 	public boolean validarLogin(String user, String clave) {
 		boolean validar = false;
-		int tamBD=maFi.getId().size(); 
+		int tamBD=maFi.getId().size();
 		for(int i=1;i<tamBD;i++) {
 			String userBD = maFi.getUsuario().get(i);
 			String claveBD = maFi.getContraseña().get(i);

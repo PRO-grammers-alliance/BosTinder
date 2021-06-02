@@ -2,13 +2,15 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.time.format.DateTimeParseException;
 
 
 import co.edu.unbosque.model.BosTinder;
 import co.edu.unbosque.view.View;
 
-public class Controller implements ActionListener{
+public class Controller implements ActionListener, ItemListener{
 	
 	private View vista;
 	private BosTinder bosT;
@@ -30,6 +32,10 @@ public class Controller implements ActionListener{
 		vista.getvPri().getPu().getDislike().addActionListener(this);
 		vista.getvReg().getpRegistro().getSexoH().addActionListener(this);
 		vista.getvReg().getpRegistro().getSexoM().addActionListener(this);
+		vista.getvPri().getPa().getBox_ordenar().addActionListener(this);
+		vista.getvPri().getPa().getB_ascendente().addActionListener(this);
+		vista.getvPri().getPa().getB_descendente().addActionListener(this);
+		vista.getvPri().getPa().getBox_ordenar().addItemListener(this);
 	}
 	
 	@Override
@@ -37,7 +43,7 @@ public class Controller implements ActionListener{
 		// TODO Auto-generated method stub
 			
 		if(arg0.getActionCommand().equals("INGRESAR")){
-			bosT.getMaFi().leerCvs();
+			bosT.getMaFi().leerCsv();
 			String user = vista.getvIng().getpIngreso().getC_usuario().getText();
 			char[] clave = vista.getvIng().getpIngreso().getC_clave().getPassword();
 			String claveT =String.valueOf(clave);
@@ -45,8 +51,9 @@ public class Controller implements ActionListener{
 			if(bosT.getValIn().comprobarLoginAdmin(user, claveT)) {
 				vista.getvIng().setVisible(false);
 				vista.getvPri().getPu().setVisible(false);
+				vista.getvPri().getPim().setVisible(false);
 				vista.getvPri().add(vista.getvPri().getPa());
-				vista.getvPri().getPa().setVisible(false);
+				vista.getvPri().getPa().setVisible(true);
 				vista.getvPri().setVisible(true);
 			}else if (bosT.validarLogin(user, claveT)){
 				vista.getvIng().setVisible(false);
@@ -88,6 +95,9 @@ public class Controller implements ActionListener{
 			}
 			}catch(DateTimeParseException e) {
 				vista.mostrarMensaje("Ingrese fecha válida DD/MM/YYYY", "error");
+				vista.getvReg().getpEdad().getAño().setText("");
+				vista.getvReg().getpEdad().getMes().setText("");
+				vista.getvReg().getpEdad().getDia().setText("");
 			}
 		}
 
@@ -104,5 +114,32 @@ public class Controller implements ActionListener{
 			
 		}
 
+		if(arg0.getActionCommand().equals("ORDENAR")) {
+		}
+		
+		if(arg0.getActionCommand().equals("ASCENDENTE")) {
+			if(vista.getvPri().getPa().getB_ascendente().isSelected()) {
+				vista.getvPri().getPa().getB_descendente().setSelected(false);
+			}else if(!vista.getvPri().getPa().getB_ascendente().isSelected()) {
+				vista.getvPri().getPa().getB_descendente().setSelected(true);
+			}
+		}
+		
+		if(arg0.getActionCommand().equals("DESCENDENTE")) {
+			if(vista.getvPri().getPa().getB_descendente().isSelected()) {
+				vista.getvPri().getPa().getB_ascendente().setSelected(false);
+			}else if(!vista.getvPri().getPa().getB_descendente().isSelected()) {
+				vista.getvPri().getPa().getB_ascendente().setSelected(true);
+			}
+		}
+		
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getItem().equals("Nombre")) {
+			vista.getvPri().getPa().getT_info().setText("Nombre");
+		}
 	}
 }

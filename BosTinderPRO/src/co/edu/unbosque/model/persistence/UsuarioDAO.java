@@ -11,7 +11,7 @@ public class UsuarioDAO {
 	}
 	
 	public void crearUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimineto, int edad, double ingresos, String divircios, int likesR, int likesO,int maches, String estado) {
-		usuario.add( new UsuarioDTO( id, nombre, apellido1, apellido2, sexo, user, contraseña, correo, nacimineto, edad, ingresos, divircios, likesR, likesO, maches, estado));
+		usuario.add(new UsuarioDTO( id, nombre, apellido1, apellido2, sexo, user, contraseña, correo, nacimineto, edad, ingresos, divircios, likesR, likesO, maches, estado));
 		
 	}
 	public void eliminarEmpleado(UsuarioDTO usuarios) {

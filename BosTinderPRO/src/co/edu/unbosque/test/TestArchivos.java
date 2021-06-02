@@ -13,7 +13,7 @@ public class TestArchivos extends TestCase {
 	}
 	
 	public void testleerCsv() {
-		mj.leerCvs();
+		mj.leerCsv();
 		assertEquals("error", "Id",mj.getId().get(2));
 	}
 	
