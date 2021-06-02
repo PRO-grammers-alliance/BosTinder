@@ -34,6 +34,7 @@ public class Controller implements ActionListener {
 		vista.getvAdm().getPConsul().getBox_ordenar().addActionListener(this);
 		vista.getvAdm().getPConsul().getB_ascendente().addActionListener(this);
 		vista.getvAdm().getPConsul().getB_descendente().addActionListener(this);
+		vista.getvAdm().getPConsul().getBox_filtrar().addActionListener(this);
 	}
 
 	@Override
@@ -143,6 +144,19 @@ public class Controller implements ActionListener {
 			}
 		}
 		
+		if(arg0.getActionCommand().equals("FILTRAR")) {
+			String item = vista.getvAdm().getPConsul().getBox_filtrar().getSelectedItem().toString();
+			if (item.equals("Sin Filtro")) {
+				
+			} else if (item.equals("Top 10 Más Likes")) {
+				
+			} else if (item.equals("Ingresos >= a 244.85 USD")) {
+				
+			} else if (item.equals("Género")) {
+				
+			}
+		}
+		
 		if (arg0.getActionCommand().equals("HOMBRE")) {
 			if (vista.getvReg().getpRegistro().getSexoH().isSelected()) {
 				vista.getvReg().getpRegistro().getSexoM().setSelected(false);
@@ -186,7 +200,6 @@ public class Controller implements ActionListener {
 				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(false);
 			}
 		}
-		System.out.println(sex);
 	}
 
 }

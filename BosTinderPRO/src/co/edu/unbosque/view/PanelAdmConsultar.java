@@ -11,6 +11,7 @@ import javax.swing.JTextArea;
 public class PanelAdmConsultar extends JPanel{
 	
 	private JComboBox<String> box_ordenar;
+	private JComboBox<String> box_filtrar;
 	private JRadioButton b_ascendente;
 	private JRadioButton b_descendente;
 	private JTextArea t_info;
@@ -33,6 +34,15 @@ public class PanelAdmConsultar extends JPanel{
 		box_ordenar.setActionCommand("ORDENAR");
 		add(box_ordenar);
 		
+		box_filtrar = new JComboBox<String>();
+		box_filtrar.setBounds(460, 25, 200, 20);
+		box_filtrar.addItem("Sin Filtro");
+		box_filtrar.addItem("Top 10 Más Likes");
+		box_filtrar.addItem("Ingresos >= a 244.85 USD");
+		box_filtrar.addItem("Género");
+		box_filtrar.setActionCommand("FILTRAR");
+		add(box_filtrar);
+		
 		b_ascendente = new JRadioButton("Ascendente");
 		b_ascendente.setBounds(220,25,100,20);
 		b_ascendente.setActionCommand("ASCENDENTE");
@@ -47,7 +57,7 @@ public class PanelAdmConsultar extends JPanel{
 		add(b_descendente);
 		
 		t_info = new JTextArea();
-		t_info.setBounds(10, 60, 600, 300);
+		t_info.setBounds(10, 60, 660, 400);
 		t_info.setEditable(false);
 		add(t_info);
 	}
@@ -59,7 +69,15 @@ public class PanelAdmConsultar extends JPanel{
 	public void setBox_ordenar(JComboBox<String> box_ordenar) {
 		this.box_ordenar = box_ordenar;
 	}
+	
+	public JComboBox<String> getBox_filtrar() {
+		return box_filtrar;
+	}
 
+	public void setBox_filtrar(JComboBox<String> box_filtrar) {
+		this.box_filtrar = box_filtrar;
+	}
+	
 	public JRadioButton getB_ascendente() {
 		return b_ascendente;
 	}
