@@ -1,9 +1,6 @@
 package co.edu.unbosque.view;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -20,14 +17,17 @@ public class PanelAdmConsultar extends JPanel {
 	private JRadioButton b_ascendente;
 	private JRadioButton b_descendente;
 	private JTextArea t_info;
-	private JPanel abajo;
-	public JScrollPane sp;
+	private JPanel panel_info;
+	public JScrollPane scroll_info;
 
 	public PanelAdmConsultar() {
 		setLayout(null);
 		setBackground(Color.LIGHT_GRAY);
-		setBorder(new TitledBorder("Panel"));
-
+		inicializarComponentes();
+	}
+	
+	public void inicializarComponentes() {
+	
 		box_ordenar = new JComboBox<String>();
 		box_ordenar.setBounds(10, 25, 200, 20);
 		box_ordenar.addItem("Nombre");
@@ -61,16 +61,19 @@ public class PanelAdmConsultar extends JPanel {
 		add(b_descendente);
 
 		t_info = new JTextArea();
-		t_info.setEditable(true);//lo pongo true para que pongan mucho texto y vean como funciona 
-		t_info.setLineWrap(true);//salto de linea automatico al llegar al borde
-		sp = new JScrollPane(t_info, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+		t_info.setEditable(false); 
+		t_info.setLineWrap(false);
+		
+		scroll_info = new JScrollPane(t_info, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		sp.setBounds(13, 13, 634, 474);
-		abajo = new JPanel();
-		abajo.setLayout(null);
-		abajo.setBounds(10, 60, 660, 500);
-		add(abajo);
-		abajo.add(sp);
+		scroll_info.setBounds(13, 13, 634, 474);
+		
+		panel_info = new JPanel();
+		panel_info.setLayout(null);
+		panel_info.setBackground(Color.LIGHT_GRAY);
+		panel_info.setBounds(10, 60, 660, 500);
+		panel_info.add(scroll_info);
+		add(panel_info);
 
 	}
 
@@ -114,19 +117,20 @@ public class PanelAdmConsultar extends JPanel {
 		this.t_info = t_info;
 	}
 
-	public JPanel getAbajo() {
-		return abajo;
+	public JPanel getPanel_info() {
+		return panel_info;
 	}
 
-	public void setAbajo(JPanel abajo) {
-		this.abajo = abajo;
+	public void setPanel_info(JPanel panel_info) {
+		this.panel_info = panel_info;
 	}
 
-	public JScrollPane getSp() {
-		return sp;
+	public JScrollPane getScroll_info() {
+		return scroll_info;
 	}
 
-	public void setSp(JScrollPane sp) {
-		this.sp = sp;
+	public void setScroll_info(JScrollPane scroll_info) {
+		this.scroll_info = scroll_info;
 	}
+
 }
