@@ -96,44 +96,44 @@ public class ManejoFile {
 		}
 		
 	}
+		
 	
-	public String escribirCsv() {
+	public String escribirArchivo() {
+		File f = new File(this.archivodata);
 		try {
-			csvWriter = new CSVWriter(new FileWriter(archivodata));
-			List<String[]> BDCompleta = new ArrayList<String[]>();
+			FileWriter fw = new FileWriter(f);
+			PrintWriter pw = new PrintWriter(fw); 
+			for(int i = 0;i<id.size();i++) {
+				String ids = id.get(i)+"";
+				String name = nombre.get(i);
+				String apll1 = apellido1.get(i);
+				String apll2 = apellido2.get(i);
+				String genero = sexo.get(i);
+				String user = usuario.get(i);
+				String clave = contraseña.get(i);
+				String email = correo.get(i);
+				String nac = nacimiento.get(i);
+				String años = edad.get(i)+"";
+				String salario = ingresos.get(i)+"";
+				String divorcio = divorcios.get(i);
+				String numLikesR = numeroLikesRecibidos.get(i)+"";
+				String numLikesO = numeroLikesOtorgados.get(i)+"";
+				String altura = estatura.get(i)+"";
+				String numMatches = numeroMatches.get(i)+"";
+				String est = estado.get(i);
+				String datosString = ids+";"+name+";"+apll1+";"+apll2+";"+genero+";"+user+";"+'"'+clave+'"'+";"+email+";"
+						+nac+";"+años+";"+salario+";"+divorcio+";"+numLikesR+";"+numLikesO+";"+altura+";"+numMatches+";"+est;
+				
+				pw.println(datosString); 
+
+			}
 			
-		for(int i = 0;i<id.size();i++) {
-			String ids = id.get(i).toString();
-			String name = nombre.get(i);
-			String apll1 = apellido1.get(i);
-			String apll2 = apellido2.get(i);
-			String genero = sexo.get(i);
-			String user = usuario.get(i);
-			String clave = contraseña.get(i);
-			String email = correo.get(i);
-			String nac = nacimiento.get(i);
-			String años = edad.get(i).toString();
-			String salario = ingresos.get(i).toString();
-			String divorcio = divorcios.get(i);
-			String numLikesR = numeroLikesRecibidos.get(i).toString();
-			String numLikesO = numeroLikesOtorgados.get(i).toString();
-			String altura = estatura.get(i).toString();
-			String numMatches = numeroMatches.get(i).toString();
-			String est = estado.get(i);
-			String datosString = ids+";"+name+";"+apll1+";"+apll2+";"+genero+";"+user+";"+clave+";"+email+";"
-					+nac+";"+años+";"+salario+";"+divorcio+";"+numLikesR+";"+numLikesO+";"+altura+";"+numMatches+";"+est;
-			String[] datosUser = new String[] {datosString};
-			
-			BDCompleta.add(datosUser);
-		}
-			csvWriter.writeAll(BDCompleta);
-			csvWriter.close();
-		}catch(IOException e) {
+			fw.close();
+		} catch (IOException e) {
 			return "Registro no exitoso";
 		}
 		return "Registro exitoso";
-	}	
-
+	}
 	
 	public String getArchivodata() {
 		return archivodata;

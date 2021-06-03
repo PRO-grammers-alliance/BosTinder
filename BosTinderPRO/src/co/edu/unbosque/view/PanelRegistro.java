@@ -146,11 +146,14 @@ public class PanelRegistro extends JPanel {
 		
 		divorcioSi = new JCheckBox("Si");
 		divorcioSi.setBounds(428, 250, 51, 25);
+		divorcioSi.setActionCommand("DVSI");
 		divorcioSi.setVisible(false);
 		add(divorcioSi);
 		
 		divorcioNo = new JCheckBox("No");
 		divorcioNo.setBounds(479, 250, 51, 25);
+		divorcioNo.setActionCommand("DVNO");
+
 		divorcioNo.setVisible(false);
 		add(divorcioNo);
 

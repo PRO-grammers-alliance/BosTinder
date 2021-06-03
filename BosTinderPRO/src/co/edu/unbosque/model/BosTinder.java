@@ -30,7 +30,26 @@ public class BosTinder {
 		}
 		return validar;
 	}
-
+	/**
+	 * Metodo que se utiliza par añadir un nuevo usuario a la base de datos
+	 * @param id
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param sexo
+	 * @param user
+	 * @param contraseña
+	 * @param correo
+	 * @param nacimiento
+	 * @param edad
+	 * @param ingresos
+	 * @param divorcios
+	 * @param likesR
+	 * @param likesO
+	 * @param estatura
+	 * @param matches
+	 * @param estado
+	 */
 	public void añadirUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimiento, int edad, double ingresos, String divorcios, int likesR, int likesO, int estatura, int matches, String estado) {
 		maFi.getId().add(id);
 		maFi.getNombre().add(nombre);
@@ -100,7 +119,7 @@ public class BosTinder {
 			error= "error3";
 		}
 		int contador=0;
-		for (int i = 0; i < apellido1.length(); i++) {
+		for (int i = 0; i < correo.length(); i++) {
 			if (correo.charAt(i) == '@') {
 				contador++;
 				if(!correo.equals(correo1)) {

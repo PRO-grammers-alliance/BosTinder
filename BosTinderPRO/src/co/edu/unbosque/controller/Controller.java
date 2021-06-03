@@ -15,6 +15,10 @@ public class Controller implements ActionListener {
 	private BosTinder bosT;
 
 	private String fecha;
+	private String sex;
+	private String divorcios;
+	private int estatura;
+	private double ingresos;
 
 	public Controller() {
 		vista = new View();
@@ -35,13 +39,15 @@ public class Controller implements ActionListener {
 		vista.getvAdm().getPConsul().getB_ascendente().addActionListener(this);
 		vista.getvAdm().getPConsul().getB_descendente().addActionListener(this);
 		vista.getvAdm().getPConsul().getBox_filtrar().addActionListener(this);
+		vista.getvReg().getpRegistro().getDivorcioNo().addActionListener(this);
+		vista.getvReg().getpRegistro().getDivorcioSi().addActionListener(this);
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		String sex = "";
-		String divorcios = "";
+		
 		if (arg0.getActionCommand().equals("INGRESAR")) {
 			bosT.getMaFi().leerCsv();
 			String user = vista.getvIng().getpIngreso().getC_usuario().getText();
@@ -98,7 +104,75 @@ public class Controller implements ActionListener {
 				vista.getvReg().getpEdad().getDia().setText("");
 			}
 		}
-
+		
+		if (arg0.getActionCommand().equals("HOMBRE")) {
+			if (vista.getvReg().getpRegistro().getSexoH().isSelected()) {
+				vista.getvReg().getpRegistro().getSexoM().setSelected(false);
+				sex = "H";
+				divorcios = "No Aplica";
+				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(true);
+				vista.getvReg().getpRegistro().getEstatura().setVisible(true);
+				vista.getvReg().getpRegistro().getTextoIngresosM().setVisible(true);
+				vista.getvReg().getpRegistro().getIngresosM().setVisible(true);
+				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(false);
+				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(false);
+				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(false);
+			} else if (!vista.getvReg().getpRegistro().getSexoH().isSelected()) {
+				vista.getvReg().getpRegistro().getSexoM().setSelected(true);
+				sex = "M";
+				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(false);
+				vista.getvReg().getpRegistro().getEstatura().setVisible(false);
+				vista.getvReg().getpRegistro().getTextoIngresosM().setVisible(false);
+				vista.getvReg().getpRegistro().getIngresosM().setVisible(false);
+				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(true);
+				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(true);
+				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(true);
+			}
+		}
+		
+		if (arg0.getActionCommand().equals("MUJER")) {
+			if (vista.getvReg().getpRegistro().getSexoM().isSelected()) {
+				vista.getvReg().getpRegistro().getSexoH().setSelected(false);
+				sex = "M";
+				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(false);
+				vista.getvReg().getpRegistro().getEstatura().setVisible(false);
+				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(true);
+				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(true);
+				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(true);
+				vista.getvReg().getpRegistro().getTextoIngresosM().setVisible(false);
+				vista.getvReg().getpRegistro().getIngresosM().setVisible(false);
+			} else if (!vista.getvReg().getpRegistro().getSexoM().isSelected()) {
+				vista.getvReg().getpRegistro().getSexoH().setSelected(true);
+				sex = "H";
+				divorcios = "No Aplica";
+				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(true);
+				vista.getvReg().getpRegistro().getEstatura().setVisible(true);
+				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(false);
+				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(false);
+				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(false);
+			}
+		}
+		
+		if(arg0.getActionCommand().equals("DVSI")) {
+			if(vista.getvReg().getpRegistro().getDivorcioSi().isSelected()) {
+				vista.getvReg().getpRegistro().getDivorcioNo().setSelected(false);
+				divorcios = "Si";
+			}else if(!vista.getvReg().getpRegistro().getDivorcioSi().isSelected()) {
+				vista.getvReg().getpRegistro().getDivorcioNo().setSelected(true);
+				divorcios = "No";
+			}
+		}
+		
+		if(arg0.getActionCommand().equals("DVNO")) {
+			if(vista.getvReg().getpRegistro().getDivorcioNo().isSelected()) {
+				vista.getvReg().getpRegistro().getDivorcioSi().setSelected(false);
+				divorcios = "No";
+			}else if(!vista.getvReg().getpRegistro().getDivorcioNo().isSelected()) {
+				vista.getvReg().getpRegistro().getDivorcioSi().setSelected(true);
+				divorcios = "Si";
+			}
+		}
+			
 		if (arg0.getActionCommand().equals("VALIDARREGISTRO")) {
 			try {
 				String nombre = vista.getvReg().getpRegistro().getNombreU().getText();
@@ -109,8 +183,16 @@ public class Controller implements ActionListener {
 				String contraseña1 = vista.getvReg().getpRegistro().getConfirmarC().getText();
 				String correo = vista.getvReg().getpRegistro().getCorreoE().getText();
 				String correo1 = vista.getvReg().getpRegistro().getConfirmarCorreo().getText();
-				int estatura = Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText());
-				double ingresos = Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText());
+				if(vista.getvReg().getpRegistro().getEstatura().getText().equals("")) {
+					estatura = 0;
+				}else {
+					estatura = Integer.parseInt(vista.getvReg().getpRegistro().getEstatura().getText());
+				}
+				if(vista.getvReg().getpRegistro().getIngresosM().getText().equals("")) {
+					ingresos = 0;
+				}else {
+					ingresos = Double.parseDouble(vista.getvReg().getpRegistro().getIngresosM().getText());
+				}
 				
 				String validacion = bosT.validacionR(nombre, apellido1, apellido2, user, contraseña, contraseña1, correo, correo1, estatura,ingresos);
 				
@@ -125,10 +207,10 @@ public class Controller implements ActionListener {
 				}else if(validacion=="error5") {
 					vista.mostrarMensaje("Por favor ingrese un correo válido", "error");
 				}else if(validacion=="no") {
-					int newId = bosT.getMaFi().getId().size();
+					int newId = bosT.getMaFi().getId().size()+1;
 					int edad = bosT.getValIn().getEdad1();
 					bosT.añadirUsuario(newId, nombre, apellido1, apellido2, sex, user, contraseña, correo, fecha, edad, ingresos, divorcios, 0, 0, estatura, 0, "Disponible");
-					bosT.getMaFi().escribirCsv();
+					bosT.getMaFi().escribirArchivo();
 					vista.getvReg().setVisible(false);
 					vista.getvIng().setVisible(true);
 				}
@@ -186,54 +268,6 @@ public class Controller implements ActionListener {
 				
 			} else if (item.equals("Género")) {
 				
-			}
-		}
-		
-		if (arg0.getActionCommand().equals("HOMBRE")) {
-			if (vista.getvReg().getpRegistro().getSexoH().isSelected()) {
-				vista.getvReg().getpRegistro().getSexoM().setSelected(false);
-				sex = "H";
-				divorcios = "No Aplica";
-				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(true);
-				vista.getvReg().getpRegistro().getEstatura().setVisible(true);
-				vista.getvReg().getpRegistro().getTextoIngresosM().setVisible(true);
-				vista.getvReg().getpRegistro().getIngresosM().setVisible(true);
-				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(false);
-				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(false);
-				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(false);
-			} else if (!vista.getvReg().getpRegistro().getSexoH().isSelected()) {
-				vista.getvReg().getpRegistro().getSexoM().setSelected(true);
-				sex = "M";
-				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(false);
-				vista.getvReg().getpRegistro().getEstatura().setVisible(false);
-				vista.getvReg().getpRegistro().getTextoIngresosM().setVisible(false);
-				vista.getvReg().getpRegistro().getIngresosM().setVisible(false);
-				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(true);
-				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(true);
-				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(true);
-			}
-		}
-		
-		if (arg0.getActionCommand().equals("MUJER")) {
-			if (vista.getvReg().getpRegistro().getSexoM().isSelected()) {
-				vista.getvReg().getpRegistro().getSexoH().setSelected(false);
-				sex = "M";
-				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(false);
-				vista.getvReg().getpRegistro().getEstatura().setVisible(false);
-				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(true);
-				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(true);
-				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(true);
-				vista.getvReg().getpRegistro().getTextoIngresosM().setVisible(false);
-				vista.getvReg().getpRegistro().getIngresosM().setVisible(false);
-			} else if (!vista.getvReg().getpRegistro().getSexoM().isSelected()) {
-				vista.getvReg().getpRegistro().getSexoH().setSelected(true);
-				sex = "H";
-				divorcios = "No Aplica";
-				vista.getvReg().getpRegistro().getTextoEstatura().setVisible(true);
-				vista.getvReg().getpRegistro().getEstatura().setVisible(true);
-				vista.getvReg().getpRegistro().getTextoDivorcio().setVisible(false);
-				vista.getvReg().getpRegistro().getDivorcioSi().setVisible(false);
-				vista.getvReg().getpRegistro().getDivorcioNo().setVisible(false);
 			}
 		}
 	}
