@@ -31,7 +31,27 @@ public class BosTinder {
 		return validar;
 	}
 
+	public void añadirUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimiento, int edad, double ingresos, String divorcios, int likesR, int likesO, int estatura, int matches, String estado) {
+		maFi.getId().add(id);
+		maFi.getNombre().add(nombre);
+		maFi.getApellido1().add(apellido1);
+		maFi.getApellido2().add(apellido2);
+		maFi.getSexo().add(sexo);
+		maFi.getUsuario().add(user);
+		maFi.getContraseña().add(contraseña);
+		maFi.getCorreo().add(correo);
+		maFi.getNacimiento().add(nacimiento);
+		maFi.getEdad().add(edad);
+		maFi.getIngresos().add(ingresos);
+		maFi.getDivorcios().add(divorcios);
+		maFi.getNumeroLikesRecibidos().add(likesR);
+		maFi.getNumeroLikesOtorgados().add(likesO);
+		maFi.getNumeroMatches().add(matches);
+		maFi.getEstatura().add(estatura);
+		maFi.getEstado().add(estado);
+	}
 
+	
 	/**
 	 * Este metodo se utiliza para validar la informacion ingresada por el usuario
 	 * al momento del registro.
@@ -44,7 +64,8 @@ public class BosTinder {
 	 * @param correo2
 	 * @return
 	 */
-	public String validacionR(String nombre, String apellido1, String apellido2, String user, String contraseña,String contraseña1,String correo,String correo1, int estatura,double ingreos) {
+	public String validacionR(String nombre, String apellido1, String apellido2, String user, String contraseña, 
+							String contraseña1, String correo, String correo1, int estatura, double ingresos) {
 		String error = "no";
 		for (int i = 0; i < nombre.length(); i++) {
 			if (nombre.charAt(i) == '0' || nombre.charAt(i) == '1' || nombre.charAt(i) == '2' || nombre.charAt(i) == '3'
@@ -87,12 +108,9 @@ public class BosTinder {
 				}
 			}
 		}
-	
-		/*if(contador!=1) {
-			error="error5";
-		}*/
 		return error;
 	}
+	
 	public int usuarioRandom(int tam) {
 		int num;
 		num = (int)Math.round(Math.random()*tam);

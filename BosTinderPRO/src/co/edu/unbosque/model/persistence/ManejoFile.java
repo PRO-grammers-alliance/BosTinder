@@ -12,6 +12,7 @@ public class ManejoFile {
 	private String archivodata = ".\\Data\\datos.csv";
 	private FileReader archCSV;
 	private CSVReader csvReader;
+	private CSVWriter csvWriter;
 	private ArrayList<Integer> id;
 	private ArrayList<String> nombre;
 	private ArrayList<String> apellido1;
@@ -96,57 +97,43 @@ public class ManejoFile {
 		
 	}
 	
-	public String escribirCsv() {		
+	public String escribirCsv() {
 		try {
-			CSVWriter writer = new CSVWriter(new FileWriter(archivodata));
+			csvWriter = new CSVWriter(new FileWriter(archivodata));
+			List<String[]> BDCompleta = new ArrayList<String[]>();
+			
 		for(int i = 0;i<id.size();i++) {
-			String[] ayuda = {id.get(i)+";"+nombre.get(i)+";"+apellido1.get(i)+";"+apellido2.get(i)+";"+sexo.get(i)+";"+usuario.get(i)+";"+'"'+contraseña.get(i)+'"'+";"+correo.get(i)+";"+ nacimiento.get(i)+";"+edad.get(i)+";"+ingresos.get(i)+";"+divorcios.get(i)+";"+numeroLikesRecibidos.get(i)+";"+numeroLikesOtorgados.get(i)+";"+estatura.get(i)+";"+numeroMatches.get(i)+";"+estado.get(i)};
-
-			writer.writeNext(ayuda);
+			String ids = id.get(i).toString();
+			String name = nombre.get(i);
+			String apll1 = apellido1.get(i);
+			String apll2 = apellido2.get(i);
+			String genero = sexo.get(i);
+			String user = usuario.get(i);
+			String clave = contraseña.get(i);
+			String email = correo.get(i);
+			String nac = nacimiento.get(i);
+			String años = edad.get(i).toString();
+			String salario = ingresos.get(i).toString();
+			String divorcio = divorcios.get(i);
+			String numLikesR = numeroLikesRecibidos.get(i).toString();
+			String numLikesO = numeroLikesOtorgados.get(i).toString();
+			String altura = estatura.get(i).toString();
+			String numMatches = numeroMatches.get(i).toString();
+			String est = estado.get(i);
+			String datosString = ids+";"+name+";"+apll1+";"+apll2+";"+genero+";"+user+";"+clave+";"+email+";"
+					+nac+";"+años+";"+salario+";"+divorcio+";"+numLikesR+";"+numLikesO+";"+altura+";"+numMatches+";"+est;
+			String[] datosUser = new String[] {datosString};
+			
+			BDCompleta.add(datosUser);
 		}
-		writer.close();
+			csvWriter.writeAll(BDCompleta);
+			csvWriter.close();
 		}catch(IOException e) {
-		return "regostro no exitoso";
+			return "Registro no exitoso";
 		}
-		return "Registro exitoso ";
-	}
+		return "Registro exitoso";
+	}	
 
-	public int escribirArchivo(String dato) {
-		File f = new File(this.archivodata);
-		try {
-			FileWriter fw = new FileWriter(f);
-			PrintWriter pw = new PrintWriter(fw);
-
-			pw.println(dato);
-			fw.close();
-		} catch (IOException e) {
-			return -1;
-		}
-		return 0;
-	}
-
-	public String leerArchivo() {
-		String linea = "";
-		String cadena = "";
-
-		File f = new File(this.archivodata);
-		try {
-			FileReader fr = new FileReader(f);
-			BufferedReader br = new BufferedReader(fr);
-			linea = br.readLine();
-			while (linea != null) {
-				cadena += linea + "\n";
-				linea = br.readLine();
-
-			}
-			fr.close();
-		} catch (IOException e) {
-			return null;
-		}
-		return cadena;
-	}
-
-	
 	
 	public String getArchivodata() {
 		return archivodata;
@@ -292,15 +279,6 @@ public class ManejoFile {
 	}
 
 
-	public ArrayList<Integer> getNumeroLikesRecibidos() {
-		return numeroLikesRecibidos;
-	}
-
-
-	public void setNumeroLikesRecibidos(ArrayList<Integer> numeroLikesRecibidos) {
-		this.numeroLikesRecibidos = numeroLikesRecibidos;
-	}
-
 
 	public ArrayList<Integer> getEstatura() {
 		return estatura;
@@ -316,17 +294,15 @@ public class ManejoFile {
 		this.divorcios = divorcios;
 	}
 
-
-	public ArrayList<Integer> getNumeroLikesRecividos() {
+	public ArrayList<Integer> getNumeroLikesRecibidos() {
 		return numeroLikesRecibidos;
 	}
 
 
-	public void setNumeroLikesRecividos(ArrayList<Integer> numeroLikesRecividos) {
-		this.numeroLikesRecibidos = numeroLikesRecividos;
+	public void setNumeroLikesRecibidos(ArrayList<Integer> numeroLikesRecibidos) {
+		this.numeroLikesRecibidos = numeroLikesRecibidos;
 	}
-
-
+	
 	public ArrayList<Integer> getNumeroLikesOtorgados() {
 		return numeroLikesOtorgados;
 	}

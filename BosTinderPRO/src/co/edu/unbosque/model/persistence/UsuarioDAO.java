@@ -12,8 +12,8 @@ public class UsuarioDAO {
 		mf = new ManejoFile();
 	}
 	
-	public ArrayList<Integer> crearUsuario(int i, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimineto, int edad, double ingresos, String divircios, int likesR, int likesO, int estatura, int maches, String estado) {
-		mf.getId().add(i);
+	public ArrayList<Integer> crearUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimiento, int edad, double ingresos, String divorcios, int likesR, int likesO, int estatura, int matches, String estado) {
+		mf.getId().add(id);
 		mf.getNombre().add(nombre);
 		mf.getApellido1().add(apellido1);
 		mf.getApellido2().add(apellido2);
@@ -21,13 +21,13 @@ public class UsuarioDAO {
 		mf.getUsuario().add(user);
 		mf.getContraseña().add(contraseña);
 		mf.getCorreo().add(correo);
-		mf.getNacimiento().add(nacimineto);
+		mf.getNacimiento().add(nacimiento);
 		mf.getEdad().add(edad);
 		mf.getIngresos().add(ingresos);
-		mf.getDivorcios().add(divircios);
-		mf.getNumeroLikesRecividos().add(likesR);
+		mf.getDivorcios().add(divorcios);
+		mf.getNumeroLikesRecibidos().add(likesR);
 		mf.getNumeroLikesOtorgados().add(likesO);
-		mf.getNumeroMatches().add(maches);
+		mf.getNumeroMatches().add(matches);
 		mf.getEstatura().add(estatura);
 		mf.getEstado().add(estado);
 		return mf.getId();

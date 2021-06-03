@@ -130,11 +130,13 @@ public class PanelRegistro extends JPanel {
 		estatura.setVisible(false);
 		add(estatura);
 
-		textoIngresosM = new JLabel("Promedio de Ingresos Mensuales");
+		textoIngresosM = new JLabel("Promedio de Ingresos Mensuales (Opcional)");
 		textoIngresosM.setBounds(194, 224, 209, 25);
+		textoIngresosM.setVisible(false);
 		add(textoIngresosM);
 		ingresosM = new JTextField();
 		ingresosM.setBounds(194, 248, 198, 26);
+		ingresosM.setVisible(false);
 		add(ingresosM);
 
 		textoDivorcio = new JLabel("¿Has tenido Divorcios?");

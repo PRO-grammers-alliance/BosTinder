@@ -28,7 +28,6 @@ public class ValidacionesInicio {
 		return comprobar;
 	}
 	
-	
 	public boolean validadEdad(String fecha) {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate nacim = LocalDate.parse(fecha,formato);
