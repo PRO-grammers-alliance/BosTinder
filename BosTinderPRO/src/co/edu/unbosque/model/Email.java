@@ -1,6 +1,5 @@
 package co.edu.unbosque.model;
 
-import java.net.PasswordAuthentication;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -17,7 +16,7 @@ public class Email {
 
 	private Session sesion;
 /**
- * Inicialisacion de las propiedades para el envio de correos
+ * Inicializacion de las propiedades para el envio de correos
  */
 	private void init() {
 
