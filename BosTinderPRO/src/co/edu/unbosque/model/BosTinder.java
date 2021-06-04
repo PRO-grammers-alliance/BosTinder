@@ -10,6 +10,7 @@ public class BosTinder {
 	private ValidacionesInicio valIn;
 	private ManejoFile maFi;
 	private Email mail;
+	private Estadisticas estad;
 
 	private ArrayList<Integer> randoms;
 	private int posicionU;
@@ -157,6 +158,22 @@ public class BosTinder {
 		randoms.add(num);
 
 		return num;
+	}
+
+	public Estadisticas getEstad() {
+		return estad;
+	}
+
+	public void setEstad(Estadisticas estad) {
+		this.estad = estad;
+	}
+
+	public ArrayList<Integer> getRandoms() {
+		return randoms;
+	}
+
+	public void setRandoms(ArrayList<Integer> randoms) {
+		this.randoms = randoms;
 	}
 
 	public int getPosicionU() {
