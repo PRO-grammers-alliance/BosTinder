@@ -236,7 +236,7 @@ public class Controller implements ActionListener {
 		if (arg0.getActionCommand().equals("LIKE")) {
 			System.out.println(bosT.getMaFi().getId().size());
 			bosT.getMaFi().getNumeroLikesRecibidos().set(i, bosT.getMaFi().getNumeroLikesRecibidos().get(i)+1);
-			bosT.getMaFi().getNumeroLikesOtorgados().set(bosT.getPosiscionU(),bosT.getMaFi().getNumeroLikesOtorgados().get(bosT.getPosiscionU())+1);
+			bosT.getMaFi().getNumeroLikesOtorgados().set(bosT.getPosicionU(),bosT.getMaFi().getNumeroLikesOtorgados().get(bosT.getPosicionU())+1);
 			bosT.getMaFi().escribirArchivo();
 			i = bosT.usuarioRandom(bosT.getMaFi().getId().size());
 			vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i)+" "+bosT.getMaFi().getApellido1().get(i)+" "+bosT.getMaFi().getApellido2().get(i));
