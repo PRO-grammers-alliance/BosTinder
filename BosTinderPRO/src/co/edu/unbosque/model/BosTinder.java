@@ -1,5 +1,7 @@
 package co.edu.unbosque.model;
 
+import java.util.ArrayList;
+
 import co.edu.unbosque.model.persistence.ManejoFile;
 import co.edu.unbosque.model.persistence.UsuarioDAO;
 
@@ -9,6 +11,7 @@ public class BosTinder {
 	private ManejoFile maFi;
 	private Email mail;
 	private int posiscionU;
+	private ArrayList<Integer> randoms;
 	private UsuarioDAO usDao;
 	
 
@@ -18,6 +21,7 @@ public class BosTinder {
 		maFi = new ManejoFile();
 		usDao = new UsuarioDAO();
 		mail = new Email();
+		randoms = new ArrayList<>();
 
 	}
 
@@ -136,9 +140,12 @@ public class BosTinder {
 	
 	public int usuarioRandom(int tam) {
 		int num;
+		int i=0;
 		do {
 			num = (int)Math.round(Math.random()*tam);
-		}while(num==posiscionU);
+			i++;
+		}while(num==posiscionU && randoms.get(i)!=num);
+		randoms.add(num);
 		return num;
 	}
 	
