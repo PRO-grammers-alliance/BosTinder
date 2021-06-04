@@ -14,7 +14,6 @@ public class BosTinder {
 	private ArrayList<Integer> randoms;
 	private int posicionU;
 	private UsuarioDAO usDao;
-	
 
 	public BosTinder() {
 
@@ -28,7 +27,7 @@ public class BosTinder {
 
 	public boolean validarLogin(String user, String clave) {
 		boolean validar = false;
-		//devolver int para saber en que espacio esta el usuario
+		// devolver int para saber en que espacio esta el usuario
 		int tamBD = maFi.getId().size();
 		for (int i = 1; i < tamBD; i++) {
 			String userBD = maFi.getUsuario().get(i);
@@ -41,8 +40,10 @@ public class BosTinder {
 		}
 		return validar;
 	}
+
 	/**
 	 * Metodo que se utiliza par añadir un nuevo usuario a la base de datos
+	 * 
 	 * @param id
 	 * @param nombre
 	 * @param apellido1
@@ -61,7 +62,9 @@ public class BosTinder {
 	 * @param matches
 	 * @param estado
 	 */
-	public void añadirUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user, String contraseña, String correo, String nacimiento, int edad, double ingresos, String divorcios, int likesR, int likesO, int estatura, int matches, String estado) {
+	public void añadirUsuario(int id, String nombre, String apellido1, String apellido2, String sexo, String user,
+			String contraseña, String correo, String nacimiento, int edad, double ingresos, String divorcios,
+			int likesR, int likesO, int estatura, int matches, String estado) {
 		maFi.getId().add(id);
 		maFi.getNombre().add(nombre);
 		maFi.getApellido1().add(apellido1);
@@ -81,7 +84,6 @@ public class BosTinder {
 		maFi.getEstado().add(estado);
 	}
 
-	
 	/**
 	 * Este metodo se utiliza para validar la informacion ingresada por el usuario
 	 * al momento del registro.
@@ -94,8 +96,8 @@ public class BosTinder {
 	 * @param correo2
 	 * @return
 	 */
-	public String validacionR(String nombre, String apellido1, String apellido2, String user, String contraseña, 
-							String contraseña1, String correo, String correo1, int estatura, double ingresos) {
+	public String validacionR(String nombre, String apellido1, String apellido2, String user, String contraseña,
+			String contraseña1, String correo, String correo1, int estatura, double ingresos) {
 		String error = "no";
 		for (int i = 0; i < nombre.length(); i++) {
 			if (nombre.charAt(i) == '0' || nombre.charAt(i) == '1' || nombre.charAt(i) == '2' || nombre.charAt(i) == '3'
@@ -125,32 +127,39 @@ public class BosTinder {
 				error = "error2";
 			}
 		}
-		
-		if(!contraseña.equals(contraseña1)) {
-			error= "error3";
+
+		if (!contraseña.equals(contraseña1)) {
+			error = "error3";
 		}
 		for (int i = 0; i < correo.length(); i++) {
 			if (correo.charAt(i) == '@') {
-				if(!correo.equals(correo1)) {
-				error = "error4";
+				if (!correo.equals(correo1)) {
+					error = "error4";
 				}
 			}
 		}
 		return error;
 	}
-	
+
 	public int usuarioRandom(int tam) {
 		int num;
-		int i=0;
+		int contador;
 		do {
-			num = (int)Math.round(Math.random()*tam);
-			i++;
-		}while(num==posicionU && randoms.get(i)!=num);
+			do {
+				num = (int) Math.round(Math.random() * tam);
+
+			} while (num == posicionU);
+			contador = 0;
+			for (int i = 0; i < randoms.size(); i++) {
+				if (randoms.get(i).equals(num)) {
+					contador++;
+				}
+			}
+		} while (contador == 1);
 		randoms.add(num);
 
 		return num;
 	}
-	
 
 	public int getPosicionU() {
 		return posicionU;
@@ -191,5 +200,5 @@ public class BosTinder {
 	public void setMail(Email mail) {
 		this.mail = mail;
 	}
-	
+
 }
