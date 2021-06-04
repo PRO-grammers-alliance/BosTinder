@@ -145,14 +145,12 @@ public class BosTinder {
 		int num;
 		int contador;
 		do {
-			do {
-				num = (int) Math.round(Math.random() * tam);
-
-			} while (num == posicionU);
-			contador = 0;
+			contador=0;
+			num = (int) Math.round(Math.random() * tam);
 			for (int i = 0; i < randoms.size(); i++) {
-				if (randoms.get(i).equals(num)) {
+				if (randoms.get(i).equals(num) || num == posicionU) {
 					contador++;
+					i=randoms.size();
 				}
 			}
 		} while (contador == 1);
