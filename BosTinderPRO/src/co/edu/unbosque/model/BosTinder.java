@@ -3,7 +3,6 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.persistence.ManejoFile;
-import co.edu.unbosque.model.persistence.UsuarioDAO;
 
 public class BosTinder {
 
@@ -14,13 +13,11 @@ public class BosTinder {
 
 	private ArrayList<Integer> randoms;
 	private int posicionU;
-	private UsuarioDAO usDao;
 
 	public BosTinder() {
 
 		valIn = new ValidacionesInicio();
 		maFi = new ManejoFile();
-		usDao = new UsuarioDAO();
 		mail = new Email();
 		randoms = new ArrayList<>();
 
@@ -142,6 +139,11 @@ public class BosTinder {
 		return error;
 	}
 
+	/**
+	 * Metodo que genera un numero ramdom que sera utilizado para mostrar los usuarios a quien ingrese a la plataforma.
+	 * @param tam
+	 * @return
+	 */
 	public int usuarioRandom(int tam) {
 		int num;
 		int contador;
@@ -198,14 +200,6 @@ public class BosTinder {
 
 	public void setMaFi(ManejoFile maFi) {
 		this.maFi = maFi;
-	}
-
-	public UsuarioDAO getUsDao() {
-		return usDao;
-	}
-
-	public void setUsDao(UsuarioDAO usDao) {
-		this.usDao = usDao;
 	}
 
 	public Email getMail() {

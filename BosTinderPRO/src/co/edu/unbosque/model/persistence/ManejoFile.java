@@ -52,7 +52,9 @@ public class ManejoFile {
 		estatura = new ArrayList<>();
 	}
 	
-
+/**
+ * Metodo por medio de la libreria opencsv lee la base de datos y guarda cada valor en un correspondiente arrglo.
+ */
 	public void leerCsv() {
 		try {
 			archCSV = new FileReader(archivodata);
@@ -97,7 +99,10 @@ public class ManejoFile {
 		
 	}
 		
-	
+	/**
+	 * Metodo que escribe nuevamente en  la base de datos liena por linea.
+	 * @return
+	 */
 	public String escribirArchivo() {
 		File f = new File(this.archivodata);
 		try {

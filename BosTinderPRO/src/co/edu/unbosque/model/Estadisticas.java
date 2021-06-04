@@ -2,7 +2,6 @@ package co.edu.unbosque.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class Estadisticas {
 
@@ -12,7 +11,11 @@ public class Estadisticas {
 	public Estadisticas() {
 		
 	}
-	
+	/**
+	 * Metodo que mide la media aricmetica de los datos enviados a el.
+	 * @param dato
+	 * @return
+	 */
 	public int media(ArrayList<Integer> dato) {
 		for(int i = 0; i<dato.size();i++) {
 			media+=dato.get(i);
@@ -21,6 +24,11 @@ public class Estadisticas {
 		return media;
 	}
 	
+	/**
+	 * metodo que devuelve la mediana de los datos enviadoa a el.
+	 * @param dato
+	 * @return
+	 */
 	public double mediana(ArrayList<Integer> dato) {
 		Collections.sort(dato);
 		if(dato.size()%2==0) {
