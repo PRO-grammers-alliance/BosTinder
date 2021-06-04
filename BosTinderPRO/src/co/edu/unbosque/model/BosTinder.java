@@ -7,13 +7,16 @@ public class BosTinder {
 
 	private ValidacionesInicio valIn;
 	private ManejoFile maFi;
+	private Email mail;
 	private UsuarioDAO usDao;
+	
 
 	public BosTinder() {
 
 		valIn = new ValidacionesInicio();
 		maFi = new ManejoFile();
 		usDao = new UsuarioDAO();
+		mail = new Email();
 
 	}
 
@@ -161,4 +164,12 @@ public class BosTinder {
 		this.usDao = usDao;
 	}
 
+	public Email getMail() {
+		return mail;
+	}
+
+	public void setMail(Email mail) {
+		this.mail = mail;
+	}
+	
 }

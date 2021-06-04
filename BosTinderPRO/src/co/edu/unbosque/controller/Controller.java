@@ -209,6 +209,7 @@ public class Controller implements ActionListener {
 				}else if(validacion=="no") {
 					int newId = bosT.getMaFi().getId().size()+1;
 					int edad = bosT.getValIn().getEdad1();
+					bosT.getMail().enviarMail(nombre, user, correo, contraseña);
 					bosT.añadirUsuario(newId, nombre, apellido1, apellido2, sex, user, contraseña, correo, fecha, edad, ingresos, divorcios, 0, 0, estatura, 0, "Disponible");
 					bosT.getMaFi().escribirArchivo();
 					vista.getvReg().setVisible(false);
