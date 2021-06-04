@@ -103,6 +103,7 @@ public class ManejoFile {
 		try {
 			FileWriter fw = new FileWriter(f);
 			PrintWriter pw = new PrintWriter(fw); 
+			String datosString = "";
 			for(int i = 0;i<id.size();i++) {
 				String ids = id.get(i)+"";
 				String name = nombre.get(i);
@@ -121,7 +122,7 @@ public class ManejoFile {
 				String altura = estatura.get(i)+"";
 				String numMatches = numeroMatches.get(i)+"";
 				String est = estado.get(i);
-				String datosString = ids+";"+name+";"+apll1+";"+apll2+";"+genero+";"+user+";"+'"'+clave+'"'+";"+email+";"
+				datosString = ids+";"+name+";"+apll1+";"+apll2+";"+genero+";"+user+";"+'"'+clave+'"'+";"+email+";"
 						+nac+";"+años+";"+salario+";"+divorcio+";"+numLikesR+";"+numLikesO+";"+altura+";"+numMatches+";"+est;
 				
 				pw.println(datosString); 
@@ -129,11 +130,13 @@ public class ManejoFile {
 			}
 			
 			fw.close();
+			
 		} catch (IOException e) {
 			return "Registro no exitoso";
 		}
 		return "Registro exitoso";
 	}
+	
 	
 	public String getArchivodata() {
 		return archivodata;

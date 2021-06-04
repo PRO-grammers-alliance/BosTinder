@@ -8,6 +8,7 @@ public class BosTinder {
 	private ValidacionesInicio valIn;
 	private ManejoFile maFi;
 	private Email mail;
+	private int posiscionU;
 	private UsuarioDAO usDao;
 	
 
@@ -22,12 +23,14 @@ public class BosTinder {
 
 	public boolean validarLogin(String user, String clave) {
 		boolean validar = false;
+		//devlver int para saber en que espacio esta el usuario
 		int tamBD = maFi.getId().size();
 		for (int i = 1; i < tamBD; i++) {
 			String userBD = maFi.getUsuario().get(i);
 			String claveBD = maFi.getContraseña().get(i);
 			validar = valIn.comprobarLoginUser(user, clave, userBD, claveBD);
 			if (validar) {
+				posiscionU = i;
 				i = tamBD;
 			}
 		}
@@ -121,10 +124,8 @@ public class BosTinder {
 		if(!contraseña.equals(contraseña1)) {
 			error= "error3";
 		}
-		int contador=0;
 		for (int i = 0; i < correo.length(); i++) {
 			if (correo.charAt(i) == '@') {
-				contador++;
 				if(!correo.equals(correo1)) {
 				error = "error4";
 				}
@@ -135,10 +136,20 @@ public class BosTinder {
 	
 	public int usuarioRandom(int tam) {
 		int num;
-		num = (int)Math.round(Math.random()*tam);
+		do {
+			num = (int)Math.round(Math.random()*tam);
+		}while(num==posiscionU);
 		return num;
 	}
 	
+
+	public int getPosiscionU() {
+		return posiscionU;
+	}
+
+	public void setPosiscionU(int posiscionU) {
+		this.posiscionU = posiscionU;
+	}
 
 	public ValidacionesInicio getValIn() {
 		return valIn;

@@ -16,7 +16,9 @@ public class Email {
 	private String contraseña;
 
 	private Session sesion;
-
+/**
+ * Inicialisacion de las propiedades para el envio de correos
+ */
 	private void init() {
 
 		Properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -28,7 +30,13 @@ public class Email {
 		contraseña = "PRO-grammers1234";
 		sesion = sesion.getDefaultInstance(Properties, new GMailAuthenticator((String)Properties.get("mail.smtp.user"), contraseña));	
 	}
-
+/**
+ * enviarMail utiliza las propiedades para conectar con el servidor de emails, envia un mensaje personalizado con el usuario y la contraseña .
+ * @param nombre
+ * @param usuario
+ * @param correo
+ * @param contraseña
+ */
 	public void enviarMail(String nombre, String usuario, String correo, String contraseña) {
 		init();
 		try {

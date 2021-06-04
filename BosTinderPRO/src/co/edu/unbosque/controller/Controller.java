@@ -19,11 +19,13 @@ public class Controller implements ActionListener {
 	private String divorcios;
 	private int estatura;
 	private double ingresos;
+	private int i;
 
 	public Controller() {
 		vista = new View();
 		bosT = new BosTinder();
 		asignarOyentes();
+		bosT.getMaFi().leerCsv();
 	}
 
 	public void asignarOyentes() {
@@ -49,7 +51,6 @@ public class Controller implements ActionListener {
 		// TODO Auto-generated method stub
 		
 		if (arg0.getActionCommand().equals("INGRESAR")) {
-			bosT.getMaFi().leerCsv();
 			String user = vista.getvIng().getpIngreso().getC_usuario().getText();
 			char[] clave = vista.getvIng().getpIngreso().getC_clave().getPassword();
 			String claveT = String.valueOf(clave);
@@ -58,6 +59,20 @@ public class Controller implements ActionListener {
 				vista.getvIng().setVisible(false);
 				vista.getvAdm().setVisible(true);
 			} else if (bosT.validarLogin(user, claveT)) {
+				i = bosT.usuarioRandom(bosT.getMaFi().getId().size());
+				vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i)+" "+bosT.getMaFi().getApellido1().get(i)+" "+bosT.getMaFi().getApellido2().get(i));
+				vista.getvPri().getPu().getMoney().setText(bosT.getMaFi().getIngresos().get(i)+"");
+				if(bosT.getMaFi().getSexo().get(i).equals("M")) {
+					vista.getvPri().getPu().getGenero().setText("Femenino");
+					vista.getvPri().getPu().getEstatura().setVisible(false);
+					vista.getvPri().getPu().getDivircios().setVisible(true);
+					vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getDivorcios().get(i));
+				}else if(bosT.getMaFi().getSexo().get(i).equals("H")) {
+					vista.getvPri().getPu().getGenero().setText("Masculino");
+					vista.getvPri().getPu().getEstatura().setVisible(true);
+					vista.getvPri().getPu().getDivircios().setVisible(false);
+					vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getEstatura().get(i)+"");
+				}
 				vista.getvIng().setVisible(false);
 				vista.getvPri().setVisible(true);
 			} else {
@@ -68,7 +83,6 @@ public class Controller implements ActionListener {
 		}
 
 		if (arg0.getActionCommand().equals("REGISTRO")) {
-			bosT.getMaFi().leerCsv();
 			vista.getvReg().setBounds(0, 0, 300, 300);
 			vista.getvReg().remove(vista.getvReg().getpRegistro());
 			vista.getvReg().add(vista.getvReg().getpEdad());
@@ -209,9 +223,10 @@ public class Controller implements ActionListener {
 				}else if(validacion=="no") {
 					int newId = bosT.getMaFi().getId().size()+1;
 					int edad = bosT.getValIn().getEdad1();
-					bosT.getMail().enviarMail(nombre, user, correo, contraseña);
+					//bosT.getMail().enviarMail(nombre, user, correo, contraseña);
 					bosT.añadirUsuario(newId, nombre, apellido1, apellido2, sex, user, contraseña, correo, fecha, edad, ingresos, divorcios, 0, 0, estatura, 0, "Disponible");
 					bosT.getMaFi().escribirArchivo();
+					vista.getvIng().getpIngreso().getB_registro().setEnabled(false);
 					vista.getvReg().setVisible(false);
 					vista.getvIng().setVisible(true);
 				}
@@ -221,10 +236,41 @@ public class Controller implements ActionListener {
 		}
 
 		if (arg0.getActionCommand().equals("LIKE")) {
-
+			System.out.println(bosT.getMaFi().getId().size());
+			bosT.getMaFi().getNumeroLikesRecibidos().set(i, bosT.getMaFi().getNumeroLikesRecibidos().get(i)+1);
+			bosT.getMaFi().getNumeroLikesOtorgados().set(bosT.getPosiscionU(),bosT.getMaFi().getNumeroLikesOtorgados().get(bosT.getPosiscionU())+1);
+			bosT.getMaFi().escribirArchivo();
+			i = bosT.usuarioRandom(bosT.getMaFi().getId().size());
+			vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i)+" "+bosT.getMaFi().getApellido1().get(i)+" "+bosT.getMaFi().getApellido2().get(i));
+			vista.getvPri().getPu().getMoney().setText(bosT.getMaFi().getIngresos().get(i)+"");
+			if(bosT.getMaFi().getSexo().get(i).equals("M")) {
+				vista.getvPri().getPu().getGenero().setText("Femenino");
+				vista.getvPri().getPu().getEstatura().setVisible(false);
+				vista.getvPri().getPu().getDivircios().setVisible(true);
+				vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getDivorcios().get(i));
+			}else if(bosT.getMaFi().getSexo().get(i).equals("H")) {
+				vista.getvPri().getPu().getGenero().setText("Masculino");
+				vista.getvPri().getPu().getEstatura().setVisible(true);
+				vista.getvPri().getPu().getDivircios().setVisible(false);
+				vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getEstatura().get(i)+"");
+			}
 		}
 
 		if (arg0.getActionCommand().equals("NOLIKE")) {
+			i = bosT.usuarioRandom(bosT.getMaFi().getId().size());
+			vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i)+" "+bosT.getMaFi().getApellido1().get(i)+" "+bosT.getMaFi().getApellido2().get(i));
+			vista.getvPri().getPu().getMoney().setText(bosT.getMaFi().getIngresos().get(i)+"");
+			if(bosT.getMaFi().getSexo().get(i).equals("M")) {
+				vista.getvPri().getPu().getGenero().setText("Femenino");
+				vista.getvPri().getPu().getEstatura().setVisible(false);
+				vista.getvPri().getPu().getDivircios().setVisible(true);
+				vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getDivorcios().get(i));
+			}else if(bosT.getMaFi().getSexo().get(i).equals("H")) {
+				vista.getvPri().getPu().getGenero().setText("Masculino");
+				vista.getvPri().getPu().getEstatura().setVisible(true);
+				vista.getvPri().getPu().getDivircios().setVisible(false);
+				vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getEstatura().get(i)+"");
+			}
 
 		}
 
