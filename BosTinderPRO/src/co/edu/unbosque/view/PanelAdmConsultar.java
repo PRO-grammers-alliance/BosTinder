@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -63,9 +64,10 @@ public class PanelAdmConsultar extends JPanel {
 		t_info = new JTextArea();
 		t_info.setEditable(false); 
 		t_info.setLineWrap(false);
+		t_info.setFont(new Font("Comic Sans MS", 2, 16));
 		
-		scroll_info = new JScrollPane(t_info, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll_info = new JScrollPane(t_info, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scroll_info.setBounds(13, 13, 634, 474);
 		
 		panel_info = new JPanel();

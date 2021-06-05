@@ -10,6 +10,7 @@ public class BosTinder {
 	private ManejoFile maFi;
 	private Email mail;
 	private Estadisticas estad;
+	private OpCRUD crud;
 
 	private ArrayList<Integer> randoms;
 	private int posicionU;
@@ -20,7 +21,7 @@ public class BosTinder {
 		maFi = new ManejoFile();
 		mail = new Email();
 		randoms = new ArrayList<>();
-
+		crud = new OpCRUD();
 	}
 
 	public boolean validarLogin(String user, String clave) {
@@ -210,4 +211,11 @@ public class BosTinder {
 		this.mail = mail;
 	}
 
+	public OpCRUD getCrud() {
+		return crud;
+	}
+
+	public void setCrud(OpCRUD crud) {
+		this.crud = crud;
+	}
 }
