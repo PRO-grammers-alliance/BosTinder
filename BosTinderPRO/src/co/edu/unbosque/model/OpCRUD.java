@@ -93,7 +93,7 @@ public class OpCRUD {
 
 	public String ascendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
-			ArrayList<Integer> numlikesO) {
+			ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
 		String des = "";
 		Collections.sort(nombre);
 		Collections.sort(apellido1);
@@ -102,6 +102,7 @@ public class OpCRUD {
 		Collections.sort(alias);
 		Collections.sort(numlikesR);
 		Collections.sort(numlikesO);
+		Collections.sort(ingresos);
 		if (tipo.equals("Nombre")) {
 			for (String listaNombreO : nombre) {
 				des += listaNombreO + "\n";
@@ -134,6 +135,12 @@ public class OpCRUD {
 				des += numlikesR.get(i) + "\n";
 				des += "Likes Otorgados ";
 				des += numlikesO.get(i) + "\n";
+				i++;
+			}
+		}else if(tipo.equals("ingresos")) {
+			int i = 0;
+			while(i < ingresos.size()) {
+				des += ingresos.get(i);
 				i++;
 			}
 		}
@@ -142,7 +149,7 @@ public class OpCRUD {
 	
 	public String descendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
-			ArrayList<Integer> numlikesO) {
+			ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
 		String des = "";
 		Collections.sort(nombre, Collections.reverseOrder());
 		Collections.sort(apellido1, Collections.reverseOrder());
@@ -151,9 +158,12 @@ public class OpCRUD {
 		Collections.sort(alias, Collections.reverseOrder());
 		Collections.sort(numlikesR, Collections.reverseOrder());
 		Collections.sort(numlikesO, Collections.reverseOrder());
+		Collections.sort(ingresos, Collections.reverseOrder());
 		if (tipo.equals("Nombre")) {
-			for (String listaNombreO : nombre) {
-				des += listaNombreO + "\n";
+			int i = 0;
+			while (i < nombre.size()) {
+				des += nombre.get(i);
+				i++;
 			}
 		} else if (tipo.equals("Apellido")) {
 			int i = 0;
@@ -183,6 +193,12 @@ public class OpCRUD {
 				des += numlikesR.get(i) + "\n";
 				des += "Likes Otorgados ";
 				des += numlikesO.get(i) + "\n";
+				i++;
+			}
+		}else if(tipo.equals("ingresos")) {
+			int i = 0;
+			while(i < ingresos.size()) {
+				des += ingresos.get(i);
 				i++;
 			}
 		}
