@@ -65,7 +65,17 @@ public class OpCRUD {
 		String ing = "";
 		for (int i = 0; i < tam; i++) {
 			if (ingresos.get(i) >= 244.85) {
-				ing += "Nombre " + nombre.get(i) + " -> " + ingresos.get(i) + "$USD\n";
+				ing += nombre.get(i) + " -> " + ingresos.get(i) + "$USD\n";
+			}
+		}
+		return ing;
+	}
+	
+	public String filtroIngresosE(int tam, ArrayList<Double> ingresos, ArrayList<Integer> edad) {
+		String ing = "";
+		for (int i = 0; i < tam; i++) {
+			if (ingresos.get(i) >= 244.85) {
+				ing += edad.get(i) + " -> " + ingresos.get(i) + "$USD\n";
 			}
 		}
 		return ing;
@@ -81,11 +91,10 @@ public class OpCRUD {
 		return gen;
 	}
 
-	public String descendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
+	public String ascendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
 			ArrayList<Integer> numlikesO) {
 		String des = "";
-		String des2 = "";
 		Collections.sort(nombre);
 		Collections.sort(apellido1);
 		Collections.sort(apellido2);
@@ -98,15 +107,85 @@ public class OpCRUD {
 				des += listaNombreO + "\n";
 			}
 		} else if (tipo.equals("Apellido")) {
-			for (String listaApellido1O : apellido1) {
-				des += "1 " + listaApellido1O;
-			}
-			for (String listaApellido2O : apellido2) {
-				des2 += "2 " + listaApellido2O;
+			int i = 0;
+			while(i < apellido1.size()) {
+				des += "Apellido 1 ";
+				des += apellido1.get(i) + "\n";
+				des += "Apellido 2 ";
+				des += apellido2.get(i) + "\n";
+				i++;
 			}
 		}else if(tipo.equals("Edad")) {
-			
+			int i = 0;
+			while(i < edad.size()) {
+				des += edad.get(i) + "\n";
+				i++;
+			}
+		}else if(tipo.equals("Alias")) {
+			int i = 0;
+			while(i < alias.size()) {
+				des += alias.get(i) + "\n";
+				i++;
+			}
+		}else if(tipo.equals("Likes")) {
+			int i = 0;
+			while(i < numlikesR.size()) {
+				des += "Likes Recibidos ";
+				des += numlikesR.get(i) + "\n";
+				des += "Likes Otorgados ";
+				des += numlikesO.get(i) + "\n";
+				i++;
+			}
 		}
-		return des + " " + des2;
+		return des;
+	}
+	
+	public String descendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
+			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
+			ArrayList<Integer> numlikesO) {
+		String des = "";
+		Collections.sort(nombre, Collections.reverseOrder());
+		Collections.sort(apellido1, Collections.reverseOrder());
+		Collections.sort(apellido2, Collections.reverseOrder());
+		Collections.sort(edad, Collections.reverseOrder());
+		Collections.sort(alias, Collections.reverseOrder());
+		Collections.sort(numlikesR, Collections.reverseOrder());
+		Collections.sort(numlikesO, Collections.reverseOrder());
+		if (tipo.equals("Nombre")) {
+			for (String listaNombreO : nombre) {
+				des += listaNombreO + "\n";
+			}
+		} else if (tipo.equals("Apellido")) {
+			int i = 0;
+			while(i < apellido1.size()) {
+				des += "Apellido 1 ";
+				des += apellido1.get(i) + "\n";
+				des += "Apellido 2 ";
+				des += apellido2.get(i) + "\n";
+				i++;
+			}
+		}else if(tipo.equals("Edad")) {
+			int i = 0;
+			while(i < edad.size()) {
+				des += edad.get(i) + "\n";
+				i++;
+			}
+		}else if(tipo.equals("Alias")) {
+			int i = 0;
+			while(i < alias.size()) {
+				des += alias.get(i) + "\n";
+				i++;
+			}
+		}else if(tipo.equals("Likes")) {
+			int i = 0;
+			while(i < numlikesR.size()) {
+				des += "Likes Recibidos ";
+				des += numlikesR.get(i) + "\n";
+				des += "Likes Otorgados ";
+				des += numlikesO.get(i) + "\n";
+				i++;
+			}
+		}
+		return des;
 	}
 }
