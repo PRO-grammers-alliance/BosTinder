@@ -1,6 +1,8 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class OpCRUD {
 
@@ -69,7 +71,7 @@ public class OpCRUD {
 		return ing;
 	}
 
-	public String generoM(int tam, ArrayList<String> genero, ArrayList<String> nombre) {
+	public String genero(int tam, ArrayList<String> genero, ArrayList<String> nombre) {
 		String gen = "";
 		int i = 0;
 		while (i < tam) {
@@ -77,5 +79,34 @@ public class OpCRUD {
 			i++;
 		}
 		return gen;
+	}
+
+	public String descendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
+			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
+			ArrayList<Integer> numlikesO) {
+		String des = "";
+		String des2 = "";
+		Collections.sort(nombre);
+		Collections.sort(apellido1);
+		Collections.sort(apellido2);
+		Collections.sort(edad);
+		Collections.sort(alias);
+		Collections.sort(numlikesR);
+		Collections.sort(numlikesO);
+		if (tipo.equals("Nombre")) {
+			for (String listaNombreO : nombre) {
+				des += listaNombreO + "\n";
+			}
+		} else if (tipo.equals("Apellido")) {
+			for (String listaApellido1O : apellido1) {
+				des += "1 " + listaApellido1O;
+			}
+			for (String listaApellido2O : apellido2) {
+				des2 += "2 " + listaApellido2O;
+			}
+		}else if(tipo.equals("Edad")) {
+			
+		}
+		return des + " " + des2;
 	}
 }

@@ -31,6 +31,7 @@ public class PanelAdmConsultar extends JPanel {
 	
 		box_ordenar = new JComboBox<String>();
 		box_ordenar.setBounds(10, 25, 200, 20);
+		box_ordenar.addItem("¿Qué va a buscar?");
 		box_ordenar.addItem("Nombre");
 		box_ordenar.addItem("Apellido");
 		box_ordenar.addItem("Edad");

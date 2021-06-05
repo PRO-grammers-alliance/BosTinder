@@ -313,6 +313,18 @@ public class Controller implements ActionListener {
 		if (arg0.getActionCommand().equals("DESCENDENTE")) {
 			if (vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
 				vista.getvAdm().getPConsul().getB_ascendente().setSelected(false);
+				String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
+				if (item.equals("Nombre")) {
+					vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().descendente("Nombre",
+							bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
+							bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+							bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados()));
+				} else if (item.equals("Apellido")) {
+					vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().descendente("Apellido",
+							bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
+							bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+							bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados()));
+				}
 			} else if (!vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
 				vista.getvAdm().getPConsul().getB_ascendente().setSelected(true);
 			}
@@ -321,15 +333,15 @@ public class Controller implements ActionListener {
 		if (arg0.getActionCommand().equals("FILTRAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_filtrar().getSelectedItem().toString();
 			if (item.equals("Sin Filtro")) {
-
+				vista.getvAdm().getPConsul().getT_info().setText("");
 			} else if (item.equals("Top 10 Más Likes")) {
 
 			} else if (item.equals("Ingresos >= a 244.85 USD")) {
-				vista.getvAdm().getPConsul().getT_info()
-				.setText(bosT.getCrud().filtroIngresos(bosT.getMaFi().getId().size(), bosT.getMaFi().getIngresos(), bosT.getMaFi().getNombre()));
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().filtroIngresos(
+						bosT.getMaFi().getId().size(), bosT.getMaFi().getIngresos(), bosT.getMaFi().getNombre()));
 			} else if (item.equals("Género")) {
-				vista.getvAdm().getPConsul().getT_info()
-				.setText(bosT.getCrud().generoM(bosT.getMaFi().getId().size(), bosT.getMaFi().getSexo(), bosT.getMaFi().getNombre()));
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().genero(bosT.getMaFi().getId().size(),
+						bosT.getMaFi().getSexo(), bosT.getMaFi().getNombre()));
 			}
 		}
 	}
