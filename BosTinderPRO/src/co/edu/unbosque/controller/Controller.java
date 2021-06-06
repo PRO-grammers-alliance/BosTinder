@@ -280,27 +280,40 @@ public class Controller implements ActionListener {
 			}
 		}
 		/**
-		 * Ordenar:
-		 * 	Nombre, Apellido, Edad, Alias, Numero likes
+		 * Ordenar: Nombre, Apellido, Edad, Alias, Numero likes
 		 */
 		if (arg0.getActionCommand().equals("ORDENAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
 			if (item.equals("Nombre")) {
-				vista.getvAdm().getPConsul().getT_info().setText(
-						bosT.getCrud().obtenerNombre(bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre()));
+				vista.getvAdm().getPConsul().getT_info()
+						.setText(bosT.getCrud().orden("Nombre",bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
 			} else if (item.equals("Apellido")) {
-				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().obtenerApellido(
-						bosT.getMaFi().getId().size(), bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2()));
+				vista.getvAdm().getPConsul().getT_info()
+						.setText(bosT.getCrud().orden("Apellido",bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
 			} else if (item.equals("Edad")) {
 				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().obtenerEdad(bosT.getMaFi().getId().size(), bosT.getMaFi().getEdad()));
+						.setText(bosT.getCrud().orden("Edad",bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
 			} else if (item.equals("Alias")) {
-				vista.getvAdm().getPConsul().getT_info().setText(
-						bosT.getCrud().obtenerAlias(bosT.getMaFi().getId().size(), bosT.getMaFi().getUsuario()));
+				vista.getvAdm().getPConsul().getT_info()
+						.setText(bosT.getCrud().orden("Alias", bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
 			} else if (item.equals("Número Likes")) {
 				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().obtenerNumLikes(bosT.getMaFi().getId().size(),
-								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados()));
+						.setText(bosT.getCrud().orden("Likes",bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
 			} else {
 				vista.getvAdm().getPConsul().getT_info().setText("");
 			}
@@ -314,28 +327,28 @@ public class Controller implements ActionListener {
 				String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
 				if (item.equals("Nombre")) {
 					vista.getvAdm().getPConsul().getT_info()
-							.setText(bosT.getCrud().descendente("Likes", bosT.getMaFi().getNombre(),
+							.setText(bosT.getCrud().descendente("NOmbre", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
 				} else if (item.equals("Apellido")) {
 					vista.getvAdm().getPConsul().getT_info()
-							.setText(bosT.getCrud().descendente("Likes", bosT.getMaFi().getNombre(),
+							.setText(bosT.getCrud().descendente("Apellido", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
 				} else if (item.equals("Edad")) {
 					vista.getvAdm().getPConsul().getT_info()
-							.setText(bosT.getCrud().descendente("Likes", bosT.getMaFi().getNombre(),
+							.setText(bosT.getCrud().descendente("Edad", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
 				} else if (item.equals("Alias")) {
 					vista.getvAdm().getPConsul().getT_info()
-							.setText(bosT.getCrud().descendente("Likes", bosT.getMaFi().getNombre(),
+							.setText(bosT.getCrud().descendente("Alias", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
@@ -369,118 +382,120 @@ public class Controller implements ActionListener {
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
-				}
-				else if (item.equals("Nombre") && item2.equals("Top 10 Más Likes")) {
+				} else if (item.equals("Nombre") && item2.equals("Top 10 Más Likes")) {
 					vista.getvAdm().getPConsul().getT_info()
 							.setText(bosT.getCrud().ascendente("Apellido", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()) + "Falta el top 10");
-				}
-				else if (item.equals("Nombre") && item2.equals("Ingresos >= a 244.85 USD")) {
+				} else if (item.equals("Nombre") && item2.equals("Ingresos >= a 244.85 USD")) {
 					vista.getvAdm().getPConsul().getT_info()
 							.setText(bosT.getCrud().ascendente("Apellido", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
-				}
-				else if (item.equals("Apellido")) {
+				} else if (item.equals("Apellido")) {
 					vista.getvAdm().getPConsul().getT_info()
 							.setText(bosT.getCrud().ascendente("Apellido", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
-				}
-				else if (item.equals("Edad")) {
+				} else if (item.equals("Edad")) {
 					vista.getvAdm().getPConsul().getT_info()
 							.setText(bosT.getCrud().ascendente("Edad", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
-				}
-				else if (item.equals("Alias")) {
+				} else if (item.equals("Alias")) {
 					vista.getvAdm().getPConsul().getT_info()
 							.setText(bosT.getCrud().ascendente("Alias", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
-				}
-				else if (item.equals("Número Likes")) {
+				} else if (item.equals("Número Likes")) {
 					vista.getvAdm().getPConsul().getT_info()
 							.setText(bosT.getCrud().ascendente("Likes", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
 									bosT.getMaFi().getIngresos()));
-				} 
-				else {
+				} else {
 					vista.getvAdm().getPConsul().getT_info().setText("");
 				}
-			}
-			else if (!vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
+			} else if (!vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
 				vista.getvAdm().getPConsul().getB_ascendente().setSelected(true);
 			}
 		}
 		/**
-		 * Filtros: 
-		 * 	Sin filtros, Top 10 más likes, Ingresos >= a 244.85 USD, Genero
+		 * Filtros: Sin filtros, Top 10 más likes, Ingresos >= a 244.85 USD, Genero
 		 */
 		if (arg0.getActionCommand().equals("FILTRAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_filtrar().getSelectedItem().toString();
 			String item2 = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
 			if (item.equals("Sin Filtro") && item2.equals("Nombre")) {
-				vista.getvAdm().getPConsul().getT_info().setText(
-						bosT.getCrud().obtenerNombre(bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre()));
-			}
-			else if (item.equals("Sin Filtro") && item2.equals("Apellido")) {
-				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().obtenerApellido(
-						bosT.getMaFi().getId().size(), bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2()));
-			}
-			else if (item.equals("Sin Filtro") && item2.equals("Edad")) {
 				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().obtenerEdad(bosT.getMaFi().getId().size(), bosT.getMaFi().getEdad()));
-			}
-			else if (item.equals("Sin Filtro") && item2.equals("Alias")) {
-				vista.getvAdm().getPConsul().getT_info().setText(
-						bosT.getCrud().obtenerAlias(bosT.getMaFi().getId().size(), bosT.getMaFi().getUsuario()));
-			}
-			else if (item.equals("Sin Filtro") && item2.equals("Número Likes")) {
+						.setText(bosT.getCrud().orden("Nombre", bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
+			} else if (item.equals("Sin Filtro") && item2.equals("Apellido")) {
 				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().obtenerNumLikes(bosT.getMaFi().getId().size(),
-								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados()));
-			}
-			else if (item.equals("Top 10 Más Likes")) {
+						.setText(bosT.getCrud().orden("Apellido", bosT.getMaFi().getId().size(),
+								bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
+								bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
+								bosT.getMaFi().getIngresos()));
+			} else if (item.equals("Sin Filtro") && item2.equals("Edad")) {
+				vista.getvAdm().getPConsul().getT_info()
+						.setText(bosT.getCrud().orden("Edad", bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
+			} else if (item.equals("Sin Filtro") && item2.equals("Alias")) {
+				vista.getvAdm().getPConsul().getT_info()
+						.setText(bosT.getCrud().orden("Alias", bosT.getMaFi().getId().size(),
+								bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
+								bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
+								bosT.getMaFi().getIngresos()));
+			} else if (item.equals("Sin Filtro") && item2.equals("Número Likes")) {
+				vista.getvAdm().getPConsul().getT_info()
+						.setText(bosT.getCrud().orden("Likes", bosT.getMaFi().getId().size(),
+								bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
+								bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
+								bosT.getMaFi().getIngresos()));
+			} else if (item.equals("Top 10 Más Likes")) {
 				// FALTA CODIGO
-			}
-			else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Nombre")) {
+			} else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Nombre")) {
 				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().filtroIngresos(
 						bosT.getMaFi().getId().size(), bosT.getMaFi().getIngresos(), bosT.getMaFi().getNombre()));
-			}
-			else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Apellido")) {
+			} else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Apellido")) {
 				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().filtroIngresos(
 						bosT.getMaFi().getId().size(), bosT.getMaFi().getIngresos(), bosT.getMaFi().getApellido1()));
-			}
-			else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Edad")) {
+			} else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Edad")) {
 				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().filtroIngresosE(
 						bosT.getMaFi().getId().size(), bosT.getMaFi().getIngresos(), bosT.getMaFi().getEdad()));
-			}
-			else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Alias")) {
+			} else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Alias")) {
 				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().filtroIngresos(
 						bosT.getMaFi().getId().size(), bosT.getMaFi().getIngresos(), bosT.getMaFi().getUsuario()));
-			}
-			else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Número Likes")) {
+			} else if (item.equals("Ingresos >= a 244.85 USD") && item2.equals("Número Likes")) {
 				vista.getvAdm().getPConsul().getT_info()
 						.setText(bosT.getCrud().filtroIngresosE(bosT.getMaFi().getId().size(),
 								bosT.getMaFi().getIngresos(), bosT.getMaFi().getNumeroLikesRecibidos()));
-			} 
-			else if (item.equals("Género")) {
-				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().genero(bosT.getMaFi().getId().size(),
+			} else if (item.equals("Género M") && item2.equals("¿Qué desea buscar?")) {
+				vista.getvAdm().getPConsul().getT_info().setText("");
+			}else if (item.equals("Género M") && item2.equals("Nombre")) {
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().generoM(bosT.getMaFi().getId().size(),
 						bosT.getMaFi().getSexo(), bosT.getMaFi().getNombre()));
+			}else if (item.equals("Género M") && item2.equals("Apellido")) {
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().generoM(bosT.getMaFi().getId().size(),
+						bosT.getMaFi().getSexo(), bosT.getMaFi().getApellido1()));
 			}
 		}
 	}

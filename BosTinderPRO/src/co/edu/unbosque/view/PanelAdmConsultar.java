@@ -45,7 +45,8 @@ public class PanelAdmConsultar extends JPanel {
 		box_filtrar.addItem("Sin Filtro");
 		box_filtrar.addItem("Top 10 Más Likes");
 		box_filtrar.addItem("Ingresos >= a 244.85 USD");
-		box_filtrar.addItem("Género");
+		box_filtrar.addItem("Género M");
+		box_filtrar.addItem("Género H");
 		box_filtrar.setActionCommand("FILTRAR");
 		add(box_filtrar);
 

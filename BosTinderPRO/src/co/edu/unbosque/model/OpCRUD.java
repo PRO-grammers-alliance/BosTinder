@@ -10,55 +10,46 @@ public class OpCRUD {
 
 	}
 
-	public String obtenerNombre(int tam, ArrayList<String> nombre) {
+	public String orden(String tipo, int tam, ArrayList<String> nombre, ArrayList<String> apellido1,
+			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
+			ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
 		int i = 0;
 		String nom = "";
 		while (i < tam) {
-			nom += "Nombre: " + nombre.get(i) + "\n";
+			if (tipo.equals("Nombre")) {
+				nom += nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i) + " -> " + edad.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + "\n";
+				nom += "\n";
+				i++;
+			} else if (tipo.equals("Apellido")) {
+				nom += apellido1.get(i) + " -> " + apellido2.get(i) + " -> " + nombre.get(i) + " -> " + edad.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + "\n";
+				nom += "\n";
+				i++;
+			} else if (tipo.equals("Edad")) {
+				nom += edad.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + "\n";
+				nom += "\n";
+				i++;
+			} else if (tipo.equals("Alias")) {
+				nom += alias.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i)
+						+ " -> " + edad.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + "\n";
+				nom += "\n";
+				i++;
+			} else if (tipo.equals("Likes")) {
+				nom += numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i)
+						+ " -> " + apellido2.get(i) + " -> " + edad.get(i) + " -> " + alias.get(i) + " -> "
+						+ ingresos.get(i) + "\n";
+				nom += "\n";
+				i++;
+			}
 			i++;
 		}
 		return nom;
-	}
-
-	public String obtenerApellido(int tam, ArrayList<String> apellidos1, ArrayList<String> apellidos2) {
-		int i = 0;
-		String ap = "";
-		while (i < tam) {
-			ap += "Apellido: " + apellidos1.get(i) + " " + apellidos2.get(i) + "\n";
-			i++;
-		}
-		return ap;
-	}
-
-	public String obtenerEdad(int tam, ArrayList<Integer> edad) {
-		int i = 0;
-		String ed = "";
-		while (i < tam) {
-			ed += "Edad: " + edad.get(i) + "\n";
-			i++;
-		}
-		return ed;
-	}
-
-	public String obtenerAlias(int tam, ArrayList<String> alias) {
-		int i = 0;
-		String al = "";
-		while (i < tam) {
-			al += "Alias: " + alias.get(i) + "\n";
-			i++;
-		}
-		return al;
-	}
-
-	public String obtenerNumLikes(int tam, ArrayList<Integer> numlikesR, ArrayList<Integer> numlikesO) {
-		int i = 0;
-		String likes = "";
-		while (i < tam) {
-			likes += "Numero Likes Recibidos: " + numlikesR.get(i) + ", Numero Likes Otorgados: " + numlikesO.get(i)
-					+ "\n";
-			i++;
-		}
-		return likes;
 	}
 
 	public String filtroIngresos(int tam, ArrayList<Double> ingresos, ArrayList<String> nombre) {
@@ -70,7 +61,7 @@ public class OpCRUD {
 		}
 		return ing;
 	}
-	
+
 	public String filtroIngresosE(int tam, ArrayList<Double> ingresos, ArrayList<Integer> edad) {
 		String ing = "";
 		for (int i = 0; i < tam; i++) {
@@ -81,11 +72,13 @@ public class OpCRUD {
 		return ing;
 	}
 
-	public String genero(int tam, ArrayList<String> genero, ArrayList<String> nombre) {
+	public String generoM(int tam, ArrayList<String> genero, ArrayList<String> nombre) {
 		String gen = "";
 		int i = 0;
 		while (i < tam) {
-			gen += "Nombre: " + nombre.get(i) + " -> " + genero.get(i) + "\n";
+			if (genero.get(i).equals("M")) {
+				gen += "Nombre: " + nombre.get(i) + " -> " + genero.get(i) + "\n";
+			}
 			i++;
 		}
 		return gen;
@@ -109,44 +102,44 @@ public class OpCRUD {
 			}
 		} else if (tipo.equals("Apellido")) {
 			int i = 0;
-			while(i < apellido1.size()) {
+			while (i < apellido1.size()) {
 				des += "Apellido 1 ";
 				des += apellido1.get(i) + "\n";
 				des += "Apellido 2 ";
 				des += apellido2.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("Edad")) {
+		} else if (tipo.equals("Edad")) {
 			int i = 0;
-			while(i < edad.size()) {
+			while (i < edad.size()) {
 				des += edad.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("Alias")) {
+		} else if (tipo.equals("Alias")) {
 			int i = 0;
-			while(i < alias.size()) {
+			while (i < alias.size()) {
 				des += alias.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("Likes")) {
+		} else if (tipo.equals("Likes")) {
 			int i = 0;
-			while(i < numlikesR.size()) {
+			while (i < numlikesR.size()) {
 				des += "Likes Recibidos ";
 				des += numlikesR.get(i) + "\n";
 				des += "Likes Otorgados ";
 				des += numlikesO.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("ingresos")) {
+		} else if (tipo.equals("ingresos")) {
 			int i = 0;
-			while(i < ingresos.size()) {
+			while (i < ingresos.size()) {
 				des += ingresos.get(i);
 				i++;
 			}
 		}
 		return des;
 	}
-	
+
 	public String descendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
 			ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
@@ -167,37 +160,37 @@ public class OpCRUD {
 			}
 		} else if (tipo.equals("Apellido")) {
 			int i = 0;
-			while(i < apellido1.size()) {
+			while (i < apellido1.size()) {
 				des += "Apellido 1 ";
 				des += apellido1.get(i) + "\n";
 				des += "Apellido 2 ";
 				des += apellido2.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("Edad")) {
+		} else if (tipo.equals("Edad")) {
 			int i = 0;
-			while(i < edad.size()) {
+			while (i < edad.size()) {
 				des += edad.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("Alias")) {
+		} else if (tipo.equals("Alias")) {
 			int i = 0;
-			while(i < alias.size()) {
+			while (i < alias.size()) {
 				des += alias.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("Likes")) {
+		} else if (tipo.equals("Likes")) {
 			int i = 0;
-			while(i < numlikesR.size()) {
+			while (i < numlikesR.size()) {
 				des += "Likes Recibidos ";
 				des += numlikesR.get(i) + "\n";
 				des += "Likes Otorgados ";
 				des += numlikesO.get(i) + "\n";
 				i++;
 			}
-		}else if(tipo.equals("ingresos")) {
+		} else if (tipo.equals("ingresos")) {
 			int i = 0;
-			while(i < ingresos.size()) {
+			while (i < ingresos.size()) {
 				des += ingresos.get(i);
 				i++;
 			}
