@@ -72,12 +72,64 @@ public class OpCRUD {
 		return ing;
 	}
 
-	public String generoM(int tam, ArrayList<String> genero, ArrayList<String> nombre) {
+	public String generoM(String tipo, int tam, ArrayList<String> genero, ArrayList<String> nombre,
+			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
+			ArrayList<Integer> numlikesR, ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
 		String gen = "";
 		int i = 0;
 		while (i < tam) {
-			if (genero.get(i).equals("M")) {
-				gen += "Nombre: " + nombre.get(i) + " -> " + genero.get(i) + "\n";
+			if (genero.get(i).equals("M") && tipo.equals("Nombre")) {
+				gen += nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i) + " -> " + edad.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			} else if (genero.get(i).equals("M") && tipo.equals("Apellido")) {
+				gen += apellido1.get(i) + " -> " + apellido2.get(i) + " -> " + nombre.get(i) + " -> " + edad.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			} else if (genero.get(i).equals("M") && tipo.equals("Edad")) {
+				gen += edad.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			}else if (genero.get(i).equals("M") && tipo.equals("Alias")) {
+				gen += alias.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i)
+				+ " -> " + edad.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+				+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			}else if (genero.get(i).equals("M") && tipo.equals("Likes")) {
+				gen += numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i)
+				+ " -> " + apellido2.get(i) + " -> " + edad.get(i) + " -> " + alias.get(i) + " -> "
+				+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			}
+			i++;
+		}
+		return gen;
+	}
+
+	public String generoH(String tipo, int tam, ArrayList<String> genero, ArrayList<String> nombre,
+			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
+			ArrayList<Integer> numlikesR, ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
+		String gen = "";
+		int i = 0;
+		while (i < tam) {
+			if (genero.get(i).equals("H") && tipo.equals("Nombre")) {
+				gen += nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i) + " -> " + edad.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			} else if (genero.get(i).equals("H") && tipo.equals("Apellido")) {
+				gen += apellido1.get(i) + " -> " + apellido2.get(i) + " -> " + nombre.get(i) + " -> " + edad.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			} else if (genero.get(i).equals("H") && tipo.equals("Edad")) {
+				gen += edad.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i)
+						+ " -> " + alias.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+						+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			}else if (genero.get(i).equals("H") && tipo.equals("Alias")) {
+				gen += alias.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i) + " -> " + apellido2.get(i)
+				+ " -> " + edad.get(i) + " -> " + numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> "
+				+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
+			}else if (genero.get(i).equals("H") && tipo.equals("Likes")) {
+				gen += numlikesR.get(i) + " -> " + numlikesO.get(i) + " -> " + nombre.get(i) + " -> " + apellido1.get(i)
+				+ " -> " + apellido2.get(i) + " -> " + edad.get(i) + " -> " + alias.get(i) + " -> "
+				+ ingresos.get(i) + " -> " + genero.get(i) + "\n";
 			}
 			i++;
 		}
@@ -88,7 +140,6 @@ public class OpCRUD {
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
 			ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
 		String des = "";
-		System.out.println(nombre.get(0));
 		Collections.sort(nombre);
 		Collections.sort(apellido1);
 		Collections.sort(apellido2);
@@ -97,10 +148,11 @@ public class OpCRUD {
 		Collections.sort(numlikesR);
 		Collections.sort(numlikesO);
 		Collections.sort(ingresos);
-		System.out.println(nombre.get(0));
 		if (tipo.equals("Nombre")) {
-			for (String listaNombreO : nombre) {
-				des += listaNombreO + "\n";
+			int i = 0;
+			while (i < nombre.size()) {
+				des += nombre.get(i);
+				i++;
 			}
 		} else if (tipo.equals("Apellido")) {
 			int i = 0;
@@ -120,7 +172,7 @@ public class OpCRUD {
 		} else if (tipo.equals("Alias")) {
 			int i = 0;
 			while (i < alias.size()) {
-				des += alias.get(i) + " -> " + nombre.get(i)+"\n";
+				des += alias.get(i) + " -> " + nombre.get(i) + "\n";
 				i++;
 			}
 		} else if (tipo.equals("Likes")) {
