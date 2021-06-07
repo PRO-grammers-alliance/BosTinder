@@ -360,7 +360,7 @@ public class Controller implements ActionListener {
 									bosT.getMaFi().getIngresos()));
 				} else if (item.equals("Alias")) {
 					vista.getvAdm().getPConsul().getT_info()
-							.setText(bosT.getCrud().descendente("Alias", bosT.getMaFi().getNombre(),
+							.setText(bosT.getCrud().ascendente("Alias", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
@@ -403,7 +403,7 @@ public class Controller implements ActionListener {
 									bosT.getMaFi().getIngresos()) + "Falta el top 10");
 				} else if (item.equals("Nombre") && item2.equals("Ingresos >= a 244.85 USD")) {
 					vista.getvAdm().getPConsul().getT_info()
-							.setText(bosT.getCrud().ascendente("Apellido", bosT.getMaFi().getNombre(),
+							.setText(bosT.getCrud().ascendente("Nombre", bosT.getMaFi().getNombre(),
 									bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(),
 									bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
 									bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
