@@ -38,6 +38,7 @@ public class VentanaAdmin extends JFrame {
 		tabs.addTab("Eliminar Usuario",pElim);
 		
 		pInf = new PanelAdmInformes();
+		pInf.setOpaque(true);
 		tabs.addTab("Generar Informes",pInf);
 		
 	}

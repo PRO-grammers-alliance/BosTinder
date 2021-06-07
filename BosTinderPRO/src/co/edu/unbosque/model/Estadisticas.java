@@ -1,13 +1,10 @@
 package co.edu.unbosque.model;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.general.PieDataset;
 
 public class Estadisticas {
 
@@ -19,7 +16,7 @@ public class Estadisticas {
 	}
 
 	/**
-	 * Metodo que mide la media aricmetica de los datos enviados a el.
+	 * Método que mide la media aritmética de los datos enviados a él.
 	 * 
 	 * @param dato
 	 * @return
@@ -33,7 +30,7 @@ public class Estadisticas {
 	}
 
 	/**
-	 * metodo que devuelve la mediana de los datos enviadoa a el.
+	 * Método que devuelve la mediana de los datos enviados a él.
 	 * 
 	 * @param dato
 	 * @return
@@ -51,6 +48,13 @@ public class Estadisticas {
 		return mediana;
 	}
 
+	/**
+	 * Método que calcula la moda del arraylist con datos Int pasado por parámetro 
+	 * 
+	 * @param dato
+	 * @return
+	 */
+	
 	public ArrayList<Integer> modaInt(ArrayList<Integer> dato) {
 		ArrayList<Integer> moda = new ArrayList<>();
 		moda.add(0);
@@ -81,6 +85,13 @@ public class Estadisticas {
 		return moda;
 	}
 
+	/**
+	 * Método que calcula la moda del arraylist con datos Double pasado por parámetro
+	 * 
+	 * @param dato
+	 * @return
+	 */
+	
 	public ArrayList<Double> modaDouble(ArrayList<Double> dato) {
 		ArrayList<Double> moda = new ArrayList<>();
 		moda.add(0.0);
@@ -111,7 +122,7 @@ public class Estadisticas {
 		return moda;
 	}
 	/**
-	 * Segun el parametro que se pida el metodo regresa oro arrelgo en el cual va a mostrar cuantas veces se repite cada dato
+	 * Según el parametro que se pida el método regresa otro arreglo en el cual se va a mostrar cuantas veces se repite cada dato
 	 * @param dato
 	 * @return
 	 */
@@ -144,7 +155,7 @@ public class Estadisticas {
 	}
 	
 	/**
-	 * Segun el parametro que se pida el metodo regresa oro arrelgo en el cual va a mostrar cuantas veces se repite cada dato
+	 * Según el parametro que se pida el método regresa otro arrelgo en el cual se va a mostrar cuantas veces se repite cada dato
 	 * @param dato
 	 * @return
 	 */
@@ -213,13 +224,13 @@ public class Estadisticas {
 		return pie;
 	}
 	
-/**
- * Devuelve la informacion para el grafico de barras
- * @param string 
- * @param dato
- * @return 
- * @return
- */
+	/**
+	 * Devuelve la informacion para el grafico de barras
+	 * @param string 
+	 * @param dato
+	 *@return 
+	 * @return
+	 */
 	public DefaultCategoryDataset datos(ArrayList<String> dato) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		for(int i = 0; i<dato.size();i++) {
@@ -231,19 +242,20 @@ public class Estadisticas {
 		return dataset;
 	}
 
-public int getMedia() {
-	return media;
-}
-
-public void setMedia(int media) {
-	this.media = media;
-}
-
-public double getMediana() {
-	return mediana;
-}
-
-public void setMediana(double mediana) {
-	this.mediana = mediana;
-}
+	public int getMedia() {
+		return media;
+	}
+	
+	public void setMedia(int media) {
+		this.media = media;
+	}
+	
+	public double getMediana() {
+		return mediana;
+	}
+	
+	public void setMediana(double mediana) {
+		this.mediana = mediana;
+	}
+	
 }

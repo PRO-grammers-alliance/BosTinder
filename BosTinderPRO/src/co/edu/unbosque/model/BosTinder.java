@@ -25,9 +25,16 @@ public class BosTinder {
 		crud = new OpCRUD();
 	}
 
+	/**
+	 * Método que compara el login ingresado con la base de datos
+	 * 
+	 * @param user
+	 * @param clave
+	 * @return
+	 */
+	
 	public boolean validarLogin(String user, String clave) {
 		boolean validar = false;
-		// devolver int para saber en que espacio esta el usuario
 		int tamBD = maFi.getId().size();
 		for (int i = 1; i < tamBD; i++) {
 			String userBD = maFi.getUsuario().get(i);

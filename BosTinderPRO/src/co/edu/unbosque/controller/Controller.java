@@ -41,7 +41,19 @@ public class Controller implements ActionListener {
 		vista.getvAdm().getPConsul().getBox_filtrar().addActionListener(this);
 		vista.getvReg().getpRegistro().getDivorcioNo().addActionListener(this);
 		vista.getvReg().getpRegistro().getDivorcioSi().addActionListener(this);
-
+		vista.getvAdm().getpInf().getBox_Edad1().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_Edad2().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_Edad3().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_Ingresos1().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_Ingresos2().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_Ingresos3().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesOt1().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesOt2().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesOt3().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesRec1().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesRec2().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesRec3().addActionListener(this);
+		vista.getvAdm().getpInf().getB_GenerarInf().addActionListener(this);
 	}
 
 	@Override
