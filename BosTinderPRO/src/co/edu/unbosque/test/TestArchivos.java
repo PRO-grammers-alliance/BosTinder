@@ -105,6 +105,36 @@ public class TestArchivos extends TestCase {
         assertEquals("error", 58, moda);
     }
 	
+	public void testMediaFelipe2(){
+		mj.leerCsv();
+		ArrayList<Integer> dato =mj.getEdad();
+		ArrayList<String> arreglo = new ArrayList<>();
+		Collections.sort(dato);
+		int repetidos = 0;
+		int m = 0;
+		for(int i = 0; i<dato.size();i++) {
+			for(int j = i;j<dato.size();j++) {
+				if(dato.get(i).equals(dato.get(j))) {
+					repetidos++;
+					m = repetidos-1;
+					
+				}else if(!dato.get(i).equals(dato.get(j)) ) {
+					arreglo.add(repetidos+";"+dato.get(i));
+					i += m;
+					j=dato.size();
+					repetidos = 0;
+				}  
+				
+				if (dato.size()-j==1) {
+					arreglo.add(repetidos+";"+dato.get(i));
+					i=dato.size();
+					
+				}
+			}
+		}
+        assertEquals("error", 58, arreglo);
+    }
+	
 	public void testleerCsv() {
 		mj.leerCsv();
 		assertEquals("error", "1",mj.getId().get(0));

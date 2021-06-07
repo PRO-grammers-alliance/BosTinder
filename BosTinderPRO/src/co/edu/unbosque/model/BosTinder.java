@@ -21,6 +21,7 @@ public class BosTinder {
 		maFi = new ManejoFile();
 		mail = new Email();
 		randoms = new ArrayList<>();
+		estad = new Estadisticas();
 		crud = new OpCRUD();
 	}
 

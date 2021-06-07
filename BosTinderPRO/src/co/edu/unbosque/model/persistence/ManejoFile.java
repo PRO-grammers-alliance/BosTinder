@@ -1,18 +1,37 @@
 package co.edu.unbosque.model.persistence;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jfree.chart.*;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.title.TextTitle;
+import org.jfree.chart.ui.HorizontalAlignment;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvValidationException;
+import com.orsonpdf.PDFDocument;
+import com.orsonpdf.PDFGraphics2D;
+
 
 public class ManejoFile {
 
 	private String archivodata = ".\\Data\\datos.csv";
 	private FileReader archCSV;
 	private CSVReader csvReader;
-	private CSVWriter csvWriter;
 	private ArrayList<Integer> id;
 	private ArrayList<String> nombre;
 	private ArrayList<String> apellido1;
@@ -140,6 +159,149 @@ public class ManejoFile {
 			return "Registro no exitoso";
 		}
 		return "Registro exitoso";
+	}
+	
+	public JFreeChart crearGraficoPie(String sobreque ,PieDataset data) {
+		
+		 JFreeChart chart = ChartFactory.createPieChart(
+				 "Porcentajes "+sobreque, 
+		         data, 
+		         true, 
+		         true, 
+		         false);
+
+	    return chart;
+	}
+	
+	public JFreeChart crearGrafico(String sobreque ,DefaultCategoryDataset data) {
+		
+		 JFreeChart chart = ChartFactory.createBarChart
+			        ("Repeticion por "+sobreque,sobreque, "repeticiones", 
+			        data, PlotOrientation.VERTICAL, true,true, false);
+			        chart.setBackgroundPaint(Color.cyan);
+			        chart.getTitle().setPaint(Color.black); 
+			        CategoryPlot p = chart.getCategoryPlot(); 
+			        p.setRangeGridlinePaint(Color.red); 
+		return chart;
+	}
+	//	codigo para generar pdf de esdades bosT.getMaFi().generarPDF(bosT.getEstad().media(bosT.getMaFi().getEdad()), bosT.getEstad().modaInt(bosT.getMaFi().getEdad()), bosT.getEstad().mediana(bosT.getMaFi().getEdad()), "Edades", bosT.getEstad().datos(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getEdad())),bosT.getEstad().datosPie(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getEdad()), bosT.getMaFi().getEdad()));
+
+	public void generarPDF(int media, ArrayList<Integer> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
+		JFreeChart chart = crearGrafico(sobreque, data);
+		JFreeChart chart1 = crearGraficoPie(sobreque, pie);
+		PDFDocument pdfDoc = new PDFDocument();
+		pdfDoc.setTitle("Estadistica "+sobreque);
+		pdfDoc.setAuthor("Bos Tinder");
+		
+		com.orsonpdf.Page page0 = pdfDoc.createPage(new Rectangle(612, 468));
+		PDFGraphics2D g = page0.getGraphics2D();
+		g.setFont(new Font("Arial", Font.BOLD, 26));
+		String texto = "Informe Bos tinder sobre "+sobreque;
+		Rectangle2D esp0 =g.getFontMetrics().getStringBounds(texto, g);
+		
+		g.setColor(Color.black);
+		g.drawString(texto, 15, 10 + (int)esp0.getHeight());
+		
+		PDFGraphics2D g1 = page0.getGraphics2D();
+		g1.setFont(new Font("Arial", Font.BOLD, 15));
+		String mediatex = "El promedio de l@s "+sobreque+" es de : "+media+"%";
+		Rectangle2D esp1 =g1.getFontMetrics().getStringBounds(mediatex, g1);
+		
+		g1.create(15, 40, 30, 100);
+		g1.setColor(Color.black);
+		g1.drawString(mediatex, 15, 40);
+		
+		PDFGraphics2D g2 = page0.getGraphics2D();
+		g2.setFont(new Font("Arial", Font.BOLD, 15));
+		String modatex = "L@s "+sobreque+" la mas repetidad es : "+moda+".";
+		Rectangle2D esp2 =g2.getFontMetrics().getStringBounds(modatex, g2);
+		
+		g2.create(15, 60, 300, 300);
+		g2.setColor(Color.black);
+		g2.drawString(modatex, 15, 40);
+		
+		PDFGraphics2D g3 = page0.getGraphics2D();
+		g3.setFont(new Font("Arial", Font.BOLD, 15));
+		String medianatex = "El dato de la mitad es : "+mediana+".";
+		Rectangle2D espa3 =g3.getFontMetrics().getStringBounds(medianatex, g3);
+		
+		g3.create(15, 80, 300, 300);
+		g3.setColor(Color.black);
+		g3.drawString(medianatex, 15, 40);
+		
+		
+		com.orsonpdf.Page page1 = pdfDoc.createPage(new Rectangle(612, 468));
+		PDFGraphics2D g4 = page1.getGraphics2D();
+		
+		chart.draw(g4, new Rectangle(0, 0, 612, 468));
+		
+		com.orsonpdf.Page page3 = pdfDoc.createPage(new Rectangle(612, 468));
+		PDFGraphics2D g5 = page3.getGraphics2D();
+		
+		chart1.draw(g5, new Rectangle(0, 0, 612, 468));
+
+		pdfDoc.writeToFile(new File(".\\Data\\Estadisticas "+sobreque+".pdf"));
+		
+		
+	}
+	
+	public void generarPDFDouble (int media, ArrayList<Double> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
+		JFreeChart chart = crearGrafico(sobreque, data);
+		JFreeChart chart1 = crearGraficoPie(sobreque, pie);
+		PDFDocument pdfDoc = new PDFDocument();
+		pdfDoc.setTitle("Estadistica "+sobreque);
+		pdfDoc.setAuthor("Bos Tinder");
+		
+		com.orsonpdf.Page page0 = pdfDoc.createPage(new Rectangle(612, 468));
+		PDFGraphics2D g = page0.getGraphics2D();
+		g.setFont(new Font("Arial", Font.BOLD, 26));
+		String texto = "Informe Bos tinder sobre "+sobreque;
+		Rectangle2D esp0 =g.getFontMetrics().getStringBounds(texto, g);
+		
+		g.setColor(Color.black);
+		g.drawString(texto, 15, 10 + (int)esp0.getHeight());
+		
+		PDFGraphics2D g1 = page0.getGraphics2D();
+		g1.setFont(new Font("Arial", Font.BOLD, 15));
+		String mediatex = "El promedio de l@s "+sobreque+" es de : "+media+"%";
+		Rectangle2D esp1 =g1.getFontMetrics().getStringBounds(mediatex, g1);
+		
+		g1.create(15, 40, 30, 100);
+		g1.setColor(Color.black);
+		g1.drawString(mediatex, 15, 40);
+		
+		PDFGraphics2D g2 = page0.getGraphics2D();
+		g2.setFont(new Font("Arial", Font.BOLD, 15));
+		String modatex = "L@s "+sobreque+" la mas repetidad es : "+moda+".";
+		Rectangle2D esp2 =g2.getFontMetrics().getStringBounds(modatex, g2);
+		
+		g2.create(15, 60, 300, 300);
+		g2.setColor(Color.black);
+		g2.drawString(modatex, 15, 40);
+		
+		PDFGraphics2D g3 = page0.getGraphics2D();
+		g3.setFont(new Font("Arial", Font.BOLD, 15));
+		String medianatex = "El dato de la mitad es : "+mediana+".";
+		Rectangle2D espa3 =g3.getFontMetrics().getStringBounds(medianatex, g3);
+		
+		g3.create(15, 80, 300, 300);
+		g3.setColor(Color.black);
+		g3.drawString(medianatex, 15, 40);
+		
+		
+		com.orsonpdf.Page page1 = pdfDoc.createPage(new Rectangle(612, 468));
+		PDFGraphics2D g4 = page1.getGraphics2D();
+		
+		chart.draw(g4, new Rectangle(0, 0, 612, 468));
+		
+		com.orsonpdf.Page page3 = pdfDoc.createPage(new Rectangle(612, 468));
+		PDFGraphics2D g5 = page3.getGraphics2D();
+		
+		chart1.draw(g5, new Rectangle(0, 0, 612, 468));
+
+		pdfDoc.writeToFile(new File(".\\Data\\Estadisticas "+sobreque+".pdf"));
+		
+		
 	}
 	
 	
