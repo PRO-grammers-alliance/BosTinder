@@ -54,13 +54,13 @@ public class PanelAdmConsultar extends JPanel {
 		b_ascendente.setBounds(220, 25, 100, 20);
 		b_ascendente.setActionCommand("ASCENDENTE");
 		b_ascendente.setOpaque(false);
+		b_ascendente.setSelected(true);
 		add(b_ascendente);
 
 		b_descendente = new JRadioButton("Descendente");
 		b_descendente.setBounds(340, 25, 100, 20);
 		b_descendente.setActionCommand("DESCENDENTE");
 		b_descendente.setOpaque(false);
-		b_descendente.setSelected(true);
 		add(b_descendente);
 
 		t_info = new JTextArea();

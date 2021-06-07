@@ -297,39 +297,40 @@ public class Controller implements ActionListener {
 		if (arg0.getActionCommand().equals("ORDENAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
 			if (item.equals("Nombre")) {
-				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().orden("Nombre", bosT.getMaFi().getId().size(),
-								bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
-								bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
-								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
-								bosT.getMaFi().getIngresos()));
+				if(vista.getvAdm().getPConsul().getB_ascendente().isSelected()) {
+					vista.getvAdm().getPConsul().getT_info().setText("xd");
+					
+				}else{
+					vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().orden("Nombre", bosT.getMaFi().getId().size(),
+					bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
+					bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+					bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
+					bosT.getMaFi().getIngresos()));
+				}
+				
 			} else if (item.equals("Apellido")) {
-				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().orden("Apellido", bosT.getMaFi().getId().size(),
-								bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
-								bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
-								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
-								bosT.getMaFi().getIngresos()));
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().orden("Apellido", bosT.getMaFi().getId().size(),
+				bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
+				bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+				bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
+				bosT.getMaFi().getIngresos()));
 			} else if (item.equals("Edad")) {
-				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().orden("Edad", bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
-								bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
-								bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
-								bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().orden("Edad", bosT.getMaFi().getId().size(), bosT.getMaFi().getNombre(),
+				bosT.getMaFi().getApellido1(), bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
+				bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
+				bosT.getMaFi().getNumeroLikesOtorgados(), bosT.getMaFi().getIngresos()));
 			} else if (item.equals("Alias")) {
-				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().orden("Alias", bosT.getMaFi().getId().size(),
-								bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
-								bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
-								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
-								bosT.getMaFi().getIngresos()));
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().orden("Alias", bosT.getMaFi().getId().size(),
+				bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
+				bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+				bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
+				bosT.getMaFi().getIngresos()));
 			} else if (item.equals("Número Likes")) {
-				vista.getvAdm().getPConsul().getT_info()
-						.setText(bosT.getCrud().orden("Likes", bosT.getMaFi().getId().size(),
-								bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
-								bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
-								bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
-								bosT.getMaFi().getIngresos()));
+				vista.getvAdm().getPConsul().getT_info().setText(bosT.getCrud().orden("Likes", bosT.getMaFi().getId().size(),
+				bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
+				bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(), bosT.getMaFi().getUsuario(),
+				bosT.getMaFi().getNumeroLikesRecibidos(), bosT.getMaFi().getNumeroLikesOtorgados(),
+				bosT.getMaFi().getIngresos()));
 			} else {
 				vista.getvAdm().getPConsul().getT_info().setText("");
 			}
