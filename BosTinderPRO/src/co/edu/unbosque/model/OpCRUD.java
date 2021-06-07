@@ -88,6 +88,7 @@ public class OpCRUD {
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
 			ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
 		String des = "";
+		System.out.println(nombre.get(0));
 		Collections.sort(nombre);
 		Collections.sort(apellido1);
 		Collections.sort(apellido2);
@@ -96,6 +97,7 @@ public class OpCRUD {
 		Collections.sort(numlikesR);
 		Collections.sort(numlikesO);
 		Collections.sort(ingresos);
+		System.out.println(nombre.get(0));
 		if (tipo.equals("Nombre")) {
 			for (String listaNombreO : nombre) {
 				des += listaNombreO + "\n";
@@ -118,7 +120,7 @@ public class OpCRUD {
 		} else if (tipo.equals("Alias")) {
 			int i = 0;
 			while (i < alias.size()) {
-				des += alias.get(i) + "\n";
+				des += alias.get(i) + " -> " + nombre.get(i)+"\n";
 				i++;
 			}
 		} else if (tipo.equals("Likes")) {
