@@ -43,10 +43,10 @@ public class Controller implements ActionListener {
 		vista.getvAdm().getPConsul().getBox_filtrar().addActionListener(this);
 		vista.getvReg().getpRegistro().getDivorcioNo().addActionListener(this);
 		vista.getvReg().getpRegistro().getDivorcioSi().addActionListener(this);
-		vista.getvAdm().getpInf().getBox_Edad1().addActionListener(this);
-		vista.getvAdm().getpInf().getBox_Ingresos1().addActionListener(this);
-		vista.getvAdm().getpInf().getBox_LikesOt1().addActionListener(this);
-		vista.getvAdm().getpInf().getBox_LikesRec1().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_Edad().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_Ingresos().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesOt().addActionListener(this);
+		vista.getvAdm().getpInf().getBox_LikesRec().addActionListener(this);
 		vista.getvAdm().getpInf().getB_GenerarInf().addActionListener(this);
 	}
 
@@ -325,6 +325,57 @@ public class Controller implements ActionListener {
 				vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getEstatura().get(i) + "");
 			}
 		}
+		
+		if(arg0.getActionCommand().equals("EDADINFO")) {
+			if (vista.getvAdm().getpInf().getBox_Edad().isSelected()) {
+				vista.getvAdm().getpInf().getBox_Ingresos().setSelected(false);
+				vista.getvAdm().getpInf().getBox_LikesOt().setSelected(false);
+				vista.getvAdm().getpInf().getBox_LikesRec().setSelected(false);
+			}
+		}
+		
+		if(arg0.getActionCommand().equals("INGRESOSINFO")) {
+			if (vista.getvAdm().getpInf().getBox_Ingresos().isSelected()) {
+				vista.getvAdm().getpInf().getBox_Edad().setSelected(false);
+				vista.getvAdm().getpInf().getBox_LikesOt().setSelected(false);
+				vista.getvAdm().getpInf().getBox_LikesRec().setSelected(false);
+			}
+		}
+		
+		if(arg0.getActionCommand().equals("LIKESOINFO")) {
+			if (vista.getvAdm().getpInf().getBox_LikesOt().isSelected()) {
+				vista.getvAdm().getpInf().getBox_Ingresos().setSelected(false);
+				vista.getvAdm().getpInf().getBox_Edad().setSelected(false);
+				vista.getvAdm().getpInf().getBox_LikesRec().setSelected(false);
+			}
+		}
+		
+		if(arg0.getActionCommand().equals("LIKESRINFO")) {
+			if (vista.getvAdm().getpInf().getBox_LikesRec().isSelected()) {
+				vista.getvAdm().getpInf().getBox_Ingresos().setSelected(false);
+				vista.getvAdm().getpInf().getBox_LikesOt().setSelected(false);
+				vista.getvAdm().getpInf().getBox_Edad().setSelected(false);
+			}
+		}
+		
+		if(arg0.getActionCommand().equals("GENERARPDF")) {
+			if (vista.getvAdm().getpInf().getBox_Edad().isSelected()) {
+				bosT.getMaFi().generarPDF(bosT.getEstad().media(bosT.getMaFi().getEdad()), bosT.getEstad().modaInt(bosT.getMaFi().getEdad()), bosT.getEstad().mediana(bosT.getMaFi().getEdad()), "Edades", bosT.getEstad().datos(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getEdad())),bosT.getEstad().datosPie(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getEdad()), bosT.getMaFi().getEdad()));
+				vista.mostrarMensaje("Pdf generado satisfactoriamente\nPuede encontrarlo en su carpeta Data", "info");
+			}else if (vista.getvAdm().getpInf().getBox_Ingresos().isSelected()) {
+				bosT.getMaFi().generarPDFDouble(bosT.getEstad().mediaDouble(bosT.getMaFi().getIngresos()), bosT.getEstad().modaDouble(bosT.getMaFi().getIngresos()), bosT.getEstad().mediaDouble(bosT.getMaFi().getIngresos()), "Ingresos", bosT.getEstad().datos(bosT.getEstad().repetidos_DatosDouble(bosT.getMaFi().getIngresos())), bosT.getEstad().datosPieDouble(bosT.getEstad().repetidos_DatosDouble(bosT.getMaFi().getIngresos()), bosT.getMaFi().getIngresos()));
+				vista.mostrarMensaje("Pdf generado satisfactoriamente\nPuede encontrarlo en su carpeta Data", "info");
+			}else if (vista.getvAdm().getpInf().getBox_LikesOt().isSelected()) {
+				bosT.getMaFi().generarPDF(bosT.getEstad().media(bosT.getMaFi().getNumeroLikesOtorgados()), bosT.getEstad().modaInt(bosT.getMaFi().getNumeroLikesOtorgados()), bosT.getEstad().mediana(bosT.getMaFi().getNumeroLikesOtorgados()), "Likes Otorgados", bosT.getEstad().datos(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getNumeroLikesOtorgados())), bosT.getEstad().datosPie(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getNumeroLikesOtorgados()), bosT.getMaFi().getNumeroLikesOtorgados()));
+				vista.mostrarMensaje("Pdf generado satisfactoriamente\nPuede encontrarlo en su carpeta Data", "info");
+			}else if (vista.getvAdm().getpInf().getBox_LikesRec().isSelected()) {
+				bosT.getMaFi().generarPDF(bosT.getEstad().media(bosT.getMaFi().getNumeroLikesRecibidos()), bosT.getEstad().modaInt(bosT.getMaFi().getNumeroLikesRecibidos()), bosT.getEstad().mediana(bosT.getMaFi().getNumeroLikesRecibidos()), "Likes Recividos" , bosT.getEstad().datos(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getNumeroLikesRecibidos())), bosT.getEstad().datosPie(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getNumeroLikesRecibidos()), bosT.getMaFi().getNumeroLikesRecibidos()));
+				vista.mostrarMensaje("Pdf generado satisfactoriamente\nPuede encontrarlo en su carpeta Data", "info");
+			}else {
+				vista.mostrarMensaje("Por favor seleccione una opcion para poder generar el PDF", "error");
+			}
+		}
+
 		
 		if (arg0.getActionCommand().equals("ORDENAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();

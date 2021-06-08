@@ -1,22 +1,15 @@
 package co.edu.unbosque.model.persistence;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GradientPaint;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.jfree.chart.*;
 import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.title.TextTitle;
-import org.jfree.chart.ui.HorizontalAlignment;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
@@ -184,9 +177,8 @@ public class ManejoFile {
 			        p.setRangeGridlinePaint(Color.red); 
 		return chart;
 	}
-	//	codigo para generar pdf de esdades bosT.getMaFi().generarPDF(bosT.getEstad().media(bosT.getMaFi().getEdad()), bosT.getEstad().modaInt(bosT.getMaFi().getEdad()), bosT.getEstad().mediana(bosT.getMaFi().getEdad()), "Edades", bosT.getEstad().datos(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getEdad())),bosT.getEstad().datosPie(bosT.getEstad().repetidos_Datos(bosT.getMaFi().getEdad()), bosT.getMaFi().getEdad()));
 
-	public void generarPDF(int media, ArrayList<Integer> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
+	public void generarPDF(double media, ArrayList<Integer> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
 		JFreeChart chart = crearGrafico(sobreque, data);
 		JFreeChart chart1 = crearGraficoPie(sobreque, pie);
 		PDFDocument pdfDoc = new PDFDocument();
@@ -245,12 +237,12 @@ public class ManejoFile {
 		
 	}
 	
-	public void generarPDFDouble (int media, ArrayList<Double> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
+	public void generarPDFDouble (double media, ArrayList<Double> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
 		JFreeChart chart = crearGrafico(sobreque, data);
 		JFreeChart chart1 = crearGraficoPie(sobreque, pie);
 		PDFDocument pdfDoc = new PDFDocument();
 		pdfDoc.setTitle("Estadistica "+sobreque);
-		pdfDoc.setAuthor("Bos Tinder");
+		pdfDoc.setAuthor("Bos Tinder");	
 		
 		com.orsonpdf.Page page0 = pdfDoc.createPage(new Rectangle(612, 468));
 		PDFGraphics2D g = page0.getGraphics2D();

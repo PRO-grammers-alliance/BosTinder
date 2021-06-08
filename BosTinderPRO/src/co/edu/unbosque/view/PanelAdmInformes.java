@@ -76,36 +76,36 @@ public class PanelAdmInformes extends JPanel{
 		this.e_Info = e_Info;
 	}
 
-	public JCheckBox getBox_Edad1() {
+	public JCheckBox getBox_Edad() {
 		return box_Edad;
 	}
 
-	public void setBox_Edad1(JCheckBox box_Edad1) {
-		this.box_Edad = box_Edad1;
+	public void setBox_Edad(JCheckBox box_Edad) {
+		this.box_Edad = box_Edad;
 	}
 
-	public JCheckBox getBox_Ingresos1() {
+	public JCheckBox getBox_Ingresos() {
 		return box_Ingresos;
 	}
 
-	public void setBox_Ingresos1(JCheckBox box_Ingresos1) {
-		this.box_Ingresos = box_Ingresos1;
+	public void setBox_Ingresos(JCheckBox box_Ingresos) {
+		this.box_Ingresos = box_Ingresos;
 	}
 
-	public JCheckBox getBox_LikesOt1() {
+	public JCheckBox getBox_LikesOt() {
 		return box_LikesOt;
 	}
 
-	public void setBox_LikesOt1(JCheckBox box_LikesOt1) {
-		this.box_LikesOt = box_LikesOt1;
+	public void setBox_LikesOt(JCheckBox box_LikesOt) {
+		this.box_LikesOt = box_LikesOt;
 	}
 
-	public JCheckBox getBox_LikesRec1() {
+	public JCheckBox getBox_LikesRec() {
 		return box_LikesRec;
 	}
 
-	public void setBox_LikesRec1(JCheckBox box_LikesRec1) {
-		this.box_LikesRec = box_LikesRec1;
+	public void setBox_LikesRec(JCheckBox box_LikesRec) {
+		this.box_LikesRec = box_LikesRec;
 	}
 
 	public JButton getB_GenerarInf() {
@@ -115,5 +115,7 @@ public class PanelAdmInformes extends JPanel{
 	public void setB_GenerarInf(JButton b_GenerarInf) {
 		this.b_GenerarInf = b_GenerarInf;
 	}
+
+	
 
 }

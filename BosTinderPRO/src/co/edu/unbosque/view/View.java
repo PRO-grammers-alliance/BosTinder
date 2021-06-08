@@ -20,11 +20,11 @@ public class View {
 		vAdm = new VentanaAdmin(); 
 	}
 	
-	 public void mostrarMensaje(String arrayList, String tipo) {
+	 public void mostrarMensaje(String mensaje, String tipo) {
 		 if(tipo == "info") {
-			 JOptionPane.showMessageDialog(null, arrayList, "BosTinder", JOptionPane.INFORMATION_MESSAGE);
+			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.INFORMATION_MESSAGE);
 		 }else if(tipo == "error") {
-			 JOptionPane.showMessageDialog(null, arrayList, "BosTinder", JOptionPane.ERROR_MESSAGE);
+			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.ERROR_MESSAGE);
 		 }
 	}
 
