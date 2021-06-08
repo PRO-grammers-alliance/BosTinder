@@ -1,16 +1,12 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
 
 public class VentanaIngreso extends JFrame {
 	
 	private PanelIngreso pIngreso;
 	private Panelimagen pImagen;
-	private JLayeredPane lpane;
 	
 	public VentanaIngreso() {
 		setTitle("BosTinderLogin");
@@ -27,12 +23,10 @@ public class VentanaIngreso extends JFrame {
 	
 	public void inicializarComponentes() {
 		
-		lpane = new JLayeredPane();
-		getContentPane().add(lpane,BorderLayout.CENTER);
-		lpane.setBounds(0, 0, 700, 300);
 		
 		pIngreso = new PanelIngreso();
 		pIngreso.setBounds(410, 0, 290, 230);
+		pIngreso.setOpaque(false);
 		getContentPane().add(pIngreso);
 		
 		pImagen = new Panelimagen("/imagenes/ingreso.jpg");

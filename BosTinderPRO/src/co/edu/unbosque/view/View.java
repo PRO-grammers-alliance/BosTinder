@@ -1,37 +1,31 @@
 package co.edu.unbosque.view;
 
-import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 public class View {
 
 	private VentanaIngreso vIng;
+	private VentanaEdad vEdad;
 	private VentanaRegistro vReg;
 	private VentanaPrincipal vPri;
 	private VentanaAdmin vAdm;
+	private String ruta;
 	
 	public View(){
 		vIng = new VentanaIngreso();
+		vEdad = new VentanaEdad();
 		vReg = new VentanaRegistro();
 		vPri = new VentanaPrincipal();
 		vAdm = new VentanaAdmin(); 
 	}
 	
-	 public void mostrarMensaje(String arrayList, String tipo) {
+	 public void mostrarMensaje(String mensaje, String tipo) {
 		 if(tipo == "info") {
-			 JOptionPane.showMessageDialog(null, arrayList, "BosTinder", JOptionPane.INFORMATION_MESSAGE);
+			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.INFORMATION_MESSAGE);
 		 }else if(tipo == "error") {
-			 JOptionPane.showMessageDialog(null, arrayList, "BosTinder", JOptionPane.ERROR_MESSAGE);
+			 JOptionPane.showMessageDialog(null, mensaje, "BosTinder", JOptionPane.ERROR_MESSAGE);
 		 }
-	}
-
-	public VentanaAdmin getvAdm() {
-		return vAdm;
-	}
-
-	public void setvAdm(VentanaAdmin vAdm) {
-		this.vAdm = vAdm;
 	}
 
 	public VentanaIngreso getvIng() {
@@ -40,6 +34,14 @@ public class View {
 
 	public void setvIng(VentanaIngreso vIng) {
 		this.vIng = vIng;
+	}
+
+	public VentanaEdad getvEdad() {
+		return vEdad;
+	}
+
+	public void setvEdad(VentanaEdad vEdad) {
+		this.vEdad = vEdad;
 	}
 
 	public VentanaRegistro getvReg() {
@@ -57,5 +59,15 @@ public class View {
 	public void setvPri(VentanaPrincipal vPri) {
 		this.vPri = vPri;
 	}
+
+	public VentanaAdmin getvAdm() {
+		return vAdm;
+	}
+
+	public void setvAdm(VentanaAdmin vAdm) {
+		this.vAdm = vAdm;
+	}
+
+	 
 	
 }

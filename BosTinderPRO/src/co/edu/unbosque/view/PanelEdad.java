@@ -1,5 +1,6 @@
 package co.edu.unbosque.view;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -24,23 +25,27 @@ public class PanelEdad extends JPanel{
 		
 	}
 	public void inicializarComponentes() {
+		
+		
+		
 		instruccion1 = new JLabel("Ingrese su fecha de nacimiento");
 		instruccion1.setFont(new Font(getName(), Font.BOLD, 14));
-		instruccion1.setBounds(40, 25,300, 20);
+		instruccion1.setBounds(40, 45,300, 20);
+		instruccion1.setVisible(true);
 		add(instruccion1);
 
 		instruccion2 = new JLabel(" DD    /   MM    /    AAAA");
 		instruccion2.setFont(new Font(getName(), Font.BOLD, 14));
-		instruccion2.setBounds(70, 65, 300, 20);
+		instruccion2.setBounds(70, 63, 300, 20);
 		add(instruccion2);
 
 		separar = new JLabel("/");
-		separar.setFont(new Font(getName(), Font.BOLD, 14));
+		separar.setFont(new Font(getName(), Font.BOLD, 25));
 		separar.setBounds(110, 100, 100, 20);
 		add(separar);
 
 		separar2 = new JLabel("/");
-		separar2.setFont(new Font(getName(), Font.BOLD, 14));
+		separar2.setFont(new Font(getName(), Font.BOLD, 25));
 		separar2.setBounds(165, 100, 100, 20);
 		add(separar2);
 

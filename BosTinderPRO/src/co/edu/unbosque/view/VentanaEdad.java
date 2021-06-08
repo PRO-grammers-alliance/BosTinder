@@ -5,15 +5,15 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
-public class VentanaRegistro extends JFrame{
+public class VentanaEdad extends JFrame{
 	
-	private PanelRegistro pRegistro;
 	private Panelimagen pim;
 	private JLayeredPane lpane;
+	private PanelEdad pEdad;
 	
-	public VentanaRegistro() {
+	public VentanaEdad() {
 		setTitle("BosTinder Registro");
-		setSize(617,420);
+		setSize(300,300);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -28,17 +28,18 @@ public class VentanaRegistro extends JFrame{
 	private void inicializarComponentes() {
 		
 		lpane = new JLayeredPane();
-		lpane.setBounds(0, 0, 617, 420);
+		lpane.setBounds(0, 0, 300, 300);
 		getContentPane().add(lpane,BorderLayout.CENTER);
 		
-		pRegistro = new PanelRegistro();
-		pRegistro.setBounds(0, 0, 617, 373);
-		pRegistro.setOpaque(false);
-		lpane.add(pRegistro);
+		pEdad = new PanelEdad();
+		pEdad.setBounds(0, 0, 300, 300);
+		pEdad.setOpaque(false);
+		lpane.add(pEdad);
 		
-		pim = new Panelimagen("/imagenes/registro.jpg");
-		pim.setBounds(0, 0, 600, 380);
+		pim = new Panelimagen("/imagenes/edad.jpg");
+		pim.setBounds(0, 0, 300, 261);
 		lpane.add(pim);
+		
 	}
 
 	
@@ -59,11 +60,12 @@ public class VentanaRegistro extends JFrame{
 		this.pim = pim;
 	}
 
-	public PanelRegistro getpRegistro() {
-		return pRegistro;
+	public PanelEdad getpEdad() {
+		return pEdad;
 	}
 
-	public void setpRegistro(PanelRegistro pRegistro) {
-		this.pRegistro = pRegistro;
+	public void setpEdad(PanelEdad pEdad) {
+		this.pEdad = pEdad;
 	}
+	
 }
