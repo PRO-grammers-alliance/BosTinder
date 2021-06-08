@@ -1,7 +1,6 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class OpCRUD {

@@ -171,6 +171,10 @@ public class BosTinder {
 		return num;
 	}
 	
+	/**
+	 * Genera un número random para cambiar las imagenes.
+	 * @return
+	 */
 	public int usuarioRandom() {
 		int num;
 		num = (int) Math.round(Math.random() * 2);

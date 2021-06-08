@@ -62,6 +62,11 @@ public class Estadisticas {
 		return mediana;
 	}
 	
+	/**
+	 * Método que devuelve la mediana de los datos con datos Double   enviados a él. 
+	 * @param dato
+	 * @return
+	 */
 	public double medianaDouble(ArrayList<Double> dato) {
 		Collections.sort(dato);
 		if (dato.size() % 2 == 0) {

@@ -153,7 +153,12 @@ public class ManejoFile {
 		}
 		return "Registro exitoso";
 	}
-	
+	/**
+	 * Método que genera el diagrama de pie.
+	 * @param sobreque
+	 * @param data
+	 * @return
+	 */
 	public JFreeChart crearGraficoPie(String sobreque ,PieDataset data) {
 		
 		 JFreeChart chart = ChartFactory.createPieChart(
@@ -166,6 +171,12 @@ public class ManejoFile {
 	    return chart;
 	}
 	
+	/**
+	 * Método que genera el grafico de barras.
+	 * @param sobreque
+	 * @param data
+	 * @return
+	 */
 	public JFreeChart crearGrafico(String sobreque ,DefaultCategoryDataset data) {
 		
 		 JFreeChart chart = ChartFactory.createBarChart
@@ -178,6 +189,15 @@ public class ManejoFile {
 		return chart;
 	}
 
+	/**
+	 * Método que genera un archivo PDF.
+	 * @param media
+	 * @param moda
+	 * @param mediana
+	 * @param sobreque
+	 * @param data
+	 * @param pie
+	 */
 	public void generarPDF(double media, ArrayList<Integer> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
 		JFreeChart chart = crearGrafico(sobreque, data);
 		JFreeChart chart1 = crearGraficoPie(sobreque, pie);
@@ -236,7 +256,15 @@ public class ManejoFile {
 		
 		
 	}
-	
+	/**
+	 * Método que genera un archivo PDF.
+	 * @param media
+	 * @param moda
+	 * @param mediana
+	 * @param sobreque
+	 * @param data
+	 * @param pie
+	 */
 	public void generarPDFDouble (double media, ArrayList<Double> moda,double mediana, String sobreque ,DefaultCategoryDataset data, DefaultPieDataset<String> pie) {
 		JFreeChart chart = crearGrafico(sobreque, data);
 		JFreeChart chart1 = crearGraficoPie(sobreque, pie);
@@ -296,10 +324,14 @@ public class ManejoFile {
 		
 	}
 	
+	/**
+	 * Método que permite eliminar un usuario de la base de datos y actualiza las posciciones.
+	 * @param n
+	 * @return
+	 */
 	public String eliminarUsuario(int n) {
 		
 		id.remove(n-1);
-		id.set(n-1, n);
 		nombre.remove(n-1);
 		apellido1.remove(n-1);
 		apellido2.remove(n-1);
@@ -316,8 +348,15 @@ public class ManejoFile {
 		numeroMatches.remove(n-1);
 		estado.remove(n-1);
 		estatura.remove(n-1);
+		for(int num = n-1; num<id.size();num++) {
+			id.set(num, num+1);
+		}
 		
 		return "Usuario eliminado correctamente";
+	}
+	
+	public String leerUsuario(int pos) {
+		return null;
 	}
 	
 	
@@ -517,5 +556,7 @@ public class ManejoFile {
 	public void setEstado(ArrayList<String> estado) {
 		this.estado = estado;
 	}
+
+	
 
 }

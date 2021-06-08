@@ -379,25 +379,18 @@ public class Controller implements ActionListener {
 		}
 
 		if(arg0.getActionCommand().equals("BUSCAR")) {
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			try {
+				int pos = Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText());
+				String usuario = bosT.getMaFi().leerUsuario(pos);
+				vista.getvAdm().getpElim().getInfoUsuario().setText(usuario);
+			}catch(NumberFormatException e) {
+				vista.mostrarMensaje("Por favor ingrese unicamente un numero id valido. ", "error");
+			}
 		}
 		
 		if(arg0.getActionCommand().equals("ELIMINAR")) {
-			try {
-				vista.mostrarMensaje(bosT.getMaFi().eliminarUsuario(Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText())), "info");
-				bosT.getMaFi().escribirArchivo();
-			}catch(NumberFormatException e) {
-				vista.mostrarMensaje("Por favor ingrese unicamente el numero id. ", "error");
-			}
+			vista.mostrarMensaje(bosT.getMaFi().eliminarUsuario(Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText())), "info");
+			bosT.getMaFi().escribirArchivo();
 		}
 		
 		
