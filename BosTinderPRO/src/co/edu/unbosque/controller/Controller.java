@@ -878,7 +878,7 @@ public class Controller implements ActionListener {
 									bosT.getMaFi().getSexo(), bosT.getMaFi().getNombre(), bosT.getMaFi().getApellido1(),
 									bosT.getMaFi().getApellido2(), bosT.getMaFi().getEdad(),
 									bosT.getMaFi().getUsuario(), bosT.getMaFi().getNumeroLikesRecibidos(),
-									bosT.getMaFi().getIngresos()));
+									bosT.getMaFi().getIngresos())); 
 				}
 			} else if (item.equals("Género H") && item2.equals("Número Likes")) {
 				if (vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
