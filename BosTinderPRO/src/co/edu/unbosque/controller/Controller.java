@@ -392,11 +392,12 @@ public class Controller implements ActionListener {
 		}
 		
 		if(arg0.getActionCommand().equals("ELIMINAR")) {
-			
-			
-			
-			
-			
+			try {
+				vista.mostrarMensaje(bosT.getMaFi().eliminarUsuario(Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText())), "info");
+				bosT.getMaFi().escribirArchivo();
+			}catch(NumberFormatException e) {
+				vista.mostrarMensaje("Por favor ingrese unicamente el numero id. ", "error");
+			}
 		}
 		
 		

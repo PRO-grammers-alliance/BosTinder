@@ -296,6 +296,30 @@ public class ManejoFile {
 		
 	}
 	
+	public String eliminarUsuario(int n) {
+		
+		id.remove(n-1);
+		id.set(n-1, n);
+		nombre.remove(n-1);
+		apellido1.remove(n-1);
+		apellido2.remove(n-1);
+		sexo.remove(n-1);
+		usuario.remove(n-1);
+		contraseña.remove(n-1);
+		correo.remove(n-1);
+		nacimiento.remove(n-1);
+		edad.remove(n-1);
+		ingresos.remove(n-1);
+		divorcios.remove(n-1);
+		numeroLikesRecibidos.remove(n-1);
+		numeroLikesOtorgados.remove(n-1);
+		numeroMatches.remove(n-1);
+		estado.remove(n-1);
+		estatura.remove(n-1);
+		
+		return "Usuario eliminado correctamente";
+	}
+	
 	
 	public String getArchivodata() {
 		return archivodata;
