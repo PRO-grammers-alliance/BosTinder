@@ -61,5 +61,60 @@ public class PanelAdmEliminar extends JPanel{
 		add(panelInfo);
 	}
 
+	public JPanel getPanelInfo() {
+		return panelInfo;
+	}
+
+	public void setPanelInfo(JPanel panelInfo) {
+		this.panelInfo = panelInfo;
+	}
+
+	public JLabel getTextoEliminar() {
+		return textoEliminar;
+	}
+
+	public void setTextoEliminar(JLabel textoEliminar) {
+		this.textoEliminar = textoEliminar;
+	}
+
+	public JTextField getCampoTextoId() {
+		return campoTextoId;
+	}
+
+	public void setCampoTextoId(JTextField campoTextoId) {
+		this.campoTextoId = campoTextoId;
+	}
+
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
+	public void setBtnBuscar(JButton btnBuscar) {
+		this.btnBuscar = btnBuscar;
+	}
+
+	public JButton getBtnEliminar() {
+		return btnEliminar;
+	}
+
+	public void setBtnEliminar(JButton btnEliminar) {
+		this.btnEliminar = btnEliminar;
+	}
+
+	public JTextArea getInfoUsuario() {
+		return infoUsuario;
+	}
+
+	public void setInfoUsuario(JTextArea infoUsuario) {
+		this.infoUsuario = infoUsuario;
+	}
+
+	public JScrollPane getSp() {
+		return sp;
+	}
+
+	public void setSp(JScrollPane sp) {
+		this.sp = sp;
+	}
 	
 }

@@ -48,6 +48,8 @@ public class Controller implements ActionListener {
 		vista.getvAdm().getpInf().getBox_LikesOt().addActionListener(this);
 		vista.getvAdm().getpInf().getBox_LikesRec().addActionListener(this);
 		vista.getvAdm().getpInf().getB_GenerarInf().addActionListener(this);
+		vista.getvAdm().getpElim().getBtnBuscar().addActionListener(this);
+		vista.getvAdm().getpElim().getBtnEliminar().addActionListener(this);
 	}
 
 	@Override
@@ -376,6 +378,27 @@ public class Controller implements ActionListener {
 			}
 		}
 
+		if(arg0.getActionCommand().equals("BUSCAR")) {
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		if(arg0.getActionCommand().equals("ELIMINAR")) {
+			
+			
+			
+			
+			
+		}
+		
 		
 		if (arg0.getActionCommand().equals("ORDENAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
