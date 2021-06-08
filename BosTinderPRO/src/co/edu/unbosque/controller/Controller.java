@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.format.DateTimeParseException;
 
+import javax.swing.ImageIcon;
+
 import co.edu.unbosque.model.BosTinder;
 import co.edu.unbosque.view.View;
 
@@ -29,7 +31,7 @@ public class Controller implements ActionListener {
 	public void asignarOyentes() {
 		vista.getvIng().getpIngreso().getB_ingresar().addActionListener(this);
 		vista.getvIng().getpIngreso().getB_registro().addActionListener(this);
-		vista.getvReg().getpEdad().getB_validar().addActionListener(this);
+		vista.getvEdad().getpEdad().getB_validar().addActionListener(this);
 		vista.getvReg().getpRegistro().getValidarRegistro().addActionListener(this);
 		vista.getvPri().getPu().getLike().addActionListener(this);
 		vista.getvPri().getPu().getDislike().addActionListener(this);
@@ -69,9 +71,18 @@ public class Controller implements ActionListener {
 				vista.getvIng().setVisible(false);
 				vista.getvAdm().setVisible(true);
 			} else if (bosT.validarLogin(user, claveT)) {
+				int j =bosT.usuarioRandom();
+				if(j==0) {
+					vista.getvPri().getPu().getFotoSecreta().setVisible(true);
+				}else if(j==1) {
+					vista.getvPri().getPu().getFotoSecreta1().setVisible(true);
+				}else if(j==2) {
+					vista.getvPri().getPu().getFotoSecreta2().setVisible(true);
+				}
 				i = bosT.usuarioRandom(bosT.getMaFi().getId().size());
 				vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i) + " "
 						+ bosT.getMaFi().getApellido1().get(i) + " " + bosT.getMaFi().getApellido2().get(i));
+				vista.getvPri().getPu().getEdadNumero().setText(bosT.getMaFi().getEdad().get(i)+"");
 				vista.getvPri().getPu().getMoney().setText(bosT.getMaFi().getIngresos().get(i) + "");
 				if (bosT.getMaFi().getSexo().get(i).equals("M")) {
 					vista.getvPri().getPu().getGenero().setText("Femenino");
@@ -84,6 +95,7 @@ public class Controller implements ActionListener {
 					vista.getvPri().getPu().getDivircios().setVisible(false);
 					vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getEstatura().get(i) + "");
 				}
+				
 				vista.getvIng().setVisible(false);
 				vista.getvPri().setVisible(true);
 			} else {
@@ -94,27 +106,22 @@ public class Controller implements ActionListener {
 		}
 
 		if (arg0.getActionCommand().equals("REGISTRO")) {
-			vista.getvReg().setBounds(0, 0, 300, 300);
-			vista.getvReg().remove(vista.getvReg().getpRegistro());
-			vista.getvReg().add(vista.getvReg().getpEdad());
-			vista.getvReg().getpEdad().getAño().setText("");
-			vista.getvReg().getpEdad().getMes().setText("");
-			vista.getvReg().getpEdad().getDia().setText("");
+			vista.getvEdad().getpEdad().getAño().setText("");
+			vista.getvEdad().getpEdad().getMes().setText("");
+			vista.getvEdad().getpEdad().getDia().setText("");
 			vista.getvIng().setVisible(false);
-			vista.getvReg().setVisible(true);
+			vista.getvEdad().setVisible(true);
 		}
 
 		if (arg0.getActionCommand().equals("VALIDAR")) {
-			String año = vista.getvReg().getpEdad().getAño().getText();
-			String mes = vista.getvReg().getpEdad().getMes().getText();
-			String dia = vista.getvReg().getpEdad().getDia().getText();
+			String año = vista.getvEdad().getpEdad().getAño().getText();
+			String mes = vista.getvEdad().getpEdad().getMes().getText();
+			String dia = vista.getvEdad().getpEdad().getDia().getText();
 			fecha = dia + "/" + mes + "/" + año;
 			try {
 				if (bosT.getValIn().validadEdad(fecha)) {
-					vista.getvReg().setBounds(0, 0, 625, 429);
-					vista.getvReg().remove(vista.getvReg().getpEdad());
-					vista.getvReg().add(vista.getvReg().getpRegistro());
-					vista.getvReg().getpRegistro().setVisible(true);
+					vista.getvEdad().setVisible(false);
+					vista.getvReg().setVisible(true);
 				} else {
 					vista.mostrarMensaje(
 							"Debe ser mayor de edad" + "\n" + "para poder usar BosTinder" + "\n" + "Hasta pronto",
@@ -124,9 +131,9 @@ public class Controller implements ActionListener {
 				}
 			} catch (DateTimeParseException e) {
 				vista.mostrarMensaje("Ingrese fecha válida DD/MM/YYYY", "error");
-				vista.getvReg().getpEdad().getAño().setText("");
-				vista.getvReg().getpEdad().getMes().setText("");
-				vista.getvReg().getpEdad().getDia().setText("");
+				vista.getvEdad().getpEdad().getAño().setText("");
+				vista.getvEdad().getpEdad().getMes().setText("");
+				vista.getvEdad().getpEdad().getDia().setText("");
 			}
 		}
 
@@ -240,8 +247,17 @@ public class Controller implements ActionListener {
 					bosT.añadirUsuario(newId, nombre, apellido1, apellido2, sex, user, contraseña, correo, fecha, edad,
 							ingresos, divorcios, 0, 0, estatura, 0, "Disponible");
 					bosT.getMaFi().escribirArchivo();
-					vista.getvIng().getpIngreso().getB_registro().setEnabled(false);
 					vista.getvReg().setVisible(false);
+					vista.getvReg().getpRegistro().getNombreU().setText("");
+					vista.getvReg().getpRegistro().getApellido1().setText("");
+					vista.getvReg().getpRegistro().getApellido2().setText("");
+					vista.getvReg().getpRegistro().getCorreoE().setText("");
+					vista.getvReg().getpRegistro().getConfirmarCorreo().setText("");
+					vista.getvReg().getpRegistro().getAlias().setText("");
+					vista.getvReg().getpRegistro().getContraseña().setText("");
+					vista.getvReg().getpRegistro().getConfirmarC().setText("");
+					vista.getvReg().getpRegistro().getEstatura().setText("");
+					vista.getvReg().getpRegistro().getIngresosM().setText("");
 					vista.getvIng().setVisible(true);
 				}
 			} catch (NumberFormatException e) {
@@ -252,15 +268,27 @@ public class Controller implements ActionListener {
 		}
 
 		if (arg0.getActionCommand().equals("LIKE")) {
-			System.out.println(bosT.getMaFi().getId().size());
+			int j =bosT.usuarioRandom();
+			if(j==0) {
+				vista.getvPri().getPu().getFotoSecreta().setVisible(true);
+				vista.getvPri().getPu().getFotoSecreta1().setVisible(false);
+				vista.getvPri().getPu().getFotoSecreta2().setVisible(false);
+			}else if(j==1) {
+				vista.getvPri().getPu().getFotoSecreta1().setVisible(true);
+				vista.getvPri().getPu().getFotoSecreta2().setVisible(false);
+				vista.getvPri().getPu().getFotoSecreta().setVisible(false);
+			}else if(j==2) {
+				vista.getvPri().getPu().getFotoSecreta2().setVisible(true);
+				vista.getvPri().getPu().getFotoSecreta().setVisible(false);
+				vista.getvPri().getPu().getFotoSecreta1().setVisible(false);
+			}
 			bosT.getMaFi().getNumeroLikesRecibidos().set(i, bosT.getMaFi().getNumeroLikesRecibidos().get(i) + 1);
-			bosT.getMaFi().getNumeroLikesOtorgados().set(bosT.getPosicionU(),
-					bosT.getMaFi().getNumeroLikesOtorgados().get(bosT.getPosicionU()) + 1);
+			bosT.getMaFi().getNumeroLikesOtorgados().set(bosT.getPosicionU(),bosT.getMaFi().getNumeroLikesOtorgados().get(bosT.getPosicionU()) + 1);
 			bosT.getMaFi().escribirArchivo();
 			i = bosT.usuarioRandom(bosT.getMaFi().getId().size());
-			vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i) + " "
-					+ bosT.getMaFi().getApellido1().get(i) + " " + bosT.getMaFi().getApellido2().get(i));
+			vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i) + " "+ bosT.getMaFi().getApellido1().get(i) + " " + bosT.getMaFi().getApellido2().get(i));
 			vista.getvPri().getPu().getMoney().setText(bosT.getMaFi().getIngresos().get(i) + "");
+			vista.getvPri().getPu().getEdadNumero().setText(bosT.getMaFi().getEdad().get(i)+"");
 			if (bosT.getMaFi().getSexo().get(i).equals("M")) {
 				vista.getvPri().getPu().getGenero().setText("Femenino");
 				vista.getvPri().getPu().getEstatura().setVisible(false);
@@ -275,10 +303,24 @@ public class Controller implements ActionListener {
 		}
 
 		if (arg0.getActionCommand().equals("NOLIKE")) {
+			int j =bosT.usuarioRandom();
+			if(j==0) {
+				vista.getvPri().getPu().getFotoSecreta().setVisible(true);
+				vista.getvPri().getPu().getFotoSecreta1().setVisible(false);
+				vista.getvPri().getPu().getFotoSecreta2().setVisible(false);
+			}else if(j==1) {
+				vista.getvPri().getPu().getFotoSecreta1().setVisible(true);
+				vista.getvPri().getPu().getFotoSecreta2().setVisible(false);
+				vista.getvPri().getPu().getFotoSecreta().setVisible(false);
+			}else if(j==2) {
+				vista.getvPri().getPu().getFotoSecreta2().setVisible(true);
+				vista.getvPri().getPu().getFotoSecreta().setVisible(false);
+				vista.getvPri().getPu().getFotoSecreta1().setVisible(false);
+			}
 			i = bosT.usuarioRandom(bosT.getMaFi().getId().size());
-			vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i) + " "
-					+ bosT.getMaFi().getApellido1().get(i) + " " + bosT.getMaFi().getApellido2().get(i));
+			vista.getvPri().getPu().getNombreCompleto().setText(bosT.getMaFi().getNombre().get(i) + " "+ bosT.getMaFi().getApellido1().get(i) + " " + bosT.getMaFi().getApellido2().get(i));
 			vista.getvPri().getPu().getMoney().setText(bosT.getMaFi().getIngresos().get(i) + "");
+			vista.getvPri().getPu().getEdadNumero().setText(bosT.getMaFi().getEdad().get(i)+"");
 			if (bosT.getMaFi().getSexo().get(i).equals("M")) {
 				vista.getvPri().getPu().getGenero().setText("Femenino");
 				vista.getvPri().getPu().getEstatura().setVisible(false);
@@ -291,9 +333,7 @@ public class Controller implements ActionListener {
 				vista.getvPri().getPu().getEoD().setText(bosT.getMaFi().getEstatura().get(i) + "");
 			}
 		}
-		/**
-		 * Ordenar: Nombre, Apellido, Edad, Alias, Numero likes
-		 */
+		
 		if (arg0.getActionCommand().equals("ORDENAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
 			if (item.equals("Nombre")) {

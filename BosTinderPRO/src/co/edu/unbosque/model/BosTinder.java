@@ -170,6 +170,12 @@ public class BosTinder {
 
 		return num;
 	}
+	
+	public int usuarioRandom() {
+		int num;
+		num = (int) Math.round(Math.random() * 2);
+		return num;
+	}
 
 	public Estadisticas getEstad() {
 		return estad;

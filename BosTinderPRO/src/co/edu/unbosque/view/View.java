@@ -1,18 +1,20 @@
 package co.edu.unbosque.view;
 
-import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 public class View {
 
 	private VentanaIngreso vIng;
+	private VentanaEdad vEdad;
 	private VentanaRegistro vReg;
 	private VentanaPrincipal vPri;
 	private VentanaAdmin vAdm;
+	private String ruta;
 	
 	public View(){
 		vIng = new VentanaIngreso();
+		vEdad = new VentanaEdad();
 		vReg = new VentanaRegistro();
 		vPri = new VentanaPrincipal();
 		vAdm = new VentanaAdmin(); 
@@ -26,20 +28,20 @@ public class View {
 		 }
 	}
 
-	public VentanaAdmin getvAdm() {
-		return vAdm;
-	}
-
-	public void setvAdm(VentanaAdmin vAdm) {
-		this.vAdm = vAdm;
-	}
-
 	public VentanaIngreso getvIng() {
 		return vIng;
 	}
 
 	public void setvIng(VentanaIngreso vIng) {
 		this.vIng = vIng;
+	}
+
+	public VentanaEdad getvEdad() {
+		return vEdad;
+	}
+
+	public void setvEdad(VentanaEdad vEdad) {
+		this.vEdad = vEdad;
 	}
 
 	public VentanaRegistro getvReg() {
@@ -57,5 +59,15 @@ public class View {
 	public void setvPri(VentanaPrincipal vPri) {
 		this.vPri = vPri;
 	}
+
+	public VentanaAdmin getvAdm() {
+		return vAdm;
+	}
+
+	public void setvAdm(VentanaAdmin vAdm) {
+		this.vAdm = vAdm;
+	}
+
+	 
 	
 }
