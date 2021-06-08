@@ -379,6 +379,7 @@ public class Controller implements ActionListener {
 		
 		if (arg0.getActionCommand().equals("ORDENAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
+			vista.getvAdm().getpConsul().getBox_filtrar().setSelectedItem("Sin Filtro");
 			if (item.equals("Nombre")) {
 				if (vista.getvAdm().getPConsul().getB_ascendente().isSelected()) {
 					vista.getvAdm().getPConsul().getT_info()
@@ -459,9 +460,7 @@ public class Controller implements ActionListener {
 				vista.getvAdm().getPConsul().getT_info().setText("");
 			}
 		}
-		/**
-		 * Ascendente
-		 */
+		//Ascendente
 		if (arg0.getActionCommand().equals("ASCENDENTE")) {
 			if (vista.getvAdm().getPConsul().getB_ascendente().isSelected()) {
 				vista.getvAdm().getPConsul().getB_descendente().setSelected(false);
@@ -535,9 +534,7 @@ public class Controller implements ActionListener {
 				vista.getvAdm().getPConsul().getB_descendente().setSelected(true);
 			}
 		}
-		/**
-		 * Descendente
-		 */
+		//Descendente
 		if (arg0.getActionCommand().equals("DESCENDENTE")) {
 			if (vista.getvAdm().getPConsul().getB_descendente().isSelected()) {
 				vista.getvAdm().getPConsul().getB_ascendente().setSelected(false);
@@ -608,9 +605,7 @@ public class Controller implements ActionListener {
 				vista.getvAdm().getPConsul().getB_ascendente().setSelected(true);
 			}
 		}
-		/**
-		 * Filtros: Sin filtros, Top 10 más likes, Ingresos >= a 244.85 USD, Genero
-		 */
+		//Filtros: Sin filtros, Top 10 más likes, Ingresos >= a 244.85 USD, Genero 
 		if (arg0.getActionCommand().equals("FILTRAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_filtrar().getSelectedItem().toString();
 			String item2 = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();

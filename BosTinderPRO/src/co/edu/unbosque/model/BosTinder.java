@@ -158,7 +158,7 @@ public class BosTinder {
 		int contador;
 		do {
 			contador=0;
-			num = (int) Math.round(Math.random() * tam);
+			num = (int) Math.round(Math.random() * (tam - 1));
 			for (int i = 0; i < randoms.size(); i++) {
 				if (randoms.get(i).equals(num) || num == posicionU) {
 					contador++;
