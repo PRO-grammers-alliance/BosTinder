@@ -1,6 +1,7 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 public class OpCRUD {
@@ -16,52 +17,52 @@ public class OpCRUD {
 		ArrayList<String> nom = new ArrayList<>();
 		int i = 0;
 		while (i < nombre.size()) {
-			if (ingresos.get(i) >= 244.85 && tipo.equals("Ascendente") && tipo2.equals("Nombre")) {
+			if (tipo2.equals("Nombre") && tipo.equals("Ascendente") && ingresos.get(i) >= 244.85) {
 				ing = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom);
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Descendente") && tipo2.equals("Nombre")) {
+			} else if (tipo2.equals("Nombre") && tipo.equals("Descendente") && ingresos.get(i) >= 244.85) {
 				ing = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom, Collections.reverseOrder());
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Descendente") && tipo2.equals("Apellido")) {
+			} else if (tipo2.equals("Apellido") && tipo.equals("Descendente") && ingresos.get(i) >= 244.85) {
 				ing = apellido1.get(i) + "  " + apellido2.get(i) + "  " + nombre.get(i) + " " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom, Collections.reverseOrder());
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Ascendente") && tipo2.equals("Apellido")) {
+			} else if (tipo2.equals("Apellido") && tipo.equals("Ascendente") && ingresos.get(i) >= 244.85) {
 				ing = apellido1.get(i) + "  " + apellido2.get(i) + "  " + nombre.get(i) + " " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom);
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Ascendente") && tipo2.equals("Edad")) {
+			} else if (tipo2.equals("Edad") && tipo.equals("Ascendente") && ingresos.get(i) >= 244.85) {
 				ing = edad.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom);
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Descendente") && tipo2.equals("Edad")) {
+			} else if (tipo2.equals("Edad") && tipo.equals("Descendente") && ingresos.get(i) >= 244.85) {
 				ing = edad.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom, Collections.reverseOrder());
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Ascendente") && tipo2.equals("Alias")) {
+			} else if (tipo2.equals("Alias") && tipo.equals("Ascendente") && ingresos.get(i) >= 244.85) {
 				ing = alias.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom);
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Descendente") && tipo2.equals("Alias")) {
+			} else if (tipo2.equals("Alias") && tipo.equals("Descendente") && ingresos.get(i) >= 244.85) {
 				ing = alias.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom, Collections.reverseOrder());
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Ascendente") && tipo2.equals("Likes")) {
+			} else if (tipo2.equals("Likes") && tipo.equals("Ascendente") && ingresos.get(i) >= 244.85) {
 				ing = numlikesR.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
 				Collections.sort(nom);
-			} else if (ingresos.get(i) >= 244.85 && tipo.equals("Descendente") && tipo2.equals("Likes")) {
+			} else if (tipo2.equals("Likes") && tipo.equals("Descendente") && ingresos.get(i) >= 244.85) {
 				ing = numlikesR.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(ing);
@@ -85,12 +86,12 @@ public class OpCRUD {
 		ArrayList<String> nom = new ArrayList<>();
 		int i = 0;
 		while (i < tam) {
-			if (tipo.equals("Nombre") && tipo2.equals("Ascendente") && genero.get(i).equals("H")) {
+			if (tipo.equals("Nombre") && tipo2.equals("Ascendente") && genero.get(i).equals("M")) {
 				gen = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Nombre") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
+			} else if (tipo.equals("Nombre") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
 				gen = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -100,7 +101,7 @@ public class OpCRUD {
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Apellido") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
+			} else if (tipo.equals("Apellido") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
 				gen = apellido1.get(i) + "  " + apellido2.get(i) + "  " + nombre.get(i) + " " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -110,7 +111,7 @@ public class OpCRUD {
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Edad") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
+			} else if (tipo.equals("Edad") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
 				gen = edad.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -120,7 +121,7 @@ public class OpCRUD {
 						+ edad.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Alias") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
+			} else if (tipo.equals("Alias") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
 				gen = alias.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -130,7 +131,7 @@ public class OpCRUD {
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Likes") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
+			} else if (tipo.equals("Likes") && tipo2.equals("Descendente") && genero.get(i).equals("M")) {
 				gen = numlikesR.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -159,9 +160,9 @@ public class OpCRUD {
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Nombre") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
+			} else if (tipo.equals("Nombre") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
 				gen = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
-						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
+						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom, Collections.reverseOrder());
 			} else if (tipo.equals("Apellido") && tipo2.equals("Ascendente") && genero.get(i).equals("H")) {
@@ -169,7 +170,7 @@ public class OpCRUD {
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Apellido") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
+			} else if (tipo.equals("Apellido") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
 				gen = apellido1.get(i) + "  " + apellido2.get(i) + "  " + nombre.get(i) + " " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -179,7 +180,7 @@ public class OpCRUD {
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Edad") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
+			} else if (tipo.equals("Edad") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
 				gen = edad.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -189,7 +190,7 @@ public class OpCRUD {
 						+ edad.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Alias") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
+			} else if (tipo.equals("Alias") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
 				gen = alias.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -199,7 +200,7 @@ public class OpCRUD {
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
 				Collections.sort(nom);
-			}else if (tipo.equals("Likes") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
+			} else if (tipo.equals("Likes") && tipo2.equals("Descendente") && genero.get(i).equals("H")) {
 				gen = numlikesR.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "  " + genero.get(i) + "\n";
 				nom.add(gen);
@@ -218,54 +219,38 @@ public class OpCRUD {
 
 	public String ascendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
-			ArrayList<Integer> numlikesO, ArrayList<Double> ingresos) {
+			ArrayList<Double> ingresos) {
 		String asc = "";
+		int i = 0;
 		ArrayList<String> nom = new ArrayList<>();
-		if (tipo.equals("Nombre")) {
-			int i = 0;
-			while (i < nombre.size()) {
+		while (i < nombre.size()) {
+			if (tipo.equals("Nombre")) {
 				asc = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(asc);
 				Collections.sort(nom);
-				i++;
-			}
-		} else if (tipo.equals("Apellido")) {
-			int i = 0;
-			while (i < apellido1.size()) {
+			} else if (tipo.equals("Apellido")) {
 				asc = apellido1.get(i) + "  " + apellido2.get(i) + "  " + nombre.get(i) + " " + edad.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(asc);
 				Collections.sort(nom);
-				i++;
-			}
-		} else if (tipo.equals("Edad")) {
-			int i = 0;
-			while (i < edad.size()) {
+			} else if (tipo.equals("Edad")) {
 				asc = edad.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ alias.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(asc);
 				Collections.sort(nom);
-				i++;
-			}
-		} else if (tipo.equals("Alias")) {
-			int i = 0;
-			while (i < alias.size()) {
+			} else if (tipo.equals("Alias")) {
 				asc = alias.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + numlikesR.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(asc);
 				Collections.sort(nom);
-				i++;
-			}
-		} else if (tipo.equals("Likes")) {
-			int i = 0;
-			while (i < numlikesR.size()) {
+			} else if (tipo.equals("Likes")) {
 				asc = numlikesR.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(asc);
 				Collections.sort(nom);
-				i++;
 			}
+			i++;
 		}
 		int j = 0;
 		String g = "";
