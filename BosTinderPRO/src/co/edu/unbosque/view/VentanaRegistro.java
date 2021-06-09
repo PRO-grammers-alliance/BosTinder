@@ -5,12 +5,29 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
+/**
+ * Clase de la interfaz grafica que permite la introduccion de los datos para el registro de usuario.
+ * @author Oscar Florez
+ *
+ */
 public class VentanaRegistro extends JFrame{
 	
+	/**
+	 * Objeto de tipo PanelRegistro para el ingresos de datos en la ventana.
+	 */
 	private PanelRegistro pRegistro;
+	/**
+	 * Objeto de tipo Panelimagen para el fondo de la ventana.
+	 */
 	private Panelimagen pim;
+	/**
+	 * Objeto de tipo JLayeredPane para la organizacion de la ventana.
+	 */
 	private JLayeredPane lpane;
 	
+	/**
+	 * Método constructor.
+	 */
 	public VentanaRegistro() {
 		setTitle("BosTinder Registro");
 		setSize(617,420);
@@ -25,6 +42,9 @@ public class VentanaRegistro extends JFrame{
 		setVisible(false);
 	}
 
+	/**
+	 * Método que inicializa las componentes de la ventana.
+	 */
 	private void inicializarComponentes() {
 		
 		lpane = new JLayeredPane();

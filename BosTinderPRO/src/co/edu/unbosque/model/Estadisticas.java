@@ -5,10 +5,21 @@ import java.util.Collections;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-
+/**
+ * Esta clase genera la informacion sobre medidas de tendencia central asi como lo nesesario para los graficos.
+ * @author FELIPE SEGURA
+ * @author David Real
+ *
+ */
 public class Estadisticas {
 
+	/**
+	 * Objeto de tipo Double que representa la la tendencia central conocida como media.
+	 */
 	private double media;
+	/**
+	 * Objeto de tipo Double que representa la la tendencia central conocida como mediana.
+	 */
 	private double mediana;
 
 	public Estadisticas() {
@@ -19,7 +30,7 @@ public class Estadisticas {
 	 * Método que mide la media aritmética de los datos enviados a él.
 	 * 
 	 * @param dato
-	 * @return
+	 * @return double medida de tendencia central.
 	 */
 	public double media(ArrayList<Integer> dato) {
 		for (int i = 0; i < dato.size(); i++) {
@@ -33,7 +44,7 @@ public class Estadisticas {
 	 * Método que mide la media aritmética de los datos enviados a él.
 	 * 
 	 * @param dato
-	 * @return
+	 * @returndouble medida de tendencia central.
 	 */
 	public double mediaDouble(ArrayList<Double> dato) {
 		for (int i = 0; i < dato.size(); i++) {
@@ -47,7 +58,7 @@ public class Estadisticas {
 	 * Método que devuelve la mediana de los datos enviados a él.
 	 * 
 	 * @param dato
-	 * @return
+	 * @return double medida de tendencia central.
 	 */
 	public double mediana(ArrayList<Integer> dato) {
 		Collections.sort(dato);
@@ -65,7 +76,7 @@ public class Estadisticas {
 	/**
 	 * Método que devuelve la mediana de los datos con datos Double   enviados a él. 
 	 * @param dato
-	 * @return
+	 * @return double medida de tendencia central.
 	 */
 	public double medianaDouble(ArrayList<Double> dato) {
 		Collections.sort(dato);
@@ -84,7 +95,7 @@ public class Estadisticas {
 	 * Método que calcula la moda del arraylist con datos Int pasado por parámetro 
 	 * 
 	 * @param dato
-	 * @return
+	 * @return ArrayList<Integer> medida de tendencia central (modal o bimodal).
 	 */
 	
 	public ArrayList<Integer> modaInt(ArrayList<Integer> dato) {
@@ -121,7 +132,7 @@ public class Estadisticas {
 	 * Método que calcula la moda del arraylist con datos Double pasado por parámetro
 	 * 
 	 * @param dato
-	 * @return
+	 * @return ArrayList<Double> medida de tendencia central (modal o bimodal).
 	 */
 	
 	public ArrayList<Double> modaDouble(ArrayList<Double> dato) {
@@ -156,7 +167,7 @@ public class Estadisticas {
 	/**
 	 * Según el parametro que se pida el método regresa otro arreglo en el cual se va a mostrar cuantas veces se repite cada dato
 	 * @param dato
-	 * @return
+	 * @return ArrayList<String> nos permite observar cuantas veces se repiten los datos.
 	 */
 	public ArrayList<String> repetidos_Datos(ArrayList<Integer> dato){
 		ArrayList<String> arreglo = new ArrayList<>();
@@ -189,7 +200,7 @@ public class Estadisticas {
 	/**
 	 * Según el parametro que se pida el método regresa otro arrelgo en el cual se va a mostrar cuantas veces se repite cada dato
 	 * @param dato
-	 * @return
+	 * @return ArrayList<String> nos permite observar cuantas veces se repiten los datos.
 	 */
 	public ArrayList<String> repetidos_DatosDouble(ArrayList<Double> dato){
 		ArrayList<String> arreglo = new ArrayList<>();
@@ -223,7 +234,7 @@ public class Estadisticas {
 	 * Devuelve la informacion para el grafico de pie.
 	 * @param dato
 	 * @param tipo
-	 * @return
+	 * @return DefaultPieDataset<String> Informacion para el grafico de pie.
 	 */
 	public DefaultPieDataset<String> datosPie( ArrayList<String> dato,ArrayList<Integer>tipo) {
 		DefaultPieDataset<String> pie = new DefaultPieDataset<String>();
@@ -241,7 +252,7 @@ public class Estadisticas {
 	 * Devuelve la informacion para el grafico de pie.
 	 * @param dato
 	 * @param tipo
-	 * @return
+	 * @return DefaultPieDataset<String> Informacion para el grafico de pie.
 	 */
 	public DefaultPieDataset<String> datosPieDouble( ArrayList<String> dato,ArrayList<Double>tipo) {
 		DefaultPieDataset<String> pie = new DefaultPieDataset<String>();
@@ -260,8 +271,7 @@ public class Estadisticas {
 	 * Devuelve la informacion para el grafico de barras
 	 * @param string 
 	 * @param dato
-	 *@return 
-	 * @return
+	 * @return  DefaultCategoryDataset Informacion para el grafico de barras.
 	 */
 	public DefaultCategoryDataset datos(ArrayList<String> dato) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();

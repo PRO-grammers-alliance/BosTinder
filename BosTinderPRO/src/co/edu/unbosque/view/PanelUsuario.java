@@ -8,33 +8,93 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-
+/**
+ * Clase de la interfaz grafica que permite la interracion del usuarion con el programa.
+ * @author FELIPE SEGURA
+ *
+ */
 public class PanelUsuario extends JPanel{
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private  JLabel fotoSecreta;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private  JLabel fotoSecreta1;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private  JLabel fotoSecreta2;
+	/**
+	 * Objeto de tipo JButton.
+	 */
 	private JButton like;
+	/**
+	 * Objeto de tipo JButton.
+	 */
 	private JButton dislike;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel nombreCompleto;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel genero;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel edad;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel edadNumero;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel estatura;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel divircios;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel EoD;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel ingresos;
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel money;
+	/**
+	 * Objeto de tipo ImageIcon.
+	 */
 	private ImageIcon foto;
+	/**
+	 * Objeto de tipo ImageIcon.
+	 */
 	private ImageIcon foto1;
+	/**
+	 * Objeto de tipo ImageIcon.
+	 */
 	private ImageIcon foto2;
 	
-	
+	/**
+	 * Método constructor.
+	 */
 	public PanelUsuario() {
 		setLayout( null );
 		inicializarComponentes();
 	}
 	
+	/**
+	 * Método que inicializa las componentes del panel.
+	 */
 	public void inicializarComponentes() {
 		foto = new ImageIcon(getClass().getResource("/imagenes/0.jpg"));
 		foto1 = new ImageIcon(getClass().getResource("/imagenes/1.jpg"));

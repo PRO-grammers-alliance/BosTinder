@@ -3,18 +3,49 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.persistence.ManejoFile;
-
+/**
+ * Esta clase permite la comunicacion del controller con las demas clases del modelo, ademas de contener metodos cruciales para la ejecucion del programa.
+ * @author FELIPE SEGURA
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
 public class BosTinder {
 
+	/**
+	 * Objeto de tipo validaciones Inicio que permite comunicar la entrada de datos por las clases de interfaz grafica y validar si es correcta la informacion.
+	 */
 	private ValidacionesInicio valIn;
+	/**
+	 * Objeto de tipo ManejoFIle que permite la manipulacion de la base de datos.
+	 */
 	private ManejoFile maFi;
+	/**
+	 * Objeto de tipo Email que permite la comunicacion con el servidor smtp.
+	 */
 	private Email mail;
+	/**
+	 * Objeto de tipo Estadistica que retorna las variables de tendencia central.
+	 */
 	private Estadisticas estad;
+	/**
+	 * Objeto de tipo OpCRUD que permite el filtrado de datos.
+	 */
 	private OpCRUD crud;
-
+	
+	/**
+	 * Objeto de tipo ArrayList<Integer> el cual guarda los numeros generados aleatoriamente para no repetirlos.
+	 */
 	private ArrayList<Integer> randoms;
+	/**
+	 * Objeto de tipo int el cual guarda la posicion de la base de datos del usuario que hace el login in.
+	 */
 	private int posicionU;
 
+	/**
+	 * Método constructor de la clase BosTinder.
+	 */
 	public BosTinder() {
 
 		valIn = new ValidacionesInicio();
@@ -30,7 +61,7 @@ public class BosTinder {
 	 * 
 	 * @param user
 	 * @param clave
-	 * @return
+	 * @return Boolean que confirma si el usuario esta registrado o no.
 	 */
 	
 	public boolean validarLogin(String user, String clave) {
@@ -101,7 +132,7 @@ public class BosTinder {
 	 * @param user
 	 * @param correo
 	 * @param correo2
-	 * @return
+	 * @return String que devuelve el tipo de error.
 	 */
 	public String validacionR(String nombre, String apellido1, String apellido2, String user, String contraseña,
 			String contraseña1, String correo, String correo1, int estatura, double ingresos) {
@@ -151,7 +182,7 @@ public class BosTinder {
 	/**
 	 * Metodo que genera un numero ramdom que sera utilizado para mostrar los usuarios a quien ingrese a la plataforma.
 	 * @param tam
-	 * @return
+	 * @return int para mostrar un usuario.
 	 */
 	public int usuarioRandom(int tam) {
 		int num;
@@ -173,7 +204,7 @@ public class BosTinder {
 	
 	/**
 	 * Genera un número random para cambiar las imagenes.
-	 * @return
+	 * @return int para cambiar la foto.
 	 */
 	public int usuarioRandom() {
 		int num;

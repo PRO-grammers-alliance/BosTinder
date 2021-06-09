@@ -9,17 +9,29 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
-public class Email {
-
-	private final Properties Properties = new Properties();
-
-	private String contraseña;
-
-	private Session sesion;
 /**
- * Inicializacion de las propiedades para el envio de correos
+ * Esta Clase permite la inicializacion de las propiedades para conectar con el servidor smtp, y enviar los correos electronicos.
+ * @author FELIPE SEGURA
+ *
  */
+public class Email {
+	/**
+	 * Objeto de tipo Properties que guarda las propiedades para la la conexión con servidor smtp.
+	 */
+	private final Properties Properties = new Properties();
+	
+	/**
+	 * Objeto de tipo String para el incio de secion en el servidor smtp.
+	 */
+	private String contraseña;
+	/**
+	 * Objeto de tipo String para el incio de secion en el servidor smtp.
+	 */
+	private Session sesion;
+	
+	/**
+	 * Inicializacion de las propiedades para el envio de correos
+	 */
 	private void init() {
 
 		Properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -31,13 +43,13 @@ public class Email {
 		contraseña = "PRO-grammers1234";
 		sesion = sesion.getDefaultInstance(Properties, new GMailAuthenticator((String)Properties.get("mail.smtp.user"), contraseña));	
 	}
-/**
- * enviarMail utiliza las propiedades para conectar con el servidor de emails, envia un mensaje personalizado con el usuario y la contraseña .
- * @param nombre
- * @param usuario
- * @param correo
- * @param contraseña
- */
+	/**
+	 * enviarMail utiliza las propiedades para conectar con el servidor de emails, envia un mensaje personalizado con el usuario y la contraseña .
+	 * @param nombre
+	 * @param usuario
+	 * @param correo
+	 * @param contraseña
+	 */
 	public void enviarMail(String nombre, String usuario, String correo, String contraseña) {
 		init();
 		try {

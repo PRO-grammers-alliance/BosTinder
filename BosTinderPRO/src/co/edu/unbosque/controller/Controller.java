@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.format.DateTimeParseException;
 
-import javax.swing.ImageIcon;
-
 import co.edu.unbosque.model.BosTinder;
 import co.edu.unbosque.view.View;
 

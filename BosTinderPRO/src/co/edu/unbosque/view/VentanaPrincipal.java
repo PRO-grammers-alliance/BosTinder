@@ -6,12 +6,29 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
+/**
+ * Clase de la interfaz grafica que permite la interccion del usuario con el programa
+ * @author Felipe Segura
+ * 
+ */
 public class VentanaPrincipal extends JFrame {
 	
+	/**
+	 * Objeto de tipo PanelUsuario para la interracion en la ventana.
+	 */
 	private PanelUsuario pu;
+	/**
+	 * Objeto de tipo Panelimagen para el fondo de la ventana.
+	 */
 	private Panelimagen pim;
+	/**
+	 * Objeto de tipo JLayeredPane para la organizacion de la ventana.
+	 */
 	private JLayeredPane lpane;
 	
+	/**
+	 * Método constructor.
+	 */
 	public VentanaPrincipal() {
 		setTitle("Bos Tinder");
 		setPreferredSize(new Dimension(700, 650));
@@ -26,6 +43,9 @@ public class VentanaPrincipal extends JFrame {
 		
 	}
 	
+	/**
+	 * Método que inicializa las componentes de la ventana.
+	 */
 	public void inicializarComponentes() {
 		lpane = new JLayeredPane();
 		getContentPane().add(lpane,BorderLayout.CENTER);

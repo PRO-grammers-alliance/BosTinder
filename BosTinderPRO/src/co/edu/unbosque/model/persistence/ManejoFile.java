@@ -19,30 +19,102 @@ import com.opencsv.exceptions.CsvValidationException;
 import com.orsonpdf.PDFDocument;
 import com.orsonpdf.PDFGraphics2D;
 
-
+/**
+ * Esta clase genera arreglos, lee la base de datos y gaurda cada dato en su correspondiente arreglo que luego utilizara para sobre escribir la base de datos.
+ * Ademas de la creacion de los grficos y del los archivos PDF.
+ * @author FELIPE SEGURA
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
 public class ManejoFile {
 
+	/**
+	 * Objeto de tipo String que contiene la ruta de la base de datos.
+	 */
 	private String archivodata = ".\\Data\\datos.csv";
+	/**
+	 * Objeto de tipo FileReader que permite abrir la ruta de la base de datos.
+	 */
 	private FileReader archCSV;
+	/**
+	 * Objeto de tipo CSVReader que permite leer el csv.
+	 */
 	private CSVReader csvReader;
+	/**
+	 * Objeto de tipo ArrayList<Integer> que guarda los ids de los usuarios.
+	 */
 	private ArrayList<Integer> id;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda los nombres de los usuarios.
+	 */
 	private ArrayList<String> nombre;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda el primer apellido de los usuarios.
+	 */
 	private ArrayList<String> apellido1;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda el segundo apellido de los usuarios.
+	 */
 	private ArrayList<String> apellido2;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda genero de los usuarios.
+	 */
 	private ArrayList<String> sexo;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda el username de los usuarios.
+	 */
 	private ArrayList<String> usuario;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda la contraseña de los usuarios.
+	 */
 	private ArrayList<String> contraseña;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda el correo de los usuarios.
+	 */
 	private ArrayList<String> correo;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda la fecha de nacimiento de los usuarios.
+	 */
 	private ArrayList<String> nacimiento;
+	/**
+	 * Objeto de tipo ArrayList<Integer> que guarda la edad de los usuarios.
+	 */
 	private ArrayList<Integer> edad;
+	/**
+	 * Objeto de tipo ArrayList<Double> que guarda los ingresos de los usuarios.
+	 */
 	private ArrayList<Double> ingresos;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda los divorcios de los usuarios.
+	 */
 	private ArrayList<String> divorcios;
+	/**
+	 * Objeto de tipo ArrayList<Integer> que guarda el numero de likes que han recibido los usuarios.
+	 */
 	private ArrayList<Integer> numeroLikesRecibidos;
+	/**
+	 * Objeto de tipo ArrayList<Integer> que guarda el numero de likes que han otorgado los usuarios.
+	 */
 	private ArrayList<Integer> numeroLikesOtorgados;
+	/**
+	 * Objeto de tipo ArrayList<Integer> que guarda el numero de maches que han hecho los usuarios.
+	 */
 	private ArrayList<Integer> numeroMatches;
+	/**
+	 * Objeto de tipo ArrayList<String> que guarda el estado de los usuarios.
+	 */
 	private ArrayList<String> estado;
+	/**
+	 * Objeto de tipo ArrayList<Integer> que guarda la estatura de los usuarios.
+	 */
 	private ArrayList<Integer> estatura;
 	
+	
+	/**
+	 * Método constructor 
+	 */
 	public ManejoFile() {
 		
 		id =new ArrayList<>();
@@ -113,7 +185,7 @@ public class ManejoFile {
 		
 	/**
 	 * Método que escribe nuevamente en la base de datos linea por linea.
-	 * @return
+	 * @return String mensaje de registro exitoso.
 	 */
 	public String escribirArchivo() {
 		File f = new File(this.archivodata);
@@ -157,7 +229,7 @@ public class ManejoFile {
 	 * Método que genera el diagrama de pie.
 	 * @param sobreque
 	 * @param data
-	 * @return
+	 * @return JFreeChart con informacion para el grafico de pie.
 	 */
 	public JFreeChart crearGraficoPie(String sobreque ,PieDataset data) {
 		
@@ -175,7 +247,7 @@ public class ManejoFile {
 	 * Método que genera el grafico de barras.
 	 * @param sobreque
 	 * @param data
-	 * @return
+	 * @return JFreeChart con informacion para el grafico de barras.
 	 */
 	public JFreeChart crearGrafico(String sobreque ,DefaultCategoryDataset data) {
 		
@@ -327,7 +399,7 @@ public class ManejoFile {
 	/**
 	 * Método que permite eliminar un usuario de la base de datos y actualiza las posciciones.
 	 * @param n
-	 * @return
+	 * @return String Mensaje de eliminado correctamente.
 	 */
 	public String eliminarUsuario(int n) {
 		

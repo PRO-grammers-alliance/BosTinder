@@ -5,12 +5,28 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
+/**
+ * Clase de la interfaz grafica que permite la introduccion de la fecha de nacimiento
+ * @author Santiago Zamora
+ *
+ */
 public class VentanaEdad extends JFrame{
-	
+	/**
+	 * Objeto de tipo Panelimagen para el fondo de la ventana.
+	 */
 	private Panelimagen pim;
+	/**
+	 * Objeto de tipo JLayeredPane para la organizacion de la ventana.
+	 */
 	private JLayeredPane lpane;
+	/**
+	 * Objeto de tipo PanelEdad para el ingreso de los datos en la ventana.
+	 */
 	private PanelEdad pEdad;
 	
+	/**
+	 * Método constructor.
+	 */
 	public VentanaEdad() {
 		setTitle("BosTinder Registro");
 		setSize(300,300);
@@ -25,6 +41,9 @@ public class VentanaEdad extends JFrame{
 		setVisible(false);
 	}
 
+	/**
+	 * Método que inicializa las componentes de la ventana.
+	 */
 	private void inicializarComponentes() {
 		
 		lpane = new JLayeredPane();

@@ -2,7 +2,11 @@ package co.edu.unbosque.model;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
-
+/**
+ * Esta clase hereda de la clase Authenticator para validar el usuario y la contraseña con el que se intenta ingresar al servidor smtp y devolverlos autentificados para su correcto funcionamiento.
+ * @author FELIPE SEGURA
+ *
+ */
 public class GMailAuthenticator extends  Authenticator {
 	
 	private String user;
@@ -18,6 +22,7 @@ public class GMailAuthenticator extends  Authenticator {
        this.user = username;
        this.psw = password;
     }
+	
 	/**
 	 * devuelve el usuario y contraseña ya autentificados.
 	 */

@@ -7,23 +7,59 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Clase de la interfaz grafica que permite el ingreso de la fecha de nacimiento para validar la edad del usuario.
+ * @author Santiago Zamora
+ *
+ */
 public class PanelEdad extends JPanel{
 	
+	/**
+	 * Objeto de tipo JButton.
+	 */
 	private JButton b_validar;
+	/**
+	 * Objeto de tipo Jlabel.
+	 */
 	private JLabel instruccion1;
+	/**
+	 * Objeto de tipo Jlabel.
+	 */
 	private JLabel instruccion2;
+	/**
+	 * Objeto de tipo Jlabel.
+	 */
 	private JLabel separar;
+	/**
+	 * Objeto de tipo Jlabel.
+	 */
 	private JLabel separar2;
+	/**
+	 * Objeto de tipo JTextField para el ingreso del dia.
+	 */
 	private JTextField dia;
+	/**
+	 * Objeto de tipo JTextField para el ingreso del mes.
+	 */
 	private JTextField mes;
+	/**
+	 * Objeto de tipo JTextField para el ingreso del año.
+	 */
 	private JTextField año;
 	
+	
+	/**
+	 * Método constructor.
+	 */
 	public PanelEdad() {
 		setLayout(null);
 		inicializarComponentes();
 		
 	}
+	
+	/**
+	 * Método que inicializa las componentes del panel.
+	 */
 	public void inicializarComponentes() {
 		
 		

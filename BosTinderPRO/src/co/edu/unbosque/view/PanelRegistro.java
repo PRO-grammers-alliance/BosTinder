@@ -9,52 +9,141 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Clase de la interfaz grafica que permite el ingreso de la informacion para registrarse.
+ * @author Oscar Florez
+ *
+ */
 public class PanelRegistro extends JPanel {
 
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel nombre;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso para el nombre del usuario.
+	 */
 	private JTextField nombreU;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel apellidos1;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso para el primer apellido del usuario.
+	 */
 	private JTextField apellido1;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel apellidos2;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso para el segundo apellido del usuario.
+	 */
 	private JTextField apellido2;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoCorreoE;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso del correo del usuario.
+	 */
 	private JTextField correoE;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoConfirmarCorreo;
+	/**
+	 * Objeto de tipo JTextField que permite eel ingreso del correo del usuario.
+	 */
 	private JTextField confirmarCorreo;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoalias;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso para el username del usuario.
+	 */
 	private JTextField alias;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoContraseña;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso para la contraseña del usuario.
+	 */
 	private JTextField contraseña;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoConfirmarC;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso para la contraseña del usuario.
+	 */
 	private JTextField confirmarC;
 	
+	/**
+	 * Objeto de tipo JCheckBox.
+	 */
 	private JCheckBox sexoH;
+	/**
+	 * Objeto de tipo JCheckBox.
+	 */
 	private JCheckBox sexoM;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoEstatura;
+	/**
+	 * Objeto de tipo JTextField que permite el ingreso para la estatura del usuario.
+	 */
 	private JTextField estatura;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoIngresosM;
+	/**
+	 * Objeto de tipo JTextField que permite digitar los ingresos mensuales del usuario.
+	 */
 	private JTextField ingresosM;
 	
+	/**
+	 * Objeto de tipo JLabel.
+	 */
 	private JLabel textoDivorcio;
+	/**
+	 * Objeto de tipo JCheckBox.
+	 */
 	private JCheckBox divorcioSi;
-	
+	/**
+	 * Objeto de tipo JCheckBox.
+	 */
 	private JCheckBox divorcioNo;
+	/**
+	 * Objeto de tipo JButton.
+	 */
 	private JButton validarRegistro;
 
+	
+	/**
+	 * Método constructor.
+	 */
 	public PanelRegistro() {
 		setLayout(null);
 		inicializarComponentes();
 	}
 
+	/**
+	 * Método que inicializa las componentes del panel.
+	 */
 	public void inicializarComponentes() {
 
 		nombre = new JLabel("Nombre");
