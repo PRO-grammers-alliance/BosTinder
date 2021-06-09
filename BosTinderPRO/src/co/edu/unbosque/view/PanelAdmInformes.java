@@ -9,21 +9,55 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Clase Panel Admin Informes
+ * 
+ * Clase de la vista que cuenta con 2 metodos, el constructor y otro de tipo void.
+ * 
+ * @author Felipe Segura
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
 public class PanelAdmInformes extends JPanel{
-	
+	/**
+	 * Objeto de tipo JLabel
+	 */
 	private JLabel e_Info;
+	/**
+	 * Objeto de tipo JCheckBox
+	 */
 	private JCheckBox box_Edad;
+	/**
+	 * Objeto de tipo JCheckBox
+	 */
 	private JCheckBox box_Ingresos;
+	/**
+	 * Objeto de tipo JCheckBox
+	 */
 	private JCheckBox box_LikesOt;
+	/**
+	 * Objeto de tipo JCheckBox
+	 */
 	private JCheckBox box_LikesRec;
+	/**
+	 * Objeto de tipo JButton
+	 */
 	private JButton b_GenerarInf;
 	
+	/**
+	 * Método constructor de la clase
+	 */
 	public PanelAdmInformes() {
 		setLayout(null);
 		setBackground(Color.LIGHT_GRAY);
 		inicializarComponentes();
 	}
 
+	/**
+	 * Método que inicializa los componentes del Panel
+	 */
 	public void inicializarComponentes() {
 		
 		e_Info = new JLabel("<html><body>Seleccione el contenido del Informe "

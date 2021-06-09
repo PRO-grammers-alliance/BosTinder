@@ -325,9 +325,9 @@ public class ManejoFile {
 	}
 	
 	/**
-	 * Método que permite eliminar un usuario de la base de datos y actualiza las posciciones.
+	 * Método que permite eliminar un usuario de la base de datos y actualiza las posiciones.
 	 * @param n
-	 * @return
+	 * @return 
 	 */
 	public String eliminarUsuario(int n) {
 		
@@ -355,8 +355,36 @@ public class ManejoFile {
 		return "Usuario eliminado correctamente";
 	}
 	
+	/**
+	 * Método que recibe una posición de un usuario de la base de datos y devuelve todos los datos de ese usuario
+	 * 
+	 * @param pos
+	 * @return Un String con los datos del usuario
+	 */
+	
 	public String leerUsuario(int pos) {
-		return null;
+		pos--;
+		int ids = id.get(pos);
+		String name = nombre.get(pos);
+		String apll1 = apellido1.get(pos);
+		String apll2 = apellido2.get(pos);
+		String genero = sexo.get(pos);
+		String user = usuario.get(pos);
+		String clave = contraseña.get(pos);
+		String email = correo.get(pos);
+		String nac = nacimiento.get(pos);
+		int años = edad.get(pos);
+		double salario = ingresos.get(pos);
+		String divorcio = divorcios.get(pos);
+		int numLikesR = numeroLikesRecibidos.get(pos);
+		int numLikesO = numeroLikesOtorgados.get(pos);
+		int altura = estatura.get(pos);
+		int numMatches = numeroMatches.get(pos);
+		String est = estado.get(pos);
+		String datosUsuario = ids+" || "+name+" "+apll1+" "+apll2+" || "+genero+" || "+user+" || "+clave+" || "+email+" || "
+				+nac+" || "+años+" || "+salario+" || "+divorcio+" || "+numLikesR+"||"+numLikesO+"||"+altura+"||"
+				+numMatches+" || "+est;
+		return datosUsuario;
 	}
 	
 	

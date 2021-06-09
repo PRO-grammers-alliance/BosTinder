@@ -5,14 +5,37 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
-
+/**
+ * Clase Ventana Admin
+ *
+ * Clase de la vista que cuenta con 2 metodos, el constructor y otro de tipo void.
+ * 
+ * @author Felipe Segura
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ */
 public class VentanaAdmin extends JFrame {
-	
+	/**
+	 * Objeto de PanelAdmConsultar que permite llamar a sus atributos y métodos
+	 */
 	private PanelAdmConsultar pConsul;
+	/**
+	 * Objeto de PanelAdmEliminar que permite llamar a sus atributos y métodos
+	 */
 	private PanelAdmEliminar pElim;
+	/**
+	 * Objeto de PanelAdmInformes que permite llamar a sus atributos y métodos
+	 */
 	private PanelAdmInformes pInf;
+	/**
+	 * Objeto de JTabbedPane
+	 */
 	private JTabbedPane tabs;
 	
+	/**
+	 * Método constructor de la clase 
+	 */
 	public VentanaAdmin() {
 		setTitle("Bos Tinder");
 		setPreferredSize(new Dimension(700, 650));
@@ -27,7 +50,9 @@ public class VentanaAdmin extends JFrame {
 		pack();
 		setVisible(false);
 	}
-	
+	/**
+	 * Método que inicializa los componentes de la ventana
+	 */
 	public void inicializarComponentes() {
 		
 		pConsul = new PanelAdmConsultar();

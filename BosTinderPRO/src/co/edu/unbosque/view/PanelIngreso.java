@@ -9,20 +9,55 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * Clase Panel Ingreso
+ * 
+ * Clase de la vista que cuenta con 2 metodos, el constructor y otro de tipo void.
+ * 
+ * @author Felipe Segura
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
 public class PanelIngreso extends JPanel{
+	/**
+	 * Objeto de JButton
+	 */
 	private JButton b_ingresar;
+	/**
+	 * Objeto de JButton
+	 */
 	private JButton b_registro;
+	/**
+	 * Objeto de JLabel
+	 */
 	private JLabel e_usuario;
+	/**
+	 * Objeto de JLabel
+	 */
 	private JLabel e_clave;
+	/**
+	 * Objeto de JTextField
+	 */
 	private JTextField c_usuario;
+	/**
+	 * Objeto de JPasswordField
+	 */
 	private JPasswordField c_clave;
 	
+	/**
+	 * Método constuctor del panel
+	 */
 	public PanelIngreso() {
 	
 		setLayout(null);
 		inicializarComponentes();
 	}
 	
+	/**
+	 * Método que inicializa los componentes del Panel
+	 */
 	public void inicializarComponentes() {
 		
 		setBackground(Color.WHITE);

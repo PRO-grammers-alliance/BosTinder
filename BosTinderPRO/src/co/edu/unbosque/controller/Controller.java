@@ -8,19 +8,53 @@ import javax.swing.ImageIcon;
 
 import co.edu.unbosque.model.BosTinder;
 import co.edu.unbosque.view.View;
-
+/**
+ * Esta clase consta de 3 métodos, el constructor y dos de tipo void (asignarOyentes y actionPerformed)
+ * Relaciona las clases del paquete model con las clases del paquete view y controla las interacciones entre ellas 
+ * 
+ * @author Felipe Segura
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
 public class Controller implements ActionListener {
-
+	/**
+	 * Objeto de View que permite llamar a sus métodos y sus atributos
+	 */
 	private View vista;
+	/**
+	 * Objeto de BosTinder que permite llamar a sus métodos y sus atributos
+	 */
 	private BosTinder bosT;
-
+	/**
+	 * Objeto de tipo String que permite guardar una cadena de texto
+	 */
 	private String fecha;
+	/**
+	 * Objeto de tipo String que permite guardar una cadena de texto
+	 */
 	private String sex;
+	/**
+	 * Objeto de tipo String que permite guardar una cadena de texto
+	 */
 	private String divorcios;
+	/**
+	 * Objeto de tipo int que permite guardar un número entero
+	 */
 	private int estatura;
+	/**
+	 * Objeto de tipo double que permite guardar un número decimal
+	 */
 	private double ingresos;
+	/**
+	 * Objeto de tipo int que permite guardar un número entero
+	 */
 	private int i;
 
+	/**
+	 * Método constructor de la clase Controller
+	 */
 	public Controller() {
 		vista = new View();
 		bosT = new BosTinder();
@@ -28,6 +62,10 @@ public class Controller implements ActionListener {
 		bosT.getMaFi().leerCsv();
 	}
 
+	/**
+	 * Método que asigna los oyentes a los componentes que realizan acciones
+	 */
+	
 	public void asignarOyentes() {
 		vista.getvIng().getpIngreso().getB_ingresar().addActionListener(this);
 		vista.getvIng().getpIngreso().getB_registro().addActionListener(this);
@@ -52,6 +90,12 @@ public class Controller implements ActionListener {
 		vista.getvAdm().getpElim().getBtnEliminar().addActionListener(this);
 	}
 
+	/**
+	 * Método que asigna las operaciones a realizar según sea el caso 
+	 *  
+	 * @param arg0 es un objeto de tipo ActionEvent
+	 */
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -409,12 +453,17 @@ public class Controller implements ActionListener {
 		if (arg0.getActionCommand().equals("BUSCAR")) {
 			try {
 				int pos = Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText());
-				String usuario = bosT.getMaFi().leerUsuario(pos);
-				vista.getvAdm().getpElim().getInfoUsuario().setText(usuario);
-				vista.getvAdm().getpElim().getBtnEliminar().setEnabled(true);
-				vista.getvAdm().getpElim().getBtnBuscar().setEnabled(false);
+				if(pos<bosT.getMaFi().getId().size()-1 && pos>0) {
+					String usuario = bosT.getMaFi().leerUsuario(pos);
+					vista.getvAdm().getpElim().getInfoUsuario().setText(usuario);
+					vista.getvAdm().getpElim().getBtnEliminar().setEnabled(true);
+					vista.getvAdm().getpElim().getBtnBuscar().setEnabled(false);
+				}else {
+					throw new NumberFormatException();
+				}
 			} catch (NumberFormatException e) {
 				vista.mostrarMensaje("Por favor ingrese unicamente un numero id valido. ", "error");
+				vista.getvAdm().getpElim().getCampoTextoId().setText("");
 			}
 		}
 

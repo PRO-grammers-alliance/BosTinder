@@ -9,24 +9,61 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.border.TitledBorder;
+
+/**
+ * Clase Panel Admin Consultar
+ * 
+ * Clase de la vista que cuenta con 2 metodos, el constructor y otro de tipo void.
+ * 
+ * @author Felipe Segura
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
 
 public class PanelAdmConsultar extends JPanel {
-
+	/**
+	 * Objeto de JComboBox que contiene datos de tipo String 
+	 */
 	private JComboBox<String> box_ordenar;
+	/**
+	 * Objeto de JComboBox que contiene datos de tipo String 
+	 */
 	private JComboBox<String> box_filtrar;
+	/**
+	 * Objeto de JRadioButton 
+	 */
 	private JRadioButton b_ascendente;
+	/**
+	 * Objeto de JRadioButton 
+	 */
 	private JRadioButton b_descendente;
+	/**
+	 * Objeto de JTextArea 
+	 */
 	private JTextArea t_info;
+	/**
+	 * Objeto de JPanel 
+	 */
 	private JPanel panel_info;
+	/**
+	 * Objeto de JScrollPane 
+	 */
 	public JScrollPane scroll_info;
 
+	/**
+	 * Método constructor del panel
+	 */
 	public PanelAdmConsultar() {
 		setLayout(null);
 		setBackground(Color.LIGHT_GRAY);
 		inicializarComponentes();
 	}
 	
+	/**
+	 * Método que inicializa los componentes del Panel
+	 */
 	public void inicializarComponentes() {
 	
 		box_ordenar = new JComboBox<String>();

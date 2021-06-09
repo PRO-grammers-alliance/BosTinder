@@ -2,7 +2,6 @@ package co.edu.unbosque.view;
 
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,22 +10,60 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
+/**
+ * Clase Panel Admin Eliminar
+ * 
+ * Clase de la vista que cuenta con 2 metodos, el constructor y otro de tipo void.
+ * 
+ * @author Felipe Segura
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
+
 public class PanelAdmEliminar extends JPanel{
-	
+	/**
+	 * Objeto de JPanel 
+	 */
 	private JPanel panelInfo;
+	/**
+	 * Objeto de JLabel 
+	 */
 	private JLabel textoEliminar;
+	/**
+	 * Objeto de JTextField 
+	 */
 	private JTextField campoTextoId;
+	/**
+	 * Objeto de JButton 
+	 */
 	private JButton btnBuscar;
+	/**
+	 * Objeto de JButton 
+	 */
 	private JButton btnEliminar;
+	/**
+	 * Objeto de JTextArea
+	 */
 	private JTextArea infoUsuario;
+	/**
+	 * Objeto de JScrollPane
+	 */
 	private JScrollPane sp;
 	
+	/**
+	 * Método constructor de la clase
+	 */
 	public PanelAdmEliminar() {
 		setLayout(null);
 		setBackground(Color.LIGHT_GRAY);
 		inicializarComponentes();
 	}
-
+	
+	/**
+	 * Método que inicializa los componentes del Panel
+	 */
 	public void inicializarComponentes() {
 		textoEliminar = new JLabel("ID Usuario a eliminar");
 		textoEliminar.setBounds(267, 34, 127, 21);
