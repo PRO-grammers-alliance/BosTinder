@@ -1,7 +1,6 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class OpCRUD {
@@ -223,6 +222,7 @@ public class OpCRUD {
 		String asc = "";
 		int i = 0;
 		ArrayList<String> nom = new ArrayList<>();
+		
 		while (i < nombre.size()) {
 			if (tipo.equals("Nombre")) {
 				asc = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
@@ -245,19 +245,20 @@ public class OpCRUD {
 				nom.add(asc);
 				Collections.sort(nom);
 			} else if (tipo.equals("Likes")) {
-				asc = numlikesR.get(i) + "  " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
+				asc = numlikesR.get(i) + "   " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
 						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(asc);
 				Collections.sort(nom);
 			}
 			i++;
 		}
-		int j = 0;
 		String g = "";
+		int j = 0;
 		while (j < nombre.size()) {
 			g += nom.get(j);
 			j++;
 		}
+		
 		return g;
 	}
 

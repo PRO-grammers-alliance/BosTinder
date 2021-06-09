@@ -65,7 +65,7 @@ public class ManejoFile {
 	}
 	
 /**
- * Metodo por medio de la libreria opencsv lee la base de datos y guarda cada valor en un correspondiente arrglo.
+ * Método por medio de la libreria opencsv lee la base de datos y guarda cada valor en un correspondiente arreglo.
  */
 	public void leerCsv() {
 		try {
@@ -112,7 +112,7 @@ public class ManejoFile {
 	}
 		
 	/**
-	 * Metodo que escribe nuevamente en  la base de datos liena por linea.
+	 * Método que escribe nuevamente en la base de datos linea por linea.
 	 * @return
 	 */
 	public String escribirArchivo() {

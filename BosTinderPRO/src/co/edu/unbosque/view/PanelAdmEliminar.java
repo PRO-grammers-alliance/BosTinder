@@ -44,6 +44,7 @@ public class PanelAdmEliminar extends JPanel{
 		btnEliminar = new JButton("Eliminar");
 		btnEliminar.setBounds(445, 126, 100, 27);
 		btnEliminar.setActionCommand("ELIMINAR");
+		btnEliminar.setEnabled(false);
 		add(btnEliminar);
 		
 		infoUsuario = new JTextArea();

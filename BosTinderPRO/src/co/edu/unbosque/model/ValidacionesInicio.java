@@ -11,7 +11,13 @@ public class ValidacionesInicio {
 	public ValidacionesInicio() {
 		
 	}
-	
+	/**
+	 * Método que valida el login del Administrador
+	 * 
+	 * @param user
+	 * @param clave
+	 * @return
+	 */
 	public boolean comprobarLoginAdmin(String user, String clave) {
 		boolean comprobar= false;
 		if (user.equals("admin") && clave.equals("1234")){
@@ -19,7 +25,15 @@ public class ValidacionesInicio {
 		}
 		return comprobar;
 	}
-	
+	/**
+	 * Método que valida el login del usuario
+	 * 
+	 * @param user
+	 * @param clave
+	 * @param userBD
+	 * @param claveBD
+	 * @return
+	 */
 	public boolean comprobarLoginUser(String user, String clave, String userBD, String claveBD) {
 		boolean comprobar= false;
 		if (user.equals(userBD) && clave.equals(claveBD)){
@@ -28,6 +42,12 @@ public class ValidacionesInicio {
 		return comprobar;
 	}
 	
+	/**
+	 * Método que valida la edad ingresada en el registro
+	 * 
+	 * @param fecha
+	 * @return
+	 */
 	public boolean validadEdad(String fecha) {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate nacim = LocalDate.parse(fecha,formato);

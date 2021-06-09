@@ -411,6 +411,8 @@ public class Controller implements ActionListener {
 				int pos = Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText());
 				String usuario = bosT.getMaFi().leerUsuario(pos);
 				vista.getvAdm().getpElim().getInfoUsuario().setText(usuario);
+				vista.getvAdm().getpElim().getBtnEliminar().setEnabled(true);
+				vista.getvAdm().getpElim().getBtnBuscar().setEnabled(false);
 			} catch (NumberFormatException e) {
 				vista.mostrarMensaje("Por favor ingrese unicamente un numero id valido. ", "error");
 			}
@@ -420,6 +422,8 @@ public class Controller implements ActionListener {
 			vista.mostrarMensaje(bosT.getMaFi()
 					.eliminarUsuario(Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText())), "info");
 			bosT.getMaFi().escribirArchivo();
+			vista.getvAdm().getpElim().getBtnEliminar().setEnabled(false);
+			vista.getvAdm().getpElim().getBtnBuscar().setEnabled(true);
 		}
 
 		if (arg0.getActionCommand().equals("ORDENAR")) {
