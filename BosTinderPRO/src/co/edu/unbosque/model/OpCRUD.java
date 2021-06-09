@@ -3,12 +3,35 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Clase que contiene los metodos usados para filtrar y ordenar la informacion
+ * de la base de datos en la ventana del administrador
+ *
+ */
 public class OpCRUD {
-
+	/**
+	 * Metodo constructor
+	 */
 	public OpCRUD() {
 
 	}
 
+	/**
+	 * Metodo que se encarga de filtrar la informacion con los ingresos mayores a
+	 * 244.85 US
+	 * 
+	 * @param tipo
+	 * @param tipo2
+	 * @param tam
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param edad
+	 * @param alias
+	 * @param numlikesR
+	 * @param ingresos
+	 * @return
+	 */
 	public String filtroIngresos(String tipo, String tipo2, int tam, ArrayList<String> nombre,
 			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
 			ArrayList<Integer> numlikesR, ArrayList<Double> ingresos) {
@@ -78,6 +101,23 @@ public class OpCRUD {
 		return g;
 	}
 
+	/**
+	 * Metodo que filtra la informacion del usuario segun el genero, en este caso
+	 * filtra a los usuarios que sean mujeres
+	 * 
+	 * @param tipo
+	 * @param tipo2
+	 * @param tam
+	 * @param genero
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param edad
+	 * @param alias
+	 * @param numlikesR
+	 * @param ingresos
+	 * @return
+	 */
 	public String generoM(String tipo, String tipo2, int tam, ArrayList<String> genero, ArrayList<String> nombre,
 			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
 			ArrayList<Integer> numlikesR, ArrayList<Double> ingresos) {
@@ -147,6 +187,23 @@ public class OpCRUD {
 		return g;
 	}
 
+	/**
+	 * Metodo que filtra la informacion del usuario segun el genero, en este caso
+	 * filtra a los usuarios que sean hombres
+	 * 
+	 * @param tipo
+	 * @param tipo2
+	 * @param tam
+	 * @param genero
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param edad
+	 * @param alias
+	 * @param numlikesR
+	 * @param ingresos
+	 * @return
+	 */
 	public String generoH(String tipo, String tipo2, int tam, ArrayList<String> genero, ArrayList<String> nombre,
 			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
 			ArrayList<Integer> numlikesR, ArrayList<Double> ingresos) {
@@ -216,13 +273,26 @@ public class OpCRUD {
 		return g;
 	}
 
+	/**
+	 * Metodo que organiza la informacion de usuario segun nombre, apellido, edad,
+	 * alias, numero de likes e ingresos y los muestra de forma ascendente
+	 * @param tipo
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param edad
+	 * @param alias
+	 * @param numlikesR
+	 * @param ingresos
+	 * @return
+	 */
 	public String ascendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
 			ArrayList<Double> ingresos) {
 		String asc = "";
 		int i = 0;
 		ArrayList<String> nom = new ArrayList<>();
-		
+
 		while (i < nombre.size()) {
 			if (tipo.equals("Nombre")) {
 				asc = nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  " + edad.get(i) + "  "
@@ -245,8 +315,8 @@ public class OpCRUD {
 				nom.add(asc);
 				Collections.sort(nom);
 			} else if (tipo.equals("Likes")) {
-				asc = numlikesR.get(i) + "   " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i) + "  "
-						+ edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "\n";
+				asc = numlikesR.get(i) + "   " + nombre.get(i) + "  " + apellido1.get(i) + "  " + apellido2.get(i)
+						+ "  " + edad.get(i) + "  " + alias.get(i) + "  " + ingresos.get(i) + "\n";
 				nom.add(asc);
 				Collections.sort(nom);
 			}
@@ -258,10 +328,22 @@ public class OpCRUD {
 			g += nom.get(j);
 			j++;
 		}
-		
+
 		return g;
 	}
-
+	/**
+	 * Metodo que organiza la informacion de usuario segun nombre, apellido, edad,
+	 * alias, numero de likes e ingresos y los muestra de forma descendente
+	 * @param tipo
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param edad
+	 * @param alias
+	 * @param numlikesR
+	 * @param ingresos
+	 * @return
+	 */
 	public String descendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
 			ArrayList<Double> ingresos) {
