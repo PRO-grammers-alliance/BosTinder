@@ -3,28 +3,40 @@ package co.edu.unbosque.test;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import co.edu.unbosque.model.BosTinder;
 import co.edu.unbosque.model.persistence.ManejoFile;
 import junit.framework.TestCase;
-
+/**
+ * Clase del paquete test que contiene las pruebas JUnit
+ * 
+ * @author Felipe Segura
+ * @author David Real
+ * @author Oscar Florez
+ * @author Santiago Zamora
+ *
+ */
 public class TestArchivos extends TestCase {
 
+	/**
+	 * Objeto de ManejoFile que permite llamar a sus métodos y sus atributos
+	 */
 	private ManejoFile mj;
-	private BosTinder bt;
 	
+	/**
+	 * Método de setUp de las pruebas JUnit
+	 */
 	public void setUp() throws Exception {
 		mj = new ManejoFile();
-		bt = new BosTinder();
 		
 	}
-	
+
+	/**
+	 * Método que prueba el cálculo de la mediana del arreglo Edad 
+	 */
 	public void testMediana() {
 		mj.leerCsv();
 		ArrayList<Integer> dato =mj.getEdad();
-		System.out.println(dato);
-		//dato.sort(Comparator.naturalOrder());
 		Collections.sort(dato);
 		int mediana=0;
 		if(dato.size()%2==0) {
@@ -35,115 +47,86 @@ public class TestArchivos extends TestCase {
 			int mitad =dato.size()/2;
 			mediana = dato.get(mitad);
 		}
-		System.out.println(dato);
-		assertEquals("F",55, mediana);
+		assertEquals("Incorrecto",55, mediana);
 	}
 	
-	public void testMedia() {
+	/**
+	 * Método que prueba el cálculo de la moda del arreglo Ingresos
+	 */
+	public void testModaDouble() {
 		mj.leerCsv();
 		ArrayList<Double> dato =mj.getIngresos();
 		Collections.sort(dato);
-		System.out.println(dato);
+		ArrayList<Double> moda= new ArrayList<>();
+		moda.add(0.0);
 		int contador = 0;
 		int contadorMax = 0;
 		Double num= 0.0;
-		ArrayList<Double> moda= new ArrayList<>();
-		moda.add(0.0);
-		for(int i=0;i<dato.size();i+=contador) {
+		
+		for (int i = 0; i < dato.size(); i += contador) {
 			contador = 0;
-			num=dato.get(i);
+			num = dato.get(i);
 			for (int j = i; j < dato.size(); j++) {
-				if(num.equals(dato.get(j))) {
+				if (num.equals(dato.get(j))) {
 					contador++;
-				}else{
-					j=dato.size();
+				} else {
+					j = dato.size();
 				}
 			}
-			
-			if(contadorMax<=contador) {
-				if(moda.get(0)<num && contadorMax==contador) {
+			if (contadorMax <= contador) {
+				if (moda.get(0) < num && contadorMax == contador) {
 					moda.add(num);
-				}else{
+				} else {
 					moda.clear();
 					moda.add(num);
 				}
-				contadorMax=contador;
+				contadorMax = contador;
 			}
-			System.out.println(i+"||"+num+"||"+contador+"||"+moda);
-			
 		}
-		assertEquals("error", 58, moda);
+		assertEquals("error", 0.0, moda.get(0));
 	}
 	
-	
-	public void testMediaFelipe(){
+	/**
+	 * Método que prueba el cálculo de la moda del arreglo Edad
+	 */
+	public void testModaint(){
 		mj.leerCsv();
-		ArrayList<Integer> dato =mj.getEdad();
+		ArrayList<Integer> dato = mj.getEdad();
 		Collections.sort(dato);
         ArrayList<Integer> moda = new ArrayList<>();
-        int contador = 0;
-        int rep = 0;
-        int repmax =0;
-        int pos = 0;
-        do {
-            for(int i = 0; i<dato.size();i++) {
-                for(int j =0;j<dato.size();j++) {
-                    if(dato.get(i).equals(dato.get(j))) {
-                        rep++;
-                    }
-                }
-                if(rep>repmax) {
-                    repmax=rep;
-                    pos=i;
-                }
-            }
-            moda.add(dato.get(pos));
-            if(rep==repmax && pos!=contador) {
-                moda.add(dato.get(contador));
-            }
-        }while(contador>dato.size());
-        assertEquals("error", 58, moda);
-    }
-	
-	public void testMediaFelipe2(){
-		mj.leerCsv();
-		ArrayList<Integer> dato =mj.getEdad();
-		ArrayList<String> arreglo = new ArrayList<>();
-		Collections.sort(dato);
-		int repetidos = 0;
-		int m = 0;
-		for(int i = 0; i<dato.size();i++) {
-			for(int j = i;j<dato.size();j++) {
-				if(dato.get(i).equals(dato.get(j))) {
-					repetidos++;
-					m = repetidos-1;
-					
-				}else if(!dato.get(i).equals(dato.get(j)) ) {
-					arreglo.add(repetidos+";"+dato.get(i));
-					i += m;
-					j=dato.size();
-					repetidos = 0;
-				}  
-				
-				if (dato.size()-j==1) {
-					arreglo.add(repetidos+";"+dato.get(i));
-					i=dato.size();
-					
+        moda.add(0);
+        int contadorMax = 0;
+        int contador= 0;
+        int num=0;
+        for (int i = 0; i < dato.size(); i += contador) {
+			contador = 0;
+			num = dato.get(i);
+			for (int j = i; j < dato.size(); j++) {
+				if (num == dato.get(j)) {
+					contador++;
+				} else {
+					j = dato.size();
 				}
 			}
+			if (contadorMax <= contador) {
+				if (moda.get(0) < num && contadorMax == contador) {
+					moda.add(num);
+				} else {
+					moda.clear();
+					moda.add(num);
+				}
+				contadorMax = contador;
+			}
 		}
-        assertEquals("error", 58, arreglo);
+        assertEquals("error", "58,75", moda.get(0)+","+moda.get(1));
     }
 	
+	/**
+	 * Método que prueba la lectura del archivo Csv
+	 */
 	public void testleerCsv() {
 		mj.leerCsv();
-		assertEquals("error", "1",mj.getId().get(0));
+		assertEquals("error","1",mj.getId().get(0)+"");
 	}
 	
-	public void testRandom() {
-		mj.leerCsv();
-		int tam = mj.getId().size();
-		int num = bt.usuarioRandom(tam);
-		assertEquals(num,435);
-	}
 }
