@@ -30,7 +30,8 @@ public class OpCRUD {
 	 * @param alias
 	 * @param numlikesR
 	 * @param ingresos
-	 * @return
+	 * @return una cadena de texto donde se guardan cada uno de los filtros
+	 *         dependiendo del tipo y tipo2
 	 */
 	public String filtroIngresos(String tipo, String tipo2, int tam, ArrayList<String> nombre,
 			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
@@ -116,7 +117,8 @@ public class OpCRUD {
 	 * @param alias
 	 * @param numlikesR
 	 * @param ingresos
-	 * @return
+	 * @return una cadena de texto donde se guardan cada uno de los filtros
+	 *         dependiendo del tipo y tipo2
 	 */
 	public String generoM(String tipo, String tipo2, int tam, ArrayList<String> genero, ArrayList<String> nombre,
 			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
@@ -202,7 +204,8 @@ public class OpCRUD {
 	 * @param alias
 	 * @param numlikesR
 	 * @param ingresos
-	 * @return
+	 * @return una cadena de texto donde se guardan cada uno de los filtros
+	 *         dependiendo del tipo y tipo2
 	 */
 	public String generoH(String tipo, String tipo2, int tam, ArrayList<String> genero, ArrayList<String> nombre,
 			ArrayList<String> apellido1, ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias,
@@ -276,6 +279,7 @@ public class OpCRUD {
 	/**
 	 * Metodo que organiza la informacion de usuario segun nombre, apellido, edad,
 	 * alias, numero de likes e ingresos y los muestra de forma ascendente
+	 * 
 	 * @param tipo
 	 * @param nombre
 	 * @param apellido1
@@ -284,7 +288,8 @@ public class OpCRUD {
 	 * @param alias
 	 * @param numlikesR
 	 * @param ingresos
-	 * @return
+	 * @return cadena de texto donde guarda la informacion del usuario de forma
+	 *         ascendente
 	 */
 	public String ascendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
@@ -331,9 +336,11 @@ public class OpCRUD {
 
 		return g;
 	}
+
 	/**
 	 * Metodo que organiza la informacion de usuario segun nombre, apellido, edad,
 	 * alias, numero de likes e ingresos y los muestra de forma descendente
+	 * 
 	 * @param tipo
 	 * @param nombre
 	 * @param apellido1
@@ -342,7 +349,8 @@ public class OpCRUD {
 	 * @param alias
 	 * @param numlikesR
 	 * @param ingresos
-	 * @return
+	 * @return cadena de texto donde guarda la informacion del usuario de forma
+	 *         descendente
 	 */
 	public String descendente(String tipo, ArrayList<String> nombre, ArrayList<String> apellido1,
 			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
@@ -400,6 +408,111 @@ public class OpCRUD {
 		while (j < nombre.size()) {
 			g += nom.get(j);
 			j++;
+		}
+		return g;
+	}
+
+	/**
+	 * Metodo que busca dentro de la datos.csv los usuarios con mayor numero de
+	 * likes y hace un top 10 con esa informacion
+	 * 
+	 * @param tipo
+	 * @param tipo2
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param edad
+	 * @param alias
+	 * @param numlikesR
+	 * @param ingresos
+	 * @return String con el top 10 de usuarios con mas likes de datos.csv 
+	 */
+	public String top10(String tipo, String tipo2, ArrayList<String> nombre, ArrayList<String> apellido1,
+			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
+			ArrayList<Double> ingresos) {
+		String top = "";
+		int pos = 0;
+		ArrayList<Integer> likesOrdenados = new ArrayList<>();
+		likesOrdenados = (ArrayList<Integer>) numlikesR.clone();
+		ArrayList<String> nom = new ArrayList<>();
+		Collections.sort(likesOrdenados, Collections.reverseOrder());
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < numlikesR.size(); j++) {
+				if (likesOrdenados.get(i) == numlikesR.get(j)) {
+					pos = j;
+					j = numlikesR.size();
+				}
+			}
+			if (tipo.equals("Nombre") && tipo2.equals("Ascendente")) {
+				top = nombre.get(pos) + "  " + numlikesR.get(pos) + "  " + apellido1.get(pos) + "  "
+						+ apellido2.get(pos) + "  " + edad.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos)
+						+ "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom);
+			} else if (tipo.equals("Nombre") && tipo2.equals("Descendente")) {
+				top = nombre.get(pos) + "  " + numlikesR.get(pos) + "  " + apellido1.get(pos) + "  "
+						+ apellido2.get(pos) + "  " + edad.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos)
+						+ "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom, Collections.reverseOrder());
+			} else if (tipo.equals("Apellido") && tipo2.equals("Ascendente")) {
+				top = apellido1.get(pos) + "  " + apellido2.get(pos) + "  " + numlikesR.get(pos) + "  "
+						+ nombre.get(pos) + "  " + edad.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos)
+						+ "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom);
+			} else if (tipo.equals("Apellido") && tipo2.equals("Descendente")) {
+				top = apellido1.get(pos) + "  " + apellido2.get(pos) + "  " + numlikesR.get(pos) + "  "
+						+ nombre.get(pos) + "  " + edad.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos)
+						+ "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom, Collections.reverseOrder());
+			} else if (tipo.equals("Edad") && tipo2.equals("Ascendente")) {
+				top = edad.get(pos) + "  " + numlikesR.get(pos) + "  " + nombre.get(pos) + "  " + apellido1.get(pos)
+						+ "  " + apellido2.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos) + "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom);
+			} else if (tipo.equals("Edad") && tipo2.equals("Descendente")) {
+				top = edad.get(pos) + "  " + numlikesR.get(pos) + "  " + nombre.get(pos) + "  " + apellido1.get(pos)
+						+ "  " + apellido2.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos) + "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom, Collections.reverseOrder());
+			} else if (tipo.equals("Alias") && tipo2.equals("Ascendente")) {
+				top = alias.get(pos) + "  " + numlikesR.get(pos) + "  " + nombre.get(pos) + "  " + apellido1.get(pos)
+						+ "  " + apellido2.get(pos) + "  " + edad.get(pos) + "  " + ingresos.get(pos) + "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom);
+			} else if (tipo.equals("Alias") && tipo2.equals("Descendente")) {
+				top = alias.get(pos) + "  " + numlikesR.get(pos) + "  " + nombre.get(pos) + "  " + apellido1.get(pos)
+						+ "  " + apellido2.get(pos) + "  " + edad.get(pos) + "  " + ingresos.get(pos) + "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom, Collections.reverseOrder());
+			} else if (tipo.equals("Likes") && tipo2.equals("Ascendente")) {
+				top = numlikesR.get(pos) + "  " + nombre.get(pos) + "  " + apellido1.get(pos) + "  "
+						+ apellido2.get(pos) + "  " + edad.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos)
+						+ "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom);
+			} else if (tipo.equals("Likes") && tipo2.equals("Descendente")) {
+				top = numlikesR.get(pos) + "  " + nombre.get(pos) + "  " + apellido1.get(pos) + "  "
+						+ apellido2.get(pos) + "  " + edad.get(pos) + "  " + alias.get(pos) + "  " + ingresos.get(pos)
+						+ "  " + "\n";
+				nom.add(top);
+				Collections.sort(nom, Collections.reverseOrder());
+			}
+			nombre.remove(pos);
+			numlikesR.remove(pos);
+			apellido1.remove(pos);
+			apellido2.remove(pos);
+			edad.remove(pos);
+			alias.remove(pos);
+			ingresos.remove(pos);
+		}
+		int h = 0;
+		String g = "";
+		while (h < 10) {
+			g += nom.get(h);
+			h++;
 		}
 		return g;
 	}
