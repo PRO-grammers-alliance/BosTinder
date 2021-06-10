@@ -427,15 +427,24 @@ public class OpCRUD {
 	 * @param ingresos
 	 * @return String con el top 10 de usuarios con mas likes de datos.csv 
 	 */
-	public String top10(String tipo, String tipo2, ArrayList<String> nombre, ArrayList<String> apellido1,
-			ArrayList<String> apellido2, ArrayList<Integer> edad, ArrayList<String> alias, ArrayList<Integer> numlikesR,
-			ArrayList<Double> ingresos) {
+	public String top10(String tipo, String tipo2, ArrayList<String> nombres, ArrayList<String> apellidos1,
+			ArrayList<String> apellidos2, ArrayList<Integer> edades, ArrayList<String> aliases, ArrayList<Integer> numslikesR,
+			ArrayList<Double> ingresoss) {
 		String top = "";
 		int pos = 0;
+		ArrayList<String> nombre = (ArrayList<String>) nombres.clone();
+		ArrayList<Integer> numlikesR = (ArrayList<Integer>) numslikesR.clone();
+		ArrayList<String> apellido1 = (ArrayList<String>) apellidos1.clone();
+		ArrayList<String> apellido2 = (ArrayList<String>) apellidos2.clone();
+		ArrayList<Integer> edad = (ArrayList<Integer>) numslikesR.clone();
+		ArrayList<String> alias = (ArrayList<String>) aliases.clone();
+		ArrayList<Double> ingresos = (ArrayList<Double>) ingresoss.clone();
 		ArrayList<Integer> likesOrdenados = new ArrayList<>();
-		likesOrdenados = (ArrayList<Integer>) numlikesR.clone();
+		likesOrdenados = (ArrayList<Integer>) numslikesR.clone();
 		ArrayList<String> nom = new ArrayList<>();
 		Collections.sort(likesOrdenados, Collections.reverseOrder());
+		System.out.println(numlikesR);
+		System.out.println(likesOrdenados);
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < numlikesR.size(); j++) {
 				if (likesOrdenados.get(i) == numlikesR.get(j)) {
