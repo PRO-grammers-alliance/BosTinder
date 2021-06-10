@@ -399,11 +399,7 @@ public class ManejoFile {
 	/**
 	 * Método que permite eliminar un usuario de la base de datos y actualiza las posiciones.
 	 * @param n
-<<<<<<< HEAD
 	 * @return String Mensaje de eliminado correctamente.
-=======
-	 * @return 
->>>>>>> branch 'master' of https://github.com/PRO-grammers-alliance/BosTinder.git
 	 */
 	public String eliminarUsuario(int n) {
 		
