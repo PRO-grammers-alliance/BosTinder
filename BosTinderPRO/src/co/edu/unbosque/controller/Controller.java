@@ -457,24 +457,32 @@ public class Controller implements ActionListener {
 					String usuario = bosT.getMaFi().leerUsuario(pos);
 					vista.getvAdm().getpElim().getInfoUsuario().setText(usuario);
 					vista.getvAdm().getpElim().getBtnEliminar().setEnabled(true);
-					vista.getvAdm().getpElim().getBtnBuscar().setEnabled(false);
 				}else {
 					throw new NumberFormatException();
 				}
 			} catch (NumberFormatException e) {
 				vista.mostrarMensaje("Por favor ingrese unicamente un numero id valido. ", "error");
 				vista.getvAdm().getpElim().getCampoTextoId().setText("");
-				//vista.getvAdm().getpElim().getBtnEliminar().setEnabled(false);
 			}
 		}
 
 		if (arg0.getActionCommand().equals("ELIMINAR")) {
-			vista.mostrarMensaje(bosT.getMaFi()
-					.eliminarUsuario(Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText())), "info");
-			bosT.getMaFi().escribirArchivo();
-			vista.getvAdm().getpElim().getBtnEliminar().setEnabled(false);
-			vista.getvAdm().getpElim().getBtnBuscar().setEnabled(true);
+			try {
+				int pos = Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText());
+				if(pos<=bosT.getMaFi().getId().size() && pos>0) {
+				vista.mostrarMensaje(bosT.getMaFi()
+						.eliminarUsuario(Integer.parseInt(vista.getvAdm().getpElim().getCampoTextoId().getText())), "info");
+				bosT.getMaFi().escribirArchivo();
+				vista.getvAdm().getpElim().getBtnEliminar().setEnabled(false);
+			}else {
+				throw new NumberFormatException();
+			}
+		} catch (NumberFormatException e) {
+			vista.mostrarMensaje("Por favor ingrese unicamente un numero id valido. ", "error");
+			vista.getvAdm().getpElim().getCampoTextoId().setText("");
 		}
+			}
+		
 
 		if (arg0.getActionCommand().equals("ORDENAR")) {
 			String item = vista.getvAdm().getPConsul().getBox_ordenar().getSelectedItem().toString();
